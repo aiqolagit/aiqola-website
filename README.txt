@@ -1,18 +1,14 @@
-AIQOLA Homepage Prototype v1
+AIQOLA Homepage Prototype v1.1
 
-Cara membuka:
+Perubahan:
+- Ikon layanan diganti ke SVG line-art modern.
+- Tema ikon konsisten cyan-blue-violet.
+- SVG tetap tajam di layar Retina/high-DPI.
+- Glow ikon lebih halus dan premium.
+- Tidak ada file gambar tambahan untuk ikon.
+- Bahasa Indonesia default + toggle ID/EN tetap aktif.
+- Responsive desktop & mobile tetap dipertahankan.
+
+Cara update Vercel:
 1. Ekstrak ZIP.
-2. Buka file index.html di browser.
-
-Fitur:
-- Bahasa Indonesia sebagai default.
-- Toggle ID/EN.
-- Responsive desktop & mobile.
-- Dark futuristic AI visual.
-- Pure HTML/CSS/JS, tanpa build step.
-- Siap dijadikan prototype sebelum deploy ke Vercel.
-
-Catatan:
-- Tombol studi kasus masih placeholder (#).
-- Email menggunakan hello@aiqola.com.
-- Tidak ada data klien/angka palsu.
+2. Upload folder ini sebagai deployment baru ke project AIQOLA.
