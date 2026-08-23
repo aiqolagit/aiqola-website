@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030816" />
+  <title>AIQOLA — AI Automation & Digital Solutions</title>
+  <meta name="description" content="AIQOLA membantu bisnis dan organisasi menyederhanakan proses, mengotomatisasi pekerjaan berulang, dan membangun sistem digital yang benar-benar memberi dampak nyata." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#020713;
+      --bg2:#061226;
+      --panel:rgba(8,20,40,.72);
+      --panel2:rgba(11,26,52,.82);
+      --line:rgba(105,178,255,.18);
+      --text:#f7fbff;
+      --muted:#a8b5c9;
+      --cyan:#19d8ff;
+      --blue:#2388ff;
+      --violet:#9159ff;
+      --magenta:#c667ff;
+      --good:#5ef2c4;
+      --shadow:0 24px 80px rgba(0,0,0,.45);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 80% 5%, rgba(35,136,255,.16), transparent 24%),
+        radial-gradient(circle at 20% 15%, rgba(145,89,255,.10), transparent 20%),
+        linear-gradient(180deg,#020713 0%,#031020 48%,#020611 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.022) 1px, transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 82%);
+      z-index:-2;
+    }
+
+    #particles{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.38;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(18px);
+      background:linear-gradient(180deg,rgba(2,7,19,.92),rgba(2,7,19,.58));
+      border-bottom:1px solid rgba(255,255,255,.04)
+    }
+    .nav-inner{
+      min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .brand{display:flex;flex-direction:column;line-height:1}
+    .brand-main{
+      font-weight:800;letter-spacing:.16em;font-size:25px
+    }
+    .brand-main span{
+      background:linear-gradient(90deg,#fff 5%,var(--cyan) 58%,#fff 92%);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .brand-sub{font-size:10px;color:#d7e5f4;margin-top:7px;letter-spacing:.02em}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;color:#cad6e4}
+    .nav-links a{position:relative;padding:28px 0}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:18px;width:0;height:2px;border-radius:4px;
+      background:linear-gradient(90deg,var(--cyan),var(--violet));transition:.25s
+    }
+    .nav-links a:hover::after{width:100%}
+    .lang{
+      display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;
+      border:1px solid var(--line);background:rgba(8,19,38,.75);color:#eaf4ff;cursor:pointer
+    }
+    .lang small{color:#8da2b9}
+    .mobile-menu{display:none;background:transparent;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+    .hero{
+      padding:70px 0 34px;
+      display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#93eaff
+    }
+    .eyebrow::before{content:"";width:28px;height:1px;background:var(--cyan)}
+    h1{
+      font-size:clamp(46px,6vw,76px);
+      line-height:1.02;letter-spacing:-.045em;margin:20px 0 24px
+    }
+    .gradient-text{
+      background:linear-gradient(90deg,var(--cyan),#5cc8ff 35%,var(--violet) 72%,var(--magenta));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .lead{font-size:18px;line-height:1.72;color:#b8c5d6;max-width:660px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin:32px 0}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;
+      border-radius:13px;border:1px solid var(--line);font-weight:600;font-size:14px;
+      transition:.25s;cursor:pointer
+    }
+    .btn-primary{
+      border:0;background:linear-gradient(90deg,#13bff4,#3d8cff 55%,#8e53ff);
+      box-shadow:0 10px 35px rgba(44,147,255,.28)
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.24)}
+    .trust-row{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:28px;color:#bac8d8;font-size:12px}
+    .trust{display:flex;align-items:center;gap:8px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+
+    .hero-visual{
+      position:relative;min-height:470px;display:grid;place-items:center
+    }
+    .orb{
+      width:min(420px,90vw);aspect-ratio:1;border-radius:50%;position:relative;
+      background:
+        radial-gradient(circle at 50% 50%,rgba(31,183,255,.28),transparent 34%),
+        conic-gradient(from 180deg,rgba(25,216,255,.18),rgba(145,89,255,.25),rgba(25,216,255,.18));
+      filter:drop-shadow(0 0 38px rgba(38,139,255,.28));
+      animation:float 6s ease-in-out infinite
+    }
+    .orb::before,.orb::after{
+      content:"";position:absolute;border-radius:50%;inset:11%;
+      border:1px solid rgba(76,184,255,.34);box-shadow:inset 0 0 50px rgba(38,139,255,.18)
+    }
+    .orb::after{inset:24%;border-color:rgba(160,94,255,.32)}
+    .brain-svg{position:absolute;inset:18%;width:64%;height:64%;filter:drop-shadow(0 0 18px rgba(27,209,255,.5))}
+    .ring{
+      position:absolute;border:1px solid rgba(84,170,255,.24);border-radius:50%;
+      left:5%;right:5%;height:28%;bottom:8%;transform:perspective(500px) rotateX(66deg)
+    }
+    .ring.r2{left:16%;right:16%;bottom:14%}
+    .float-panel{
+      position:absolute;padding:13px 14px;border-radius:14px;border:1px solid rgba(84,170,255,.19);
+      background:linear-gradient(180deg,rgba(10,27,57,.90),rgba(6,17,37,.84));
+      box-shadow:var(--shadow);font-size:11px;color:#d7e8ff;backdrop-filter:blur(12px)
+    }
+    .fp1{left:0;top:12%}.fp2{right:-2%;top:22%}.fp3{right:7%;bottom:10%}.fp4{left:6%;bottom:12%}
+    .metric{font-size:23px;font-weight:800;color:#6fe7ff;margin-top:4px}
+    .bars{display:flex;gap:4px;align-items:flex-end;height:34px;margin-top:7px}
+    .bars i{display:block;width:7px;border-radius:3px 3px 0 0;background:linear-gradient(var(--cyan),var(--blue))}
+    @keyframes float{50%{transform:translateY(-10px)}}
+
+    section{padding:34px 0}
+    .section-shell{
+      border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(7,20,42,.76),rgba(4,13,28,.72));
+      padding:32px;box-shadow:0 12px 70px rgba(0,0,0,.15)
+    }
+    .section-head{text-align:center;margin-bottom:28px}
+    .kicker{
+      font-size:11px;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;font-weight:700
+    }
+    h2{font-size:32px;letter-spacing:-.025em;margin:8px 0 8px}
+    .section-copy{color:#9eafc4;max-width:720px;margin:0 auto;line-height:1.7;font-size:14px}
+    .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{
+      position:relative;padding:23px;border-radius:18px;border:1px solid rgba(118,180,255,.18);
+      background:linear-gradient(180deg,rgba(12,30,59,.86),rgba(6,18,37,.82));
+      overflow:hidden;transition:.3s
+    }
+    .card::before{
+      content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-55px;top:-55px;
+      background:radial-gradient(circle,rgba(103,96,255,.20),transparent 68%)
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(69,195,255,.38)}
+    .icon{
+      width:48px;height:48px;border-radius:50%;display:grid;place-items:center;margin-bottom:18px;
+      background:radial-gradient(circle,rgba(26,192,255,.23),rgba(34,80,155,.08));
+      border:1px solid rgba(61,177,255,.23);font-size:22px
+    }
+    .card:nth-child(even) .icon{color:#c383ff;background:radial-gradient(circle,rgba(149,85,255,.24),rgba(64,44,125,.06))}
+    .card h3{font-size:17px;margin:0 0 10px}
+    .card p{font-size:13px;line-height:1.65;color:#aab9cb;margin:0}
+
+    .portfolio{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .project{
+      display:grid;grid-template-columns:.82fr 1.18fr;gap:18px;align-items:center;
+      padding:24px;border-radius:20px;border:1px solid rgba(118,180,255,.16);
+      background:linear-gradient(145deg,rgba(8,23,48,.90),rgba(4,14,30,.88));
+      min-height:300px
+    }
+    .project h3{font-size:23px;margin:8px 0 8px}
+    .project p{color:#aab9cb;font-size:13px;line-height:1.65}
+    .tag{
+      display:inline-flex;padding:6px 9px;border:1px solid rgba(103,189,255,.22);border-radius:999px;
+      color:#bfeaff;font-size:10px
+    }
+    .mock{
+      min-height:220px;border-radius:18px;position:relative;
+      background:
+        linear-gradient(180deg,rgba(7,18,35,.02),rgba(7,18,35,.75)),
+        radial-gradient(circle at 60% 25%,rgba(59,141,255,.25),transparent 28%),
+        linear-gradient(140deg,#142748,#081224 55%,#040a14);
+      border:1px solid rgba(109,173,255,.16);overflow:hidden
+    }
+    .screen{
+      position:absolute;left:14%;top:18%;width:72%;height:60%;
+      border-radius:9px;background:#f6f8fb;box-shadow:0 18px 40px rgba(0,0,0,.4);padding:10px
+    }
+    .screen-top{height:12%;background:#edf1f7;border-radius:5px;margin-bottom:8px}
+    .dash{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .dash span{height:34px;background:#e8eef7;border-radius:5px}
+    .chart{height:58px;background:linear-gradient(135deg,#0a2d5b,#0e4fa5);border-radius:5px;margin-top:7px;position:relative;overflow:hidden}
+    .chart::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,transparent 35%,rgba(51,203,255,.8) 36%,transparent 38%,transparent 52%,rgba(119,89,255,.8) 53%,transparent 55%)}
+    .phone{
+      position:absolute;left:5%;bottom:7%;width:28%;height:60%;border-radius:17px;
+      border:5px solid #111827;background:#07182b;box-shadow:0 16px 35px rgba(0,0,0,.45);padding:7px
+    }
+    .phone::before{content:"";display:block;width:32%;height:4px;background:#2a3442;border-radius:10px;margin:0 auto 8px}
+    .phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+    .phone-grid i{height:30px;border-radius:7px;background:linear-gradient(135deg,#0d5cb1,#08bfe8)}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
+    .step{text-align:center;position:relative;padding:8px}
+    .step:not(:last-child)::after{
+      content:"";position:absolute;height:1px;background:linear-gradient(90deg,var(--cyan),var(--violet));
+      width:40%;right:-20%;top:30px;opacity:.5
+    }
+    .step-num{
+      width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:0 auto 13px;
+      border:1px solid rgba(81,178,255,.28);background:rgba(5,22,44,.75);
+      color:var(--cyan);font-weight:700
+    }
+    .step h3{font-size:15px;margin:0 0 8px}.step p{font-size:12px;line-height:1.6;color:#9daec2}
+
+    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .why .card{padding:20px}
+
+    .cta{
+      margin:34px auto;border-radius:22px;padding:28px 30px;
+      background:
+        radial-gradient(circle at 15% 50%,rgba(25,216,255,.22),transparent 28%),
+        radial-gradient(circle at 90% 45%,rgba(145,89,255,.28),transparent 34%),
+        linear-gradient(90deg,#082e55,#122453 52%,#2d1760);
+      border:1px solid rgba(85,178,255,.24);
+      display:flex;align-items:center;justify-content:space-between;gap:20px
+    }
+    .cta h2{margin:0;font-size:28px}.cta p{color:#c0cce0;margin:6px 0 0;font-size:13px}
+
+    footer{border-top:1px solid rgba(255,255,255,.05);padding:34px 0 26px;background:rgba(2,7,19,.45)}
+    .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,.75fr);gap:28px}
+    .footer-grid h4{font-size:13px;margin:0 0 12px}.footer-grid a,.footer-grid p{display:block;color:#94a5ba;font-size:12px;line-height:1.9}
+    .copyright{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);color:#75879c;font-size:11px;text-align:center}
+
+    @media(max-width:980px){
+      .nav-links{display:none}.mobile-menu{display:block}
+      .hero{grid-template-columns:1fr;padding-top:48px}
+      .hero-visual{min-height:390px}
+      .cards4,.why{grid-template-columns:1fr 1fr}
+      .portfolio{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 24px,1180px)}
+      .nav-inner{min-height:68px}.brand-main{font-size:22px}
+      h1{font-size:46px}
+      .lead{font-size:16px}
+      .hero{gap:18px}
+      .hero-visual{min-height:340px}
+      .orb{width:310px}
+      .float-panel{transform:scale(.86)}
+      .fp2{right:-6%}.fp1{left:-5%}
+      .section-shell{padding:22px 14px}
+      .cards4,.why{grid-template-columns:1fr}
+      .project{grid-template-columns:1fr}
+      .mock{min-height:220px}
+      .steps{grid-template-columns:1fr 1fr}
+      .step:not(:last-child)::after{display:none}
+      .cta{flex-direction:column;align-items:flex-start}
+      .footer-grid{grid-template-columns:1fr}
+      .mobile-sheet{
+        display:none;position:absolute;left:12px;right:12px;top:72px;padding:16px;
+        background:#071326;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)
+      }
+      .mobile-sheet.show{display:block}
+      .mobile-sheet a{display:block;padding:12px 8px;color:#d6e5f5;border-bottom:1px solid rgba(255,255,255,.04)}
+    }
+  </style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#beranda">
+      <div class="brand-main">AI<span>QO</span>LA</div>
+      <div class="brand-sub">AI Automation & Digital Solutions</div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#beranda" data-i18n="nav_home">Beranda</a>
+      <a href="#layanan" data-i18n="nav_services">Layanan</a>
+      <a href="#karya" data-i18n="nav_work">Karya Kami</a>
+      <a href="#tentang" data-i18n="nav_about">Tentang Kami</a>
+      <a href="#wawasan" data-i18n="nav_insights">Wawasan</a>
+      <a href="#kontak" data-i18n="nav_contact">Kontak</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="lang" id="langBtn" aria-label="Ganti bahasa">
+        <span>🌐</span><strong id="langCode">ID</strong><small>⌄</small>
+      </button>
+      <button class="mobile-menu" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-sheet" id="mobileSheet">
+      <a href="#beranda" data-i18n="nav_home">Beranda</a>
+      <a href="#layanan" data-i18n="nav_services">Layanan</a>
+      <a href="#karya" data-i18n="nav_work">Karya Kami</a>
+      <a href="#tentang" data-i18n="nav_about">Tentang Kami</a>
+      <a href="#wawasan" data-i18n="nav_insights">Wawasan</a>
+      <a href="#kontak" data-i18n="nav_contact">Kontak</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="beranda" class="container hero">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">AI Automation & Digital Solutions</div>
+      <h1>
+        <span data-i18n="hero_1">Transformasi Kerja.</span><br>
+        <span class="gradient-text" data-i18n="hero_2">Otomatisasi Cerdas.</span>
+      </h1>
+      <p class="lead" data-i18n="hero_copy">
+        AIQOLA membantu bisnis dan organisasi menyederhanakan proses, mengotomatisasi pekerjaan berulang, dan membangun sistem digital yang benar-benar memberikan manfaat dalam operasional sehari-hari.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#karya"><span data-i18n="cta_work">Lihat Karya Kami</span> →</a>
+        <a class="btn" href="#kontak"><span data-i18n="cta_discuss">Diskusikan Kebutuhan Anda</span> ◌</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_ai">Berbasis AI</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_secure">Aman & Terpercaya</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_efficient">Efisien</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_measurable">Terukur</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_impact">Berorientasi Dampak</span></span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="float-panel fp1">
+        Efisiensi Operasional
+        <div class="metric">↑</div>
+        <div class="bars"><i style="height:22%"></i><i style="height:38%"></i><i style="height:57%"></i><i style="height:72%"></i><i style="height:94%"></i></div>
+      </div>
+      <div class="float-panel fp2">Proses Otomatis<br><span style="color:#5ef2c4">● Aktif</span></div>
+      <div class="float-panel fp3">Dashboard<br><span style="color:#79dfff">Real-time</span></div>
+      <div class="float-panel fp4">AI Workflow<br><span style="color:#c88cff">Connected</span></div>
+
+      <div class="orb">
+        <svg class="brain-svg" viewBox="0 0 300 260">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#19d8ff"/>
+              <stop offset=".55" stop-color="#3288ff"/>
+              <stop offset="1" stop-color="#a45cff"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M83 194c-31-5-50-28-50-58 0-25 12-43 32-54-2-31 18-53 49-53 8-14 24-22 43-22 27 0 46 15 52 37 28 0 50 22 50 51 19 10 30 28 30 50 0 31-22 54-53 58-10 25-32 40-61 40-21 0-38-8-49-23-12 7-27 9-43 4Z"/>
+            <path d="M108 42c-10 23-7 43 7 60M66 83c22-1 41 8 50 26M54 130c30-8 55 0 73 24M90 197c10-24 29-38 55-43M159 28c-9 24-5 46 12 64M208 46c-18 15-27 35-25 59M251 93c-29 1-50 14-62 38M258 153c-27-11-51-7-70 12M214 211c-6-25-23-41-49-49"/>
+            <circle cx="112" cy="101" r="4" fill="#19d8ff"/><circle cx="171" cy="91" r="4" fill="#6ba8ff"/>
+            <circle cx="187" cy="132" r="4" fill="#9b66ff"/><circle cx="144" cy="154" r="4" fill="#19d8ff"/>
+            <circle cx="91" cy="166" r="4" fill="#51bfff"/>
+          </g>
+        </svg>
+        <div class="ring"></div><div class="ring r2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan" class="container">
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="services_kicker">Layanan Kami</div>
+        <h2 data-i18n="services_title">Solusi AI untuk Operasional Modern</h2>
+        <p class="section-copy" data-i18n="services_copy">Teknologi yang dirancang untuk menyederhanakan pekerjaan, bukan menambah kerumitan.</p>
+      </div>
+      <div class="cards4">
+        <article class="card">
+          <div class="icon">🤖</div>
+          <h3 data-i18n="service1_title">Otomasi AI</h3>
+          <p data-i18n="service1_copy">Mengubah pekerjaan manual dan berulang menjadi alur kerja yang lebih otomatis, cepat, dan efisien dengan bantuan Artificial Intelligence.</p>
+        </article>
+        <article class="card">
+          <div class="icon">◫</div>
+          <h3 data-i18n="service2_title">Sistem Digital</h3>
+          <p data-i18n="service2_copy">Membangun sistem operasional terintegrasi yang menyesuaikan proses dan kebutuhan nyata bisnis maupun organisasi.</p>
+        </article>
+        <article class="card">
+          <div class="icon">▯</div>
+          <h3 data-i18n="service3_title">Aplikasi Web & Mobile</h3>
+          <p data-i18n="service3_copy">Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.</p>
+        </article>
+        <article class="card">
+          <div class="icon">▥</div>
+          <h3 data-i18n="service4_title">Dashboard & Pelaporan</h3>
+          <p data-i18n="service4_copy">Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="karya" class="container">
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="work_kicker">Karya Kami</div>
+        <h2 data-i18n="work_title">Solusi Nyata. Dampak Nyata.</h2>
+        <p class="section-copy" data-i18n="work_copy">Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.</p>
+      </div>
+
+      <div class="portfolio">
+        <article class="project">
+          <div>
+            <span class="tag">Community Pilot Project</span>
+            <h3>Kiwari Residence – Komplek Aman</h3>
+            <p data-i18n="kiwari_copy">Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.</p>
+            <a class="btn" href="#" style="margin-top:12px"><span data-i18n="case_study">Lihat Studi Kasus</span> →</a>
+          </div>
+          <div class="mock">
+            <div class="screen">
+              <div class="screen-top"></div>
+              <div class="dash"><span></span><span></span><span></span></div>
+              <div class="chart"></div>
+            </div>
+            <div class="phone">
+              <div class="phone-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Education Pilot Project</span>
+            <h3>Pembiasaan Siswa</h3>
+            <p data-i18n="school_copy">Sistem digital yang membantu orang tua, guru, dan sekolah memonitor pembiasaan positif siswa secara sederhana dan terstruktur.</p>
+            <a class="btn" href="#" style="margin-top:12px"><span data-i18n="case_study">Lihat Studi Kasus</span> →</a>
+          </div>
+          <div class="mock">
+            <div class="screen">
+              <div class="screen-top"></div>
+              <div class="dash"><span></span><span></span><span></span></div>
+              <div class="chart" style="background:linear-gradient(135deg,#eef3fa,#f7f8ff)"></div>
+            </div>
+            <div class="phone" style="left:auto;right:5%;background:#f6f8fb">
+              <div class="phone-grid"><i style="background:#e5e9f0"></i><i style="background:#e5e9f0"></i><i style="background:#d7dff3"></i><i style="background:#e8eaf2"></i><i style="background:#dbe8f3"></i><i style="background:#e7e9ef"></i></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="tentang">
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="how_kicker">Cara Kami Bekerja</div>
+        <h2 data-i18n="how_title">Dari Tantangan Menjadi Dampak Berkelanjutan</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3 data-i18n="step1_title">Pahami Masalah</h3><p data-i18n="step1_copy">Kami memahami bagaimana pekerjaan dilakukan hari ini dan masalah apa yang benar-benar perlu diselesaikan.</p></div>
+        <div class="step"><div class="step-num">02</div><h3 data-i18n="step2_title">Rancang Solusi</h3><p data-i18n="step2_copy">Kami merancang sistem yang sesuai dengan proses nyata pengguna dan mudah digunakan.</p></div>
+        <div class="step"><div class="step-num">03</div><h3 data-i18n="step3_title">Otomatisasi</h3><p data-i18n="step3_copy">Kami membangun dan mengintegrasikan software, data, workflow, serta AI secara tepat guna.</p></div>
+        <div class="step"><div class="step-num">04</div><h3 data-i18n="step4_title">Operasikan & Tingkatkan</h3><p data-i18n="step4_copy">Sistem terus dievaluasi dan dikembangkan berdasarkan pengalaman pengguna yang nyata.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="wawasan">
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="why_kicker">Mengapa AIQOLA</div>
+        <h2 data-i18n="why_title">Lebih dari Teknologi. Hasil yang Bisa Digunakan.</h2>
+      </div>
+      <div class="why">
+        <article class="card"><div class="icon">◎</div><h3 data-i18n="why1_title">Solusi untuk Masalah Nyata</h3><p data-i18n="why1_copy">Teknologi dibangun berdasarkan kebutuhan operasional yang benar-benar terjadi.</p></article>
+        <article class="card"><div class="icon">◉</div><h3 data-i18n="why2_title">Sederhana & Mudah Digunakan</h3><p data-i18n="why2_copy">Sistem yang canggih tetap harus mudah dipahami dan digunakan oleh manusia.</p></article>
+        <article class="card"><div class="icon">AI</div><h3 data-i18n="why3_title">AI dengan Nilai Praktis</h3><p data-i18n="why3_copy">AI digunakan ketika benar-benar memberi manfaat: otomatisasi, analisis, dan produktivitas.</p></article>
+        <article class="card"><div class="icon">⌾</div><h3 data-i18n="why4_title">Aman Sejak Awal</h3><p data-i18n="why4_copy">Keamanan, privasi, kontrol akses, dan perlindungan data menjadi bagian dari desain sistem.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="container">
+    <div class="cta">
+      <div>
+        <h2 data-i18n="contact_title">Siap Mengubah Cara Kerja Anda?</h2>
+        <p data-i18n="contact_copy">Ceritakan proses, pekerjaan berulang, atau masalah operasional yang ingin Anda sederhanakan.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:hello@aiqola.com"><span data-i18n="contact_btn">Hubungi Kami</span> →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-main">AI<span>QO</span>LA</div>
+          <div class="brand-sub">AI Automation & Digital Solutions</div>
+        </div>
+        <p style="margin-top:14px" data-i18n="footer_copy">Membantu bisnis dan organisasi membangun sistem digital yang lebih sederhana, otomatis, dan efektif.</p>
+      </div>
+      <div><h4 data-i18n="footer_company">Perusahaan</h4><a href="#tentang" data-i18n="nav_about">Tentang Kami</a><a href="#karya" data-i18n="nav_work">Karya Kami</a><a href="#kontak" data-i18n="nav_contact">Kontak</a></div>
+      <div><h4 data-i18n="footer_services">Layanan</h4><a href="#layanan" data-i18n="service1_title">Otomasi AI</a><a href="#layanan" data-i18n="service2_title">Sistem Digital</a><a href="#layanan" data-i18n="service3_title">Aplikasi Web & Mobile</a></div>
+      <div><h4 data-i18n="footer_contact">Kontak</h4><a href="mailto:hello@aiqola.com">hello@aiqola.com</a><p>Indonesia</p></div>
+    </div>
+    <div class="copyright">© 2026 AIQOLA. <span data-i18n="copyright">Semua hak dilindungi.</span></div>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  id: {
+    nav_home:"Beranda",nav_services:"Layanan",nav_work:"Karya Kami",nav_about:"Tentang Kami",nav_insights:"Wawasan",nav_contact:"Kontak",
+    eyebrow:"AI Automation & Digital Solutions",
+    hero_1:"Transformasi Kerja.",hero_2:"Otomatisasi Cerdas.",
+    hero_copy:"AIQOLA membantu bisnis dan organisasi menyederhanakan proses, mengotomatisasi pekerjaan berulang, dan membangun sistem digital yang benar-benar memberikan manfaat dalam operasional sehari-hari.",
+    cta_work:"Lihat Karya Kami",cta_discuss:"Diskusikan Kebutuhan Anda",
+    trust_ai:"Berbasis AI",trust_secure:"Aman & Terpercaya",trust_efficient:"Efisien",trust_measurable:"Terukur",trust_impact:"Berorientasi Dampak",
+    services_kicker:"Layanan Kami",services_title:"Solusi AI untuk Operasional Modern",services_copy:"Teknologi yang dirancang untuk menyederhanakan pekerjaan, bukan menambah kerumitan.",
+    service1_title:"Otomasi AI",service1_copy:"Mengubah pekerjaan manual dan berulang menjadi alur kerja yang lebih otomatis, cepat, dan efisien dengan bantuan Artificial Intelligence.",
+    service2_title:"Sistem Digital",service2_copy:"Membangun sistem operasional terintegrasi yang menyesuaikan proses dan kebutuhan nyata bisnis maupun organisasi.",
+    service3_title:"Aplikasi Web & Mobile",service3_copy:"Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.",
+    service4_title:"Dashboard & Pelaporan",service4_copy:"Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.",
+    work_kicker:"Karya Kami",work_title:"Solusi Nyata. Dampak Nyata.",work_copy:"Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.",
+    kiwari_copy:"Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.",
+    school_copy:"Sistem digital yang membantu orang tua, guru, dan sekolah memonitor pembiasaan positif siswa secara sederhana dan terstruktur.",
+    case_study:"Lihat Studi Kasus",
+    how_kicker:"Cara Kami Bekerja",how_title:"Dari Tantangan Menjadi Dampak Berkelanjutan",
+    step1_title:"Pahami Masalah",step1_copy:"Kami memahami bagaimana pekerjaan dilakukan hari ini dan masalah apa yang benar-benar perlu diselesaikan.",
+    step2_title:"Rancang Solusi",step2_copy:"Kami merancang sistem yang sesuai dengan proses nyata pengguna dan mudah digunakan.",
+    step3_title:"Otomatisasi",step3_copy:"Kami membangun dan mengintegrasikan software, data, workflow, serta AI secara tepat guna.",
+    step4_title:"Operasikan & Tingkatkan",step4_copy:"Sistem terus dievaluasi dan dikembangkan berdasarkan pengalaman pengguna yang nyata.",
+    why_kicker:"Mengapa AIQOLA",why_title:"Lebih dari Teknologi. Hasil yang Bisa Digunakan.",
+    why1_title:"Solusi untuk Masalah Nyata",why1_copy:"Teknologi dibangun berdasarkan kebutuhan operasional yang benar-benar terjadi.",
+    why2_title:"Sederhana & Mudah Digunakan",why2_copy:"Sistem yang canggih tetap harus mudah dipahami dan digunakan oleh manusia.",
+    why3_title:"AI dengan Nilai Praktis",why3_copy:"AI digunakan ketika benar-benar memberi manfaat: otomatisasi, analisis, dan produktivitas.",
+    why4_title:"Aman Sejak Awal",why4_copy:"Keamanan, privasi, kontrol akses, dan perlindungan data menjadi bagian dari desain sistem.",
+    contact_title:"Siap Mengubah Cara Kerja Anda?",contact_copy:"Ceritakan proses, pekerjaan berulang, atau masalah operasional yang ingin Anda sederhanakan.",contact_btn:"Hubungi Kami",
+    footer_copy:"Membantu bisnis dan organisasi membangun sistem digital yang lebih sederhana, otomatis, dan efektif.",
+    footer_company:"Perusahaan",footer_services:"Layanan",footer_contact:"Kontak",copyright:"Semua hak dilindungi."
+  },
+  en: {
+    nav_home:"Home",nav_services:"Services",nav_work:"Our Work",nav_about:"About Us",nav_insights:"Insights",nav_contact:"Contact",
+    eyebrow:"AI Automation & Digital Solutions",
+    hero_1:"Transform Work.",hero_2:"Automate Intelligently.",
+    hero_copy:"AIQOLA helps businesses and organizations simplify processes, automate repetitive work, and build digital systems that create practical value in daily operations.",
+    cta_work:"Explore Our Work",cta_discuss:"Discuss Your Needs",
+    trust_ai:"AI-Powered",trust_secure:"Secure & Trusted",trust_efficient:"Efficient",trust_measurable:"Measurable",trust_impact:"Impact-Oriented",
+    services_kicker:"Our Services",services_title:"AI Solutions for Modern Operations",services_copy:"Technology designed to simplify work, not add complexity.",
+    service1_title:"AI Automation",service1_copy:"Turn repetitive manual work into faster, more efficient workflows with practical use of Artificial Intelligence.",
+    service2_title:"Digital Systems",service2_copy:"Build integrated operational systems that adapt to real business and organizational processes.",
+    service3_title:"Web & Mobile Apps",service3_copy:"Design modern applications that are simple, fast, responsive, and easy to use across devices.",
+    service4_title:"Dashboards & Reporting",service4_copy:"Turn data into clear information through monitoring, analytics, and structured reporting.",
+    work_kicker:"Our Work",work_title:"Real Solutions. Real Impact.",work_copy:"The best technology is not the most complicated—it is the technology people actually use to solve real problems.",
+    kiwari_copy:"A digital system for residential security and community operations: SOS, incident reporting, visitor information, guard schedules, notifications, dashboards, and activity auditing.",
+    school_copy:"A digital system that helps parents, teachers, and schools monitor positive student habits in a simple and structured way.",
+    case_study:"View Case Study",
+    how_kicker:"How We Work",how_title:"From Challenge to Sustainable Impact",
+    step1_title:"Understand the Problem",step1_copy:"We understand how work is done today and identify the problems that truly need to be solved.",
+    step2_title:"Design the Solution",step2_copy:"We design systems around real user processes and make them easy to use.",
+    step3_title:"Automate",step3_copy:"We build and integrate software, data, workflows, and AI where they create real value.",
+    step4_title:"Operate & Improve",step4_copy:"Systems are continuously evaluated and improved based on real user experience.",
+    why_kicker:"Why AIQOLA",why_title:"More Than Technology. Usable Results.",
+    why1_title:"Solutions for Real Problems",why1_copy:"Technology is built around real operational needs.",
+    why2_title:"Simple & Easy to Use",why2_copy:"Advanced systems should still be easy for people to understand and use.",
+    why3_title:"AI with Practical Value",why3_copy:"We use AI when it genuinely improves automation, analysis, and productivity.",
+    why4_title:"Secure by Design",why4_copy:"Security, privacy, access control, and data protection are built into the system design.",
+    contact_title:"Ready to Transform the Way You Work?",contact_copy:"Tell us about the repetitive processes or operational challenges you want to simplify.",contact_btn:"Contact Us",
+    footer_copy:"Helping businesses and organizations build digital systems that are simpler, more automated, and more effective.",
+    footer_company:"Company",footer_services:"Services",footer_contact:"Contact",copyright:"All rights reserved."
+  }
+};
+
+let lang = localStorage.getItem("aiqolaLang") || "id";
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.getElementById("langCode").textContent = lang.toUpperCase();
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang][key]) el.textContent = translations[lang][key];
+  });
+  localStorage.setItem("aiqolaLang", lang);
+}
+document.getElementById("langBtn").addEventListener("click", ()=>{
+  lang = lang === "id" ? "en" : "id";
+  applyLang();
+});
+applyLang();
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileSheet = document.getElementById("mobileSheet");
+menuBtn.addEventListener("click", ()=> mobileSheet.classList.toggle("show"));
+mobileSheet.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>mobileSheet.classList.remove("show")));
+
+const canvas = document.getElementById("particles"), ctx = canvas.getContext("2d");
+let W,H,pts=[];
+function resize(){
+  W=canvas.width=innerWidth*devicePixelRatio; H=canvas.height=innerHeight*devicePixelRatio;
+  canvas.style.width=innerWidth+"px"; canvas.style.height=innerHeight+"px";
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  pts = Array.from({length:Math.min(80,Math.floor(innerWidth/18))},()=>({
+    x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+    vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.6+.3
+  }));
+}
+function animate(){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(65,183,255,.55)";ctx.fill();
+  });
+  for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+    const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+    if(d<110){
+      ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+      ctx.strokeStyle=`rgba(71,139,255,${(1-d/110)*.12})`;ctx.stroke();
+    }
+  }
+  requestAnimationFrame(animate);
+}
+addEventListener("resize",resize);resize();animate();
+</script>
+</body>
+</html>
