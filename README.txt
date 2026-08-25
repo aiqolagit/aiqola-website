@@ -1,11 +1,16 @@
-AIQOLA Homepage Prototype v1.2
-Unified Modern Icon System
+AIQOLA Homepage Prototype v1.3
+Company Operations AI Pilot Case Study
 
-- Audit seluruh ikon homepage.
-- Placeholder/Unicode/emoji pada sistem ikon diganti SVG line-art modern.
-- Bagian manfaat kini memakai: target+AI, human-centered UI, neural AI, dan shield security.
-- Warna cyan-blue-violet dan subtle glow konsisten.
-- Tanpa library ikon eksternal.
-- Responsive dan ringan.
+Perubahan dari v1.2:
+- Baseline visual v1.2 dipertahankan.
+- Menambahkan featured portfolio: AIQOLA Intelligence — Company Operations System.
+- Status ditampilkan jujur sebagai Pilot Project / In Development.
+- Menonjolkan Private AI, Local-First, Document Intelligence, dan Equipment Intelligence.
+- Tidak menampilkan identitas Company #1 atau data operasional sensitif.
+- Visual case study dibuat native CSS/SVG agar tetap ringan.
+- Toggle Bahasa Indonesia / English tetap didukung.
+- Case study Kiwari dan Pembiasaan Siswa tetap ditandai sebagai segera hadir sampai produk selesai dan teruji.
 
-Update: upload index.html dan README.txt ke repository aiqola-website lalu Commit changes. Vercel akan deploy otomatis.
+Deployment:
+Upload index.html dan README.txt ke repository GitHub aiqola-website lalu Commit changes.
+Vercel yang sudah terhubung akan deploy otomatis.

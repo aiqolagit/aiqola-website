@@ -1,4 +1,4 @@
-<!-- AIQOLA Homepage v1.2 — Unified Modern Icon System -->
+<!-- AIQOLA Homepage v1.3 — Company Operations AI Pilot Case Study -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -317,7 +317,61 @@
       .mobile-sheet.show{display:block}
       .mobile-sheet a{display:block;padding:12px 8px;color:#d6e5f5;border-bottom:1px solid rgba(255,255,255,.04)}
     }
-  </style>
+  
+    .project.featured{
+      grid-column:1/-1;grid-template-columns:1.02fr .98fr;min-height:390px;
+      border-color:rgba(62,192,255,.28);
+      background:
+        radial-gradient(circle at 78% 25%,rgba(74,94,255,.18),transparent 28%),
+        radial-gradient(circle at 18% 90%,rgba(25,216,255,.10),transparent 26%),
+        linear-gradient(145deg,rgba(8,27,55,.96),rgba(5,14,32,.94));
+      box-shadow:inset 0 0 50px rgba(49,133,255,.05),0 20px 55px rgba(0,0,0,.18)
+    }
+    .project.featured h3{font-size:30px;line-height:1.12}
+    .project.featured p{font-size:14px}
+    .status-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 2px}
+    .status-chip{
+      display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;
+      border:1px solid rgba(77,188,255,.22);background:rgba(6,28,54,.65);
+      color:#c6eaff;font-size:10px
+    }
+    .status-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:#20d7ff;box-shadow:0 0 10px #20d7ff}
+    .pilot-visual{
+      min-height:300px;border-radius:20px;position:relative;overflow:hidden;
+      border:1px solid rgba(88,181,255,.18);
+      background:
+        radial-gradient(circle at 50% 46%,rgba(42,157,255,.18),transparent 31%),
+        linear-gradient(145deg,#071a34,#071225 58%,#050b17)
+    }
+    .pilot-core{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+      border:1px solid rgba(56,205,255,.42);
+      background:radial-gradient(circle,rgba(21,168,255,.22),rgba(22,66,137,.14) 55%,transparent 70%);
+      box-shadow:0 0 45px rgba(33,161,255,.24),inset 0 0 35px rgba(83,95,255,.15)
+    }
+    .pilot-core svg{width:58px;height:58px;filter:drop-shadow(0 0 10px rgba(36,212,255,.55))}
+    .pilot-orbit{position:absolute;left:50%;top:50%;border:1px solid rgba(90,174,255,.20);border-radius:50%;transform:translate(-50%,-50%)}
+    .pilot-orbit.o1{width:190px;height:190px}.pilot-orbit.o2{width:260px;height:260px;border-color:rgba(149,91,255,.16)}
+    .pilot-node{
+      position:absolute;padding:9px 11px;border-radius:10px;border:1px solid rgba(92,183,255,.18);
+      background:rgba(7,24,48,.86);font-size:10px;color:#bcd8f3;box-shadow:0 10px 30px rgba(0,0,0,.2)
+    }
+    .pilot-node strong{display:block;color:#f0f7ff;font-size:11px;margin-bottom:2px}
+    .pilot-node.n1{left:5%;top:14%}.pilot-node.n2{right:5%;top:16%}.pilot-node.n3{left:4%;bottom:13%}.pilot-node.n4{right:4%;bottom:13%}
+    .dev-note{
+      margin-top:18px;padding:13px 15px;border-radius:13px;border:1px solid rgba(144,97,255,.18);
+      background:rgba(39,24,75,.20);color:#aebed0;font-size:11px;line-height:1.6
+    }
+    @media(max-width:640px){
+      .project.featured{grid-template-columns:1fr;min-height:0}
+      .project.featured h3{font-size:25px}
+      .pilot-visual{min-height:280px}
+      .pilot-node{font-size:9px;padding:7px 8px}
+      .pilot-node strong{font-size:10px}
+    }
+
+</style>
 </head>
 <body>
 <canvas id="particles"></canvas>
@@ -520,12 +574,41 @@
       </div>
 
       <div class="portfolio">
+        <article class="project featured">
+          <div>
+            <span class="tag" data-i18n="company_tag">Pilot Project • In Development</span>
+            <h3 data-i18n="company_title">AIQOLA Intelligence — Company Operations System</h3>
+            <p data-i18n="company_copy">Sistem operasional berbasis AI yang dirancang untuk membantu perusahaan survey &amp; mapping mengelola people compliance, equipment, dokumen teknis, dan pengetahuan internal dalam satu lingkungan yang aman dan terintegrasi.</p>
+            <div class="status-row">
+              <span class="status-chip" data-i18n="company_chip1">Private AI</span>
+              <span class="status-chip" data-i18n="company_chip2">Local-First</span>
+              <span class="status-chip" data-i18n="company_chip3">Document Intelligence</span>
+              <span class="status-chip" data-i18n="company_chip4">Equipment Intelligence</span>
+            </div>
+            <div class="dev-note" data-i18n="company_status">Status saat ini: pengembangan pilot. Arsitektur dan workflow inti sedang dibangun dan divalidasi. Identitas serta data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.</div>
+          </div>
+          <div class="pilot-visual" aria-label="AIQOLA Intelligence concept visualization">
+            <div class="pilot-orbit o2"></div><div class="pilot-orbit o1"></div>
+            <div class="pilot-core">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <defs><linearGradient id="pilotG" x1="8" y1="8" x2="56" y2="56"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#4A9BFF"/><stop offset="1" stop-color="#A35CFF"/></linearGradient></defs>
+                <path d="M24 13a10 10 0 0 0-10 10c0 2 .6 4 1.7 5.7A10 10 0 0 0 20 47h24a10 10 0 0 0 4.5-18.9A11 11 0 0 0 28 13h-4Z" fill="none" stroke="url(#pilotG)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M24 24l8 8 8-10M24 40l8-8 8 8" fill="none" stroke="url(#pilotG)" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="2" fill="#19D8FF"/><circle cx="40" cy="22" r="2" fill="#8D65FF"/><circle cx="24" cy="40" r="2" fill="#4A9BFF"/><circle cx="40" cy="40" r="2" fill="#A35CFF"/>
+              </svg>
+            </div>
+            <div class="pilot-node n1"><strong data-i18n="company_node1a">People</strong><span data-i18n="company_node1b">Compliance</span></div>
+            <div class="pilot-node n2"><strong data-i18n="company_node2a">Equipment</strong><span data-i18n="company_node2b">Intelligence</span></div>
+            <div class="pilot-node n3"><strong data-i18n="company_node3a">Documents</strong><span data-i18n="company_node3b">AI Classification</span></div>
+            <div class="pilot-node n4"><strong data-i18n="company_node4a">Knowledge</strong><span data-i18n="company_node4b">Private AI</span></div>
+          </div>
+        </article>
         <article class="project">
           <div>
             <span class="tag">Community Pilot Project</span>
             <h3>Kiwari Residence – Komplek Aman</h3>
             <p data-i18n="kiwari_copy">Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.</p>
-            <a class="btn" href="#" style="margin-top:12px"><span data-i18n="case_study">Lihat Studi Kasus</span> →</a>
+            <span class="btn" style="margin-top:12px;opacity:.72;cursor:default"><span data-i18n="case_soon">Studi Kasus Segera</span></span>
           </div>
           <div class="mock">
             <div class="screen">
@@ -544,7 +627,7 @@
             <span class="tag">Education Pilot Project</span>
             <h3>Pembiasaan Siswa</h3>
             <p data-i18n="school_copy">Sistem digital yang membantu orang tua, guru, dan sekolah memonitor pembiasaan positif siswa secara sederhana dan terstruktur.</p>
-            <a class="btn" href="#" style="margin-top:12px"><span data-i18n="case_study">Lihat Studi Kasus</span> →</a>
+            <span class="btn" style="margin-top:12px;opacity:.72;cursor:default"><span data-i18n="case_soon">Studi Kasus Segera</span></span>
           </div>
           <div class="mock">
             <div class="screen">
@@ -635,6 +718,13 @@ const translations = {
     service3_title:"Aplikasi Web & Mobile",service3_copy:"Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.",
     service4_title:"Dashboard & Pelaporan",service4_copy:"Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.",
     work_kicker:"Karya Kami",work_title:"Solusi Nyata. Dampak Nyata.",work_copy:"Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.",
+    company_tag:"Pilot Project • Dalam Pengembangan",
+    company_title:"AIQOLA Intelligence — Company Operations System",
+    company_copy:"Sistem operasional berbasis AI yang dirancang untuk membantu perusahaan survey & mapping mengelola people compliance, equipment, dokumen teknis, dan pengetahuan internal dalam satu lingkungan yang aman dan terintegrasi.",
+    company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document Intelligence",company_chip4:"Equipment Intelligence",
+    company_status:"Status saat ini: pengembangan pilot. Arsitektur dan workflow inti sedang dibangun dan divalidasi. Identitas serta data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.",
+    company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
+    case_soon:"Studi Kasus Segera",
     kiwari_copy:"Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.",
     school_copy:"Sistem digital yang membantu orang tua, guru, dan sekolah memonitor pembiasaan positif siswa secara sederhana dan terstruktur.",
     case_study:"Lihat Studi Kasus",
@@ -665,6 +755,13 @@ const translations = {
     service3_title:"Web & Mobile Apps",service3_copy:"Design modern applications that are simple, fast, responsive, and easy to use across devices.",
     service4_title:"Dashboards & Reporting",service4_copy:"Turn data into clear information through monitoring, analytics, and structured reporting.",
     work_kicker:"Our Work",work_title:"Real Solutions. Real Impact.",work_copy:"The best technology is not the most complicated—it is the technology people actually use to solve real problems.",
+    company_tag:"Pilot Project • In Development",
+    company_title:"AIQOLA Intelligence — Company Operations System",
+    company_copy:"An AI-powered operational system designed for a survey & mapping company to manage people compliance, equipment, technical documents, and internal knowledge in one secure, integrated environment.",
+    company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document Intelligence",company_chip4:"Equipment Intelligence",
+    company_status:"Current status: pilot development. Core architecture and workflows are being built and validated. Company identity and operational data are withheld to protect confidentiality.",
+    company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
+    case_soon:"Case Study Coming Soon",
     kiwari_copy:"A digital system for residential security and community operations: SOS, incident reporting, visitor information, guard schedules, notifications, dashboards, and activity auditing.",
     school_copy:"A digital system that helps parents, teachers, and schools monitor positive student habits in a simple and structured way.",
     case_study:"View Case Study",
