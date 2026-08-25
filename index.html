@@ -1,103 +1,1152 @@
-<!DOCTYPE html><html lang="id"><head><title>AIQOLA — AI Automation & Digital Solutions</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#020713">
-<style>
-:root{
-  --bg:#020713;--bg2:#041326;--panel:#071a33;--line:rgba(77,180,255,.20);
-  --txt:#f7fbff;--muted:#a7b7ca;--cyan:#19d8ff;--blue:#2388ff;--violet:#9a58ff;--green:#3ee7b4;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
-radial-gradient(circle at 80% 4%,rgba(55,76,255,.15),transparent 24%),
-radial-gradient(circle at 16% 36%,rgba(25,216,255,.07),transparent 24%),
-linear-gradient(180deg,#020713,#041021 55%,#020611);color:var(--txt);overflow-x:hidden}
-a{color:inherit;text-decoration:none} button{font:inherit}
-.container{width:min(1180px,calc(100% - 28px));margin:auto}
-.nav{position:sticky;top:0;z-index:50;background:rgba(2,7,19,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.04)}
-.navin{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{font-weight:800;letter-spacing:.16em;font-size:25px}.brand span{color:#71ddff}.sub{font-size:10px;color:#c9d5e4;margin-top:6px}
-.navlinks{display:flex;gap:24px;color:#c9d6e5;font-size:13px}
-.navlinks a{padding:26px 0}
-.actions-top{display:flex;align-items:center;gap:8px}
-.lang,.menu,.back{min-height:44px;border:1px solid var(--line);border-radius:13px;padding:0 13px;background:rgba(7,22,43,.72);color:#edf7ff}
-.menu{display:none;font-size:22px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
-.eyebrow:before{content:"";width:24px;height:1px;background:linear-gradient(90deg,var(--cyan),var(--violet))}
-h1{font-size:clamp(45px,6vw,76px);line-height:1.02;letter-spacing:-.045em;margin:16px 0 20px}
-.grad{background:linear-gradient(90deg,var(--cyan),#4f9fff 46%,var(--violet));-webkit-background-clip:text;color:transparent}
-.lead{font-size:17px;line-height:1.72;color:#b8c6d7;max-width:670px}
-.btnrow{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 18px;border-radius:13px;border:1px solid var(--line);font-size:13px;font-weight:700}
-.primary{border:0;background:linear-gradient(90deg,#08bdf4,#338bff 52%,#8e4fff);box-shadow:0 12px 32px rgba(45,132,255,.22)}
-.statusbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border:1px solid var(--line);border-radius:18px;background:rgba(6,20,42,.68);padding:12px}
-.statusitem{display:flex;align-items:center;gap:9px;padding:9px;color:#d2deeb;font-size:11px;min-width:0}
-.statusitem i{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(25,216,255,.8)}
-.panel{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(7,22,46,.84),rgba(4,14,31,.82));padding:28px}
-.section{padding:28px 0}.head{text-align:center;margin-bottom:24px}.head h2{font-size:31px;letter-spacing:-.03em;margin:8px 0}.muted{color:#9eb0c4;line-height:1.7;font-size:13px}
-.cardgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.card{position:relative;padding:22px;border-radius:19px;border:1px solid rgba(99,179,255,.17);background:linear-gradient(180deg,rgba(10,30,59,.90),rgba(5,17,35,.88));overflow:hidden}
-.icon{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;border:1px solid rgba(73,188,255,.26);background:linear-gradient(145deg,rgba(12,32,62,.96),rgba(8,18,38,.90));margin-bottom:16px}
-.icon svg{width:28px;height:28px;filter:drop-shadow(0 0 7px rgba(36,198,255,.32))}
-.card h3{font-size:16px;margin:0 0 9px}.card p{font-size:12px;line-height:1.65;color:#a7b8ca;margin:0}.linkish{display:inline-flex;margin-top:16px;color:#66e8ff;font-size:11px;font-weight:700}
-.boot-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid rgba(67,210,255,.22);border-radius:999px;background:rgba(5,24,45,.65);font-size:9px;color:#d6f9ff;letter-spacing:.09em;text-transform:uppercase}
-.boot-pill i{width:7px;height:7px;border-radius:50%;background:#35e7b0;box-shadow:0 0 12px rgba(53,231,176,.8)}
-.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}.reveal.in{opacity:1;transform:none}
-@media(max-width:900px){.navlinks{display:none}.menu{display:block}.cardgrid{grid-template-columns:1fr 1fr}.statusbar{grid-template-columns:1fr 1fr}}
-@media(max-width:620px){.container{width:min(100% - 20px,1180px)}.brand{font-size:22px}.sub{font-size:9px}.cardgrid{grid-template-columns:1fr}.statusbar{grid-template-columns:1fr 1fr}.panel{padding:18px}.lead{font-size:15.5px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
-</style>
+<!-- AIQOLA Website v1.6 — Animated Intelligence & Product Roadmap -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030816" />
+  <title>AIQOLA — AI Automation & Digital Solutions</title>
+  <meta name="description" content="AIQOLA membantu bisnis dan organisasi menyederhanakan proses, mengotomatisasi pekerjaan berulang, dan membangun sistem digital yang benar-benar memberi dampak nyata." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#020713;
+      --bg2:#061226;
+      --panel:rgba(8,20,40,.72);
+      --panel2:rgba(11,26,52,.82);
+      --line:rgba(105,178,255,.18);
+      --text:#f7fbff;
+      --muted:#a8b5c9;
+      --cyan:#19d8ff;
+      --blue:#2388ff;
+      --violet:#9159ff;
+      --magenta:#c667ff;
+      --good:#5ef2c4;
+      --shadow:0 24px 80px rgba(0,0,0,.45);
+      --radius:24px;
+    }
 
-<style>
-.homehero{padding:56px 0 26px;display:grid;grid-template-columns:.92fr 1.08fr;gap:38px;align-items:center}
-.bootline{height:4px;border-radius:999px;background:rgba(65,130,255,.16);overflow:hidden;margin-top:11px}
-.bootline span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet));animation:load 2.7s ease forwards}
-@keyframes load{to{width:100%}}
-.ai-stage{position:relative;min-height:470px;display:grid;place-items:center}
-.ai-core{width:220px;height:220px;position:relative;display:grid;place-items:center;animation:float 5.5s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-8px)}}
-.hex{width:132px;height:132px;display:grid;place-items:center;clip-path:polygon(25% 6%,75% 6%,100% 50%,75% 94%,25% 94%,0 50%);background:radial-gradient(circle,rgba(25,216,255,.28),rgba(31,77,180,.18));border:1px solid var(--cyan);box-shadow:0 0 45px rgba(34,161,255,.25)}
-.hex b{font-size:54px;background:linear-gradient(180deg,#d9fcff,var(--cyan),var(--violet));-webkit-background-clip:text;color:transparent}
-.ring{position:absolute;border:1px solid rgba(75,176,255,.22);border-radius:50%;animation:spin 14s linear infinite}.r1{width:250px;height:250px}.r2{width:340px;height:340px;animation-duration:20s;animation-direction:reverse;border-color:rgba(152,88,255,.18)}.r3{width:410px;height:410px;animation-duration:28s}
-@keyframes spin{to{transform:rotate(360deg)}}
-.module{position:absolute;padding:10px 12px;border:1px solid rgba(85,180,255,.20);border-radius:12px;background:rgba(5,23,47,.88);font-size:10px;color:#bcd4eb;opacity:0;transform:translateY(10px);animation:pop .6s ease forwards}.module strong{display:block;color:white;margin-bottom:3px}@keyframes pop{to{opacity:1;transform:none}}
-.m1{left:2%;top:12%;animation-delay:.4s}.m2{right:1%;top:15%;animation-delay:.6s}.m3{left:1%;bottom:12%;animation-delay:.8s}.m4{right:1%;bottom:10%;animation-delay:1s}
-.dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:orbit 7s linear infinite;left:50%;top:50%;margin:-3px}.d2{animation-delay:-2.3s}.d3{animation-delay:-4.6s}@keyframes orbit{from{transform:rotate(0) translateX(173px)}to{transform:rotate(360deg) translateX(173px)}}
-.systembox{display:grid;grid-template-columns:.8fr 1.2fr;gap:16px;align-items:center;margin-top:16px}
-.progress{height:5px;border-radius:999px;background:rgba(70,110,190,.2);overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));animation:load 2.5s .5s ease forwards}
-@media(max-width:900px){.homehero{grid-template-columns:1fr}.ai-stage{min-height:410px}}
-@media(max-width:620px){.homehero{padding-top:38px}.ai-stage{min-height:350px}.ai-core{width:180px;height:180px}.hex{width:108px;height:108px}.hex b{font-size:44px}.r1{width:205px;height:205px}.r2{width:270px;height:270px}.r3{width:330px;height:330px}.dot{animation-name:orbitM}@keyframes orbitM{from{transform:rotate(0) translateX(138px)}to{transform:rotate(360deg) translateX(138px)}}.systembox{grid-template-columns:1fr}}
-</style></head><body>
-<header class="nav"><div class="container navin"><a href="index.html"><div class="brand">AI<span>QO</span>LA</div><div class="sub">AI Automation & Digital Solutions</div></a><nav class="navlinks"><a href="#home">Beranda</a><a href="intelligence.html">Intelligence</a><a href="#solutions">Solutions</a><a href="#about">About</a><a href="#contact">Kontak</a></nav><div class="actions-top"><button class="lang" type="button">🌐 ID</button><button class="menu" type="button">☰</button></div></div></header>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 80% 5%, rgba(35,136,255,.16), transparent 24%),
+        radial-gradient(circle at 20% 15%, rgba(145,89,255,.10), transparent 20%),
+        linear-gradient(180deg,#020713 0%,#031020 48%,#020611 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.022) 1px, transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 82%);
+      z-index:-2;
+    }
+
+    #particles{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.38;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(18px);
+      background:linear-gradient(180deg,rgba(2,7,19,.92),rgba(2,7,19,.58));
+      border-bottom:1px solid rgba(255,255,255,.04)
+    }
+    .nav-inner{
+      min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .brand{display:flex;flex-direction:column;line-height:1}
+    .brand-main{
+      font-weight:800;letter-spacing:.16em;font-size:25px
+    }
+    .brand-main span{
+      background:linear-gradient(90deg,#fff 5%,var(--cyan) 58%,#fff 92%);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .brand-sub{font-size:10px;color:#d7e5f4;margin-top:7px;letter-spacing:.02em}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;color:#cad6e4}
+    .nav-links a{position:relative;padding:28px 0}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:18px;width:0;height:2px;border-radius:4px;
+      background:linear-gradient(90deg,var(--cyan),var(--violet));transition:.25s
+    }
+    .nav-links a:hover::after{width:100%}
+    .lang{
+      display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;
+      border:1px solid var(--line);background:rgba(8,19,38,.75);color:#eaf4ff;cursor:pointer
+    }
+    .lang small{color:#8da2b9}
+    .mobile-menu{display:none;background:transparent;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+    .hero{
+      padding:70px 0 34px;
+      display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#93eaff
+    }
+    .eyebrow::before{content:"";width:28px;height:1px;background:var(--cyan)}
+    h1{
+      font-size:clamp(46px,6vw,76px);
+      line-height:1.02;letter-spacing:-.045em;margin:20px 0 24px
+    }
+    .gradient-text{
+      background:linear-gradient(90deg,var(--cyan),#5cc8ff 35%,var(--violet) 72%,var(--magenta));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .lead{font-size:18px;line-height:1.72;color:#b8c5d6;max-width:660px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin:32px 0}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;
+      border-radius:13px;border:1px solid var(--line);font-weight:600;font-size:14px;
+      transition:.25s;cursor:pointer
+    }
+    .btn-primary{
+      border:0;background:linear-gradient(90deg,#13bff4,#3d8cff 55%,#8e53ff);
+      box-shadow:0 10px 35px rgba(44,147,255,.28)
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.24)}
+    .trust-row{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:28px;color:#bac8d8;font-size:12px}
+    .trust{display:flex;align-items:center;gap:8px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+
+    .hero-visual{
+      position:relative;min-height:470px;display:grid;place-items:center
+    }
+    .orb{
+      width:min(420px,90vw);aspect-ratio:1;border-radius:50%;position:relative;
+      background:
+        radial-gradient(circle at 50% 50%,rgba(31,183,255,.28),transparent 34%),
+        conic-gradient(from 180deg,rgba(25,216,255,.18),rgba(145,89,255,.25),rgba(25,216,255,.18));
+      filter:drop-shadow(0 0 38px rgba(38,139,255,.28));
+      animation:float 6s ease-in-out infinite
+    }
+    .orb::before,.orb::after{
+      content:"";position:absolute;border-radius:50%;inset:11%;
+      border:1px solid rgba(76,184,255,.34);box-shadow:inset 0 0 50px rgba(38,139,255,.18)
+    }
+    .orb::after{inset:24%;border-color:rgba(160,94,255,.32)}
+    .brain-svg{position:absolute;inset:18%;width:64%;height:64%;filter:drop-shadow(0 0 18px rgba(27,209,255,.5))}
+    .ring{
+      position:absolute;border:1px solid rgba(84,170,255,.24);border-radius:50%;
+      left:5%;right:5%;height:28%;bottom:8%;transform:perspective(500px) rotateX(66deg)
+    }
+    .ring.r2{left:16%;right:16%;bottom:14%}
+    .float-panel{
+      position:absolute;padding:13px 14px;border-radius:14px;border:1px solid rgba(84,170,255,.19);
+      background:linear-gradient(180deg,rgba(10,27,57,.90),rgba(6,17,37,.84));
+      box-shadow:var(--shadow);font-size:11px;color:#d7e8ff;backdrop-filter:blur(12px)
+    }
+    .fp1{left:0;top:12%}.fp2{right:-2%;top:22%}.fp3{right:7%;bottom:10%}.fp4{left:6%;bottom:12%}
+    .metric{font-size:23px;font-weight:800;color:#6fe7ff;margin-top:4px}
+    .bars{display:flex;gap:4px;align-items:flex-end;height:34px;margin-top:7px}
+    .bars i{display:block;width:7px;border-radius:3px 3px 0 0;background:linear-gradient(var(--cyan),var(--blue))}
+    @keyframes float{50%{transform:translateY(-10px)}}
+
+    section{padding:34px 0}
+    .section-shell{
+      border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(7,20,42,.76),rgba(4,13,28,.72));
+      padding:32px;box-shadow:0 12px 70px rgba(0,0,0,.15)
+    }
+    .section-head{text-align:center;margin-bottom:28px}
+    .kicker{
+      font-size:11px;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;font-weight:700
+    }
+    h2{font-size:32px;letter-spacing:-.025em;margin:8px 0 8px}
+    .section-copy{color:#9eafc4;max-width:720px;margin:0 auto;line-height:1.7;font-size:14px}
+    .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{
+      position:relative;padding:23px;border-radius:18px;border:1px solid rgba(118,180,255,.18);
+      background:linear-gradient(180deg,rgba(12,30,59,.86),rgba(6,18,37,.82));
+      overflow:hidden;transition:.3s
+    }
+    .card::before{
+      content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-55px;top:-55px;
+      background:radial-gradient(circle,rgba(103,96,255,.20),transparent 68%)
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(69,195,255,.38)}
+    .icon{
+      width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:18px;
+      background:
+        radial-gradient(circle at 35% 30%,rgba(25,216,255,.18),transparent 42%),
+        linear-gradient(145deg,rgba(12,32,62,.92),rgba(8,18,38,.82));
+      border:1px solid rgba(83,184,255,.24);
+      box-shadow:
+        inset 0 0 18px rgba(40,149,255,.08),
+        0 0 22px rgba(22,149,255,.08);
+      transition:.28s ease;
+    }
+    .icon svg{
+      width:28px;height:28px;overflow:visible;
+      filter:drop-shadow(0 0 7px rgba(40,190,255,.26));
+    }
+    .icon .stroke-main{
+      fill:none;stroke:url(#iconGradient);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+    }
+    .card:hover .icon{
+      transform:translateY(-2px) scale(1.03);
+      border-color:rgba(91,202,255,.42);
+      box-shadow:
+        inset 0 0 24px rgba(68,166,255,.12),
+        0 0 28px rgba(57,157,255,.15);
+    }
+    .card h3{font-size:17px;margin:0 0 10px}
+    .card p{font-size:13px;line-height:1.65;color:#aab9cb;margin:0}
+
+    .portfolio{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .project{
+      display:grid;grid-template-columns:.82fr 1.18fr;gap:18px;align-items:center;
+      padding:24px;border-radius:20px;border:1px solid rgba(118,180,255,.16);
+      background:linear-gradient(145deg,rgba(8,23,48,.90),rgba(4,14,30,.88));
+      min-height:300px
+    }
+    .project h3{font-size:23px;margin:8px 0 8px}
+    .project p{color:#aab9cb;font-size:13px;line-height:1.65}
+    .tag{
+      display:inline-flex;padding:6px 9px;border:1px solid rgba(103,189,255,.22);border-radius:999px;
+      color:#bfeaff;font-size:10px
+    }
+    .mock{
+      min-height:220px;border-radius:18px;position:relative;
+      background:
+        linear-gradient(180deg,rgba(7,18,35,.02),rgba(7,18,35,.75)),
+        radial-gradient(circle at 60% 25%,rgba(59,141,255,.25),transparent 28%),
+        linear-gradient(140deg,#142748,#081224 55%,#040a14);
+      border:1px solid rgba(109,173,255,.16);overflow:hidden
+    }
+    .screen{
+      position:absolute;left:14%;top:18%;width:72%;height:60%;
+      border-radius:9px;background:#f6f8fb;box-shadow:0 18px 40px rgba(0,0,0,.4);padding:10px
+    }
+    .screen-top{height:12%;background:#edf1f7;border-radius:5px;margin-bottom:8px}
+    .dash{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .dash span{height:34px;background:#e8eef7;border-radius:5px}
+    .chart{height:58px;background:linear-gradient(135deg,#0a2d5b,#0e4fa5);border-radius:5px;margin-top:7px;position:relative;overflow:hidden}
+    .chart::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,transparent 35%,rgba(51,203,255,.8) 36%,transparent 38%,transparent 52%,rgba(119,89,255,.8) 53%,transparent 55%)}
+    .phone{
+      position:absolute;left:5%;bottom:7%;width:28%;height:60%;border-radius:17px;
+      border:5px solid #111827;background:#07182b;box-shadow:0 16px 35px rgba(0,0,0,.45);padding:7px
+    }
+    .phone::before{content:"";display:block;width:32%;height:4px;background:#2a3442;border-radius:10px;margin:0 auto 8px}
+    .phone-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+    .phone-grid i{height:30px;border-radius:7px;background:linear-gradient(135deg,#0d5cb1,#08bfe8)}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
+    .step{text-align:center;position:relative;padding:8px}
+    .step:not(:last-child)::after{
+      content:"";position:absolute;height:1px;background:linear-gradient(90deg,var(--cyan),var(--violet));
+      width:40%;right:-20%;top:30px;opacity:.5
+    }
+    .step-num{
+      width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:0 auto 13px;
+      border:1px solid rgba(81,178,255,.28);background:rgba(5,22,44,.75);
+      color:var(--cyan);font-weight:700
+    }
+    .step h3{font-size:15px;margin:0 0 8px}.step p{font-size:12px;line-height:1.6;color:#9daec2}
+
+    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .why .card{padding:20px}
+
+    .cta{
+      margin:34px auto;border-radius:22px;padding:28px 30px;
+      background:
+        radial-gradient(circle at 15% 50%,rgba(25,216,255,.22),transparent 28%),
+        radial-gradient(circle at 90% 45%,rgba(145,89,255,.28),transparent 34%),
+        linear-gradient(90deg,#082e55,#122453 52%,#2d1760);
+      border:1px solid rgba(85,178,255,.24);
+      display:flex;align-items:center;justify-content:space-between;gap:20px
+    }
+    .cta h2{margin:0;font-size:28px}.cta p{color:#c0cce0;margin:6px 0 0;font-size:13px}
+
+    footer{border-top:1px solid rgba(255,255,255,.05);padding:34px 0 26px;background:rgba(2,7,19,.45)}
+    .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,.75fr);gap:28px}
+    .footer-grid h4{font-size:13px;margin:0 0 12px}.footer-grid a,.footer-grid p{display:block;color:#94a5ba;font-size:12px;line-height:1.9}
+    .copyright{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);color:#75879c;font-size:11px;text-align:center}
+
+    @media(max-width:980px){
+      .nav-links{display:none}.mobile-menu{display:block}
+      .hero{grid-template-columns:1fr;padding-top:48px}
+      .hero-visual{min-height:390px}
+      .cards4,.why{grid-template-columns:1fr 1fr}
+      .portfolio{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 24px,1180px)}
+      .nav-inner{min-height:68px}.brand-main{font-size:22px}
+      h1{font-size:46px}
+      .lead{font-size:16px}
+      .hero{gap:18px}
+      .hero-visual{min-height:340px}
+      .orb{width:310px}
+      .float-panel{transform:scale(.86)}
+      .fp2{right:-6%}.fp1{left:-5%}
+      .section-shell{padding:22px 14px}
+      .cards4,.why{grid-template-columns:1fr}
+      .project{grid-template-columns:1fr}
+      .mock{min-height:220px}
+      .steps{grid-template-columns:1fr 1fr}
+      .step:not(:last-child)::after{display:none}
+      .cta{flex-direction:column;align-items:flex-start}
+      .footer-grid{grid-template-columns:1fr}
+      .mobile-sheet{
+        display:none;position:absolute;left:12px;right:12px;top:72px;padding:16px;
+        background:#071326;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)
+      }
+      .mobile-sheet.show{display:block}
+      .mobile-sheet a{display:block;padding:12px 8px;color:#d6e5f5;border-bottom:1px solid rgba(255,255,255,.04)}
+    }
+  
+    .project.featured{
+      grid-column:1/-1;grid-template-columns:1.02fr .98fr;min-height:390px;
+      border-color:rgba(62,192,255,.28);
+      background:
+        radial-gradient(circle at 78% 25%,rgba(74,94,255,.18),transparent 28%),
+        radial-gradient(circle at 18% 90%,rgba(25,216,255,.10),transparent 26%),
+        linear-gradient(145deg,rgba(8,27,55,.96),rgba(5,14,32,.94));
+      box-shadow:inset 0 0 50px rgba(49,133,255,.05),0 20px 55px rgba(0,0,0,.18)
+    }
+    .project.featured h3{font-size:30px;line-height:1.12}
+    .project.featured p{font-size:14px}
+    .status-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 2px}
+    .status-chip{
+      display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;
+      border:1px solid rgba(77,188,255,.22);background:rgba(6,28,54,.65);
+      color:#c6eaff;font-size:10px
+    }
+    .status-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:#20d7ff;box-shadow:0 0 10px #20d7ff}
+    .pilot-visual{
+      min-height:300px;border-radius:20px;position:relative;overflow:hidden;
+      border:1px solid rgba(88,181,255,.18);
+      background:
+        radial-gradient(circle at 50% 46%,rgba(42,157,255,.18),transparent 31%),
+        linear-gradient(145deg,#071a34,#071225 58%,#050b17)
+    }
+    .pilot-core{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:118px;height:118px;border-radius:50%;display:grid;place-items:center;
+      border:1px solid rgba(56,205,255,.42);
+      background:radial-gradient(circle,rgba(21,168,255,.22),rgba(22,66,137,.14) 55%,transparent 70%);
+      box-shadow:0 0 45px rgba(33,161,255,.24),inset 0 0 35px rgba(83,95,255,.15)
+    }
+    .pilot-core svg{width:58px;height:58px;filter:drop-shadow(0 0 10px rgba(36,212,255,.55))}
+    .pilot-orbit{position:absolute;left:50%;top:50%;border:1px solid rgba(90,174,255,.20);border-radius:50%;transform:translate(-50%,-50%)}
+    .pilot-orbit.o1{width:190px;height:190px}.pilot-orbit.o2{width:260px;height:260px;border-color:rgba(149,91,255,.16)}
+    .pilot-node{
+      position:absolute;padding:9px 11px;border-radius:10px;border:1px solid rgba(92,183,255,.18);
+      background:rgba(7,24,48,.86);font-size:10px;color:#bcd8f3;box-shadow:0 10px 30px rgba(0,0,0,.2)
+    }
+    .pilot-node strong{display:block;color:#f0f7ff;font-size:11px;margin-bottom:2px}
+    .pilot-node.n1{left:5%;top:14%}.pilot-node.n2{right:5%;top:16%}.pilot-node.n3{left:4%;bottom:13%}.pilot-node.n4{right:4%;bottom:13%}
+    .dev-note{
+      margin-top:18px;padding:13px 15px;border-radius:13px;border:1px solid rgba(144,97,255,.18);
+      background:rgba(39,24,75,.20);color:#aebed0;font-size:11px;line-height:1.6
+    }
+    @media(max-width:640px){
+      .project.featured{grid-template-columns:1fr;min-height:0}
+      .project.featured h3{font-size:25px}
+      .pilot-visual{min-height:280px}
+      .pilot-node{font-size:9px;padding:7px 8px}
+      .pilot-node strong{font-size:10px}
+    }
+
+
+    .company-kicker{
+      display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;
+      color:#73dcff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase
+    }
+    .company-kicker::before{content:"";width:24px;height:1px;background:linear-gradient(90deg,#19d8ff,#8b5cff)}
+    .company-title-main{display:block}
+    .company-title-sub{
+      display:block;margin-top:5px;font-size:.70em;font-weight:600;letter-spacing:-.02em;
+      color:#c9d9eb
+    }
+    .company-status{
+      display:flex;align-items:center;gap:9px;margin-top:17px;padding:10px 12px;
+      border-radius:12px;border:1px solid rgba(123,92,255,.20);
+      background:linear-gradient(90deg,rgba(30,31,75,.45),rgba(8,28,53,.42));
+      color:#b9c8db;font-size:11px;line-height:1.45
+    }
+    .company-status .pulse{
+      flex:0 0 auto;width:8px;height:8px;border-radius:50%;
+      background:#31d8ff;box-shadow:0 0 0 0 rgba(49,216,255,.45);
+      animation:pilotPulse 2s infinite
+    }
+    @keyframes pilotPulse{
+      0%{box-shadow:0 0 0 0 rgba(49,216,255,.38)}
+      70%{box-shadow:0 0 0 7px rgba(49,216,255,0)}
+      100%{box-shadow:0 0 0 0 rgba(49,216,255,0)}
+    }
+    .privacy-note{
+      margin-top:9px;color:#8195ad;font-size:10px;line-height:1.5
+    }
+    .pilot-center-label{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      margin-top:54px;font-size:9px;letter-spacing:.17em;color:#74cfff;text-transform:uppercase;
+      white-space:nowrap
+    }
+    .pilot-node{
+      backdrop-filter:blur(8px);
+    }
+    @media(max-width:640px){
+      .project.featured{padding:20px}
+      .project.featured h3{font-size:27px;line-height:1.08;margin-top:10px}
+      .company-title-sub{font-size:.66em;margin-top:7px}
+      .project.featured p{font-size:13.5px;line-height:1.65}
+      .status-row{gap:7px;margin-top:12px}
+      .status-chip{padding:6px 9px;font-size:9.5px}
+      .pilot-visual{min-height:245px;margin-top:4px}
+      .pilot-orbit.o1{width:150px;height:150px}
+      .pilot-orbit.o2{width:205px;height:205px}
+      .pilot-core{width:94px;height:94px}
+      .pilot-core svg{width:48px;height:48px}
+      .pilot-center-label{margin-top:46px;font-size:8px}
+      .pilot-node{padding:7px 8px}
+      .pilot-node.n1{left:4%;top:9%}.pilot-node.n2{right:4%;top:11%}
+      .pilot-node.n3{left:4%;bottom:8%}.pilot-node.n4{right:4%;bottom:8%}
+    }
+
+
+/* v1.6.1 — Homepage Live Motion */
+@keyframes aqAmbient {
+  0%{transform:translate3d(-1%,0,0) scale(1)}
+  100%{transform:translate3d(1.5%,-1%,0) scale(1.035)}
+}
+@keyframes aqFloat {
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+@keyframes aqPulse {
+  0%,100%{opacity:.45;filter:drop-shadow(0 0 4px rgba(32,211,255,.28))}
+  50%{opacity:1;filter:drop-shadow(0 0 10px rgba(32,211,255,.65))}
+}
+@keyframes aqSweep {
+  0%{transform:translateX(-120%);opacity:0}
+  15%{opacity:.55}
+  75%{opacity:.25}
+  100%{transform:translateX(220%);opacity:0}
+}
+@keyframes aqOrbit {
+  to{transform:rotate(360deg)}
+}
+body::before{
+  content:"";position:fixed;inset:-15%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 72% 18%,rgba(26,211,255,.055),transparent 20%),
+    radial-gradient(circle at 25% 68%,rgba(126,79,255,.045),transparent 24%);
+  animation:aqAmbient 14s ease-in-out infinite alternate;
+}
+.hero{position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;top:0;bottom:0;width:26%;
+  background:linear-gradient(90deg,transparent,rgba(80,218,255,.045),transparent);
+  pointer-events:none;animation:aqSweep 7.5s ease-in-out infinite;
+}
+.hero-visual,.brain,.ai-core,.orbital,.hero-art{
+  animation:aqFloat 6s ease-in-out infinite;
+}
+.icon,.service-icon,.value-icon,.feature-icon{
+  animation:aqPulse 4.8s ease-in-out infinite;
+}
+.card,.service-card,.value-card,.work-card,.case-card{
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.card:hover,.service-card:hover,.value-card:hover,.work-card:hover,.case-card:hover{
+  transform:translateY(-3px);
+}
+.aq-reveal{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.aq-reveal.aq-in{opacity:1;transform:none}
+@media(max-width:700px){
+  .card:hover,.service-card:hover,.value-card:hover,.work-card:hover,.case-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .aq-reveal{opacity:1!important;transform:none!important}
+}
+
+
+/* AIQOLA v1.7 — Polished Motion Layer (built on v1.6.1 baseline) */
+.hero{isolation:isolate}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(circle at 74% 28%,rgba(26,216,255,.055),transparent 19%),
+    radial-gradient(circle at 61% 62%,rgba(145,89,255,.05),transparent 24%);
+  animation:aqHeroBreath 8s ease-in-out infinite alternate;
+}
+@keyframes aqHeroBreath{
+  from{opacity:.72;transform:scale(1)}
+  to{opacity:1;transform:scale(1.025)}
+}
+
+#aqHeroParticles{
+  position:absolute;inset:0;width:100%;height:100%;z-index:-1;
+  pointer-events:none;opacity:.54;
+}
+
+.hero .gradient-text{
+  background-size:200% auto;
+  animation:aqTextShimmer 7s linear infinite;
+}
+@keyframes aqTextShimmer{
+  to{background-position:200% center}
+}
+
+.hero-visual{
+  filter:drop-shadow(0 0 22px rgba(40,142,255,.07));
+}
+.hero-visual::after{
+  content:"";position:absolute;left:50%;top:50%;width:52%;height:52%;
+  transform:translate(-50%,-50%);border-radius:50%;
+  border:1px solid rgba(55,198,255,.10);
+  box-shadow:0 0 28px rgba(50,159,255,.06),inset 0 0 28px rgba(128,84,255,.05);
+  animation:aqHaloPulse 5.5s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes aqHaloPulse{
+  0%,100%{opacity:.45;transform:translate(-50%,-50%) scale(.96)}
+  50%{opacity:.95;transform:translate(-50%,-50%) scale(1.035)}
+}
+
+.float-panel{
+  transition:transform .32s ease,border-color .32s ease,box-shadow .32s ease;
+  animation:aqPanelIdle 6.8s ease-in-out infinite;
+}
+.float-panel:nth-of-type(2){animation-delay:-1.7s}
+.float-panel:nth-of-type(3){animation-delay:-3.4s}
+.float-panel:nth-of-type(4){animation-delay:-5.1s}
+@keyframes aqPanelIdle{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+
+.card,.project,.section-shell{
+  position:relative;
+}
+.card::after,.project::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(110deg,transparent 22%,rgba(94,218,255,.035) 45%,rgba(154,93,255,.035) 56%,transparent 76%);
+  transform:translateX(-120%);
+  transition:transform .85s ease;
+}
+.card.aq-in::after,.project.aq-in::after{
+  transform:translateX(120%);
+}
+
+.icon{
+  position:relative;
+}
+.icon::after{
+  content:"";position:absolute;inset:5px;border-radius:inherit;
+  border:1px solid rgba(86,205,255,.08);
+  animation:aqIconPulse 4.8s ease-in-out infinite;
+}
+@keyframes aqIconPulse{
+  0%,100%{opacity:.25;transform:scale(.94)}
+  50%{opacity:.7;transform:scale(1.02)}
+}
+
+.status-chip,.tag,.trust{
+  transition:transform .24s ease,border-color .24s ease,background .24s ease;
+}
+@media(hover:hover) and (pointer:fine){
+  .status-chip:hover,.tag:hover,.trust:hover{transform:translateY(-2px)}
+  .card:hover{
+    border-color:rgba(79,198,255,.34);
+    box-shadow:0 14px 36px rgba(0,0,0,.16),0 0 24px rgba(45,153,255,.05);
+  }
+}
+
+.aq-cursor-glow{
+  position:fixed;left:0;top:0;width:180px;height:180px;border-radius:50%;
+  pointer-events:none;z-index:3;opacity:0;
+  background:radial-gradient(circle,rgba(38,190,255,.08),rgba(112,77,255,.035) 40%,transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:opacity .25s ease;
+  mix-blend-mode:screen;
+}
+
+@media(max-width:700px){
+  .aq-cursor-glow{display:none}
+  #aqHeroParticles{opacity:.42}
+  .float-panel{animation-duration:8s}
+}
+@media(prefers-reduced-motion:reduce){
+  #aqHeroParticles,.aq-cursor-glow{display:none!important}
+}
+
+</style>
+</head>
+<body><div class="aq-cursor-glow" id="aqCursorGlow" aria-hidden="true"></div>
+<canvas id="particles"></canvas>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#beranda">
+      <div class="brand-main">AI<span>QO</span>LA</div>
+      <div class="brand-sub">AI Automation & Digital Solutions</div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#beranda" data-i18n="nav_home">Beranda</a>
+      <a href="#layanan" data-i18n="nav_services">Layanan</a>
+      <a href="#karya" data-i18n="nav_work">Karya Kami</a>
+      <a href="#tentang" data-i18n="nav_about">Tentang Kami</a>
+      <a href="#wawasan" data-i18n="nav_insights">Wawasan</a>
+      <a href="#kontak" data-i18n="nav_contact">Kontak</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="lang" id="langBtn" aria-label="Ganti bahasa">
+        <span>🌐</span><strong id="langCode">ID</strong><small>⌄</small>
+      </button>
+      <button class="mobile-menu" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-sheet" id="mobileSheet">
+      <a href="#beranda" data-i18n="nav_home">Beranda</a>
+      <a href="#layanan" data-i18n="nav_services">Layanan</a>
+      <a href="#karya" data-i18n="nav_work">Karya Kami</a>
+      <a href="#tentang" data-i18n="nav_about">Tentang Kami</a>
+      <a href="#wawasan" data-i18n="nav_insights">Wawasan</a>
+      <a href="#kontak" data-i18n="nav_contact">Kontak</a>
+    </div>
+  </div>
+</header>
+
 <main>
-<section id="home" class="container homehero">
-<div>
-<div class="boot-pill"><i></i> SYSTEM INITIALIZING</div><div class="bootline"><span></span></div>
-<h1>AIQOLA<br><span class="grad">INTELLIGENCE</span></h1>
-<h2 style="font-size:clamp(25px,3vw,39px);margin:0 0 16px;letter-spacing:-.03em">AI yang memahami cara perusahaan Anda <span class="grad">bekerja.</span></h2>
-<p class="lead">Menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer yang bekerja bersama sistem operasional perusahaan.</p>
-<div class="btnrow"><a class="btn primary" href="intelligence.html">Pelajari AIQOLA Intelligence →</a><a class="btn" href="#solutions">Lihat Sistem</a></div>
-<div class="boot-pill"><i></i> AIQOLA Intelligence V1 • Pilot Implementation</div>
-</div>
-<div class="ai-stage">
-<div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div><span class="dot"></span><span class="dot d2"></span><span class="dot d3"></span>
-<div class="ai-core"><div class="hex"><b>A</b></div></div>
-<div class="module m1"><strong>DOCUMENTS</strong>Processing...</div><div class="module m2"><strong>EQUIPMENT</strong>Scanning...</div><div class="module m3"><strong>PEOPLE</strong>Synchronizing...</div><div class="module m4"><strong>KNOWLEDGE</strong>Learning...</div>
-</div>
-</section>
-<section class="container"><div class="statusbar"><div class="statusitem"><i></i>Private & Secure</div><div class="statusitem"><i></i>Local-First</div><div class="statusitem"><i></i>Human-Verified</div><div class="statusitem"><i></i>Domain-Aware</div></div></section>
-<section id="solutions" class="container section"><div class="panel reveal"><div class="head"><div class="eyebrow">Company Operations</div><h2>Satu Sistem. Semua Terhubung.</h2><p class="muted">AIQOLA Intelligence membantu perusahaan mengelola data dan pengetahuan secara lebih cerdas, aman, dan terstruktur.</p></div>
-<div class="cardgrid">
-<article class="card"><div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="url(#g)" stroke-width="1.8"><defs><linearGradient id="g"><stop stop-color="#19d8ff"/><stop offset="1" stop-color="#9858ff"/></linearGradient></defs><circle cx="11" cy="11" r="4"/><circle cx="22" cy="12" r="3"/><path d="M4 25c0-5 3-8 7-8s7 3 7 8M18 25c0-4 2-6 5-6 3 0 5 2 5 6"/></svg></div><h3>People & Compliance</h3><p>Kelola data personel, sertifikasi, training, MCU, dan kepatuhan dengan pengingat otomatis.</p><a class="linkish" href="intelligence.html">Selengkapnya →</a></article>
-<article class="card"><div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="url(#g)" stroke-width="1.8"><defs><linearGradient id="g"><stop stop-color="#19d8ff"/><stop offset="1" stop-color="#9858ff"/></linearGradient></defs><path d="M8 24h16M11 24v-5l6-5 4 2 4-6M16 13l-4-5 4-3 5 5M23 8l3-3"/><circle cx="11" cy="8" r="2"/></svg></div><h3>Equipment Intelligence</h3><p>Database equipment lengkap dengan certificate, service, manual, dan AI identification.</p><a class="linkish" href="intelligence.html">Selengkapnya →</a></article>
-<article class="card"><div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="url(#g)" stroke-width="1.8"><defs><linearGradient id="g"><stop stop-color="#19d8ff"/><stop offset="1" stop-color="#9858ff"/></linearGradient></defs><path d="M13 6a5 5 0 0 0-5 5c0 1 .3 2 .8 2.8A5 5 0 0 0 11 23h10a5 5 0 0 0 2.2-9.5A5.5 5.5 0 0 0 13 6Z"/><path d="M12 11l4 4 4-5m-8 9 4-4 4 4"/></svg></div><h3>AIQOLA Inbox</h3><p>Pusat aktivitas dan knowledge intelligence untuk mendukung operasional perusahaan.</p><a class="linkish" href="intelligence.html">Selengkapnya →</a></article>
-<article class="card"><div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="url(#g)" stroke-width="1.8"><defs><linearGradient id="g"><stop stop-color="#19d8ff"/><stop offset="1" stop-color="#9858ff"/></linearGradient></defs><path d="M16 5 25 9v7c0 6-4 10-9 12-5-2-9-6-9-12V9l9-4Z"/><path d="m11 16 3 3 7-7"/></svg></div><h3>System Health Checker</h3><p>Utility untuk menjaga struktur sistem tetap sehat, stabil, dan aman.</p><a class="linkish" href="intelligence.html">Selengkapnya →</a></article>
-</div>
-</div></section>
-<section class="container section"><div class="panel reveal systembox"><div><div class="eyebrow">AIQOLA SYSTEM BOOT</div><h2 style="margin:8px 0">Operational Intelligence Ready</h2><p class="muted">Sistem memuat modul inti, menghubungkan data, memeriksa knowledge, dan menyiapkan private AI.</p></div><div><div class="statusitem"><i></i>Modules connected</div><div class="statusitem"><i></i>Local AI ready</div><div class="statusitem"><i></i>Human verification active</div><div class="progress"><span></span></div></div></div></section>
+  <section id="beranda" class="container hero aq-reveal" >
+<canvas id="aqHeroParticles" aria-hidden="true"></canvas>
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">AI Automation & Digital Solutions</div>
+      <h1>
+        <span data-i18n="hero_1">Transformasi Kerja.</span><br>
+        <span class="gradient-text" data-i18n="hero_2">Otomatisasi Cerdas.</span>
+      </h1>
+      <p class="lead" data-i18n="hero_copy">
+        AIQOLA membantu bisnis dan organisasi menyederhanakan proses, mengotomatisasi pekerjaan berulang, dan membangun sistem digital yang benar-benar memberikan manfaat dalam operasional sehari-hari.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#karya"><span data-i18n="cta_work">Lihat Karya Kami</span> →</a>
+        <a class="btn" href="#kontak"><span data-i18n="cta_discuss">Diskusikan Kebutuhan Anda</span> ◌</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_ai">Berbasis AI</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_secure">Aman & Terpercaya</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_efficient">Efisien</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_measurable">Terukur</span></span>
+        <span class="trust"><i class="dot"></i><span data-i18n="trust_impact">Berorientasi Dampak</span></span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="float-panel fp1">
+        Efisiensi Operasional
+        <div class="metric">↑</div>
+        <div class="bars"><i style="height:22%"></i><i style="height:38%"></i><i style="height:57%"></i><i style="height:72%"></i><i style="height:94%"></i></div>
+      </div>
+      <div class="float-panel fp2">Proses Otomatis<br><span style="color:#5ef2c4">● Aktif</span></div>
+      <div class="float-panel fp3">Dashboard<br><span style="color:#79dfff">Real-time</span></div>
+      <div class="float-panel fp4">AI Workflow<br><span style="color:#c88cff">Connected</span></div>
+
+      <div class="orb">
+        <svg class="brain-svg" viewBox="0 0 300 260">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#19d8ff"/>
+              <stop offset=".55" stop-color="#3288ff"/>
+              <stop offset="1" stop-color="#a45cff"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M83 194c-31-5-50-28-50-58 0-25 12-43 32-54-2-31 18-53 49-53 8-14 24-22 43-22 27 0 46 15 52 37 28 0 50 22 50 51 19 10 30 28 30 50 0 31-22 54-53 58-10 25-32 40-61 40-21 0-38-8-49-23-12 7-27 9-43 4Z"/>
+            <path d="M108 42c-10 23-7 43 7 60M66 83c22-1 41 8 50 26M54 130c30-8 55 0 73 24M90 197c10-24 29-38 55-43M159 28c-9 24-5 46 12 64M208 46c-18 15-27 35-25 59M251 93c-29 1-50 14-62 38M258 153c-27-11-51-7-70 12M214 211c-6-25-23-41-49-49"/>
+            <circle cx="112" cy="101" r="4" fill="#19d8ff"/><circle cx="171" cy="91" r="4" fill="#6ba8ff"/>
+            <circle cx="187" cy="132" r="4" fill="#9b66ff"/><circle cx="144" cy="154" r="4" fill="#19d8ff"/>
+            <circle cx="91" cy="166" r="4" fill="#51bfff"/>
+          </g>
+        </svg>
+        <div class="ring"></div><div class="ring r2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan" class="container aq-reveal" >
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="services_kicker">Layanan Kami</div>
+        <h2 data-i18n="services_title">Solusi AI untuk Operasional Modern</h2>
+        <p class="section-copy" data-i18n="services_copy">Teknologi yang dirancang untuk menyederhanakan pekerjaan, bukan menambah kerumitan.</p>
+      </div>
+      <div class="cards4">
+        <article class="card">
+          <div class="icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="iconGradient" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#19D8FF"/>
+            <stop offset=".55" stop-color="#4A9BFF"/>
+            <stop offset="1" stop-color="#A35CFF"/>
+          </linearGradient>
+        </defs>
+        
+        <path class="stroke-main" d="M10 8.5h12a3.5 3.5 0 0 1 3.5 3.5v8A3.5 3.5 0 0 1 22 23.5H10A3.5 3.5 0 0 1 6.5 20v-8A3.5 3.5 0 0 1 10 8.5Z"/>
+        <path class="stroke-main" d="M16 5v3.5M12 14.5h.01M20 14.5h.01M12 19c1.1 1 2.42 1.5 4 1.5s2.9-.5 4-1.5M4 13v6M28 13v6"/>
+        <circle class="stroke-main" cx="16" cy="4.8" r="1.3"/>
+
+      </svg>
+    </div>
+          <h3 data-i18n="service1_title">Otomasi AI</h3>
+          <p data-i18n="service1_copy">Mengubah pekerjaan manual dan berulang menjadi alur kerja yang lebih otomatis, cepat, dan efisien dengan bantuan Artificial Intelligence.</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="iconGradient" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#19D8FF"/>
+            <stop offset=".55" stop-color="#4A9BFF"/>
+            <stop offset="1" stop-color="#A35CFF"/>
+          </linearGradient>
+        </defs>
+        
+        <path class="stroke-main" d="m16 6 10 5-10 5L6 11l10-5Z"/>
+        <path class="stroke-main" d="m6 16 10 5 10-5"/>
+        <path class="stroke-main" d="m6 21 10 5 10-5"/>
+        <circle class="stroke-main" cx="6" cy="11" r="1.2"/>
+        <circle class="stroke-main" cx="26" cy="11" r="1.2"/>
+        <circle class="stroke-main" cx="16" cy="26" r="1.2"/>
+
+      </svg>
+    </div>
+          <h3 data-i18n="service2_title">Sistem Digital</h3>
+          <p data-i18n="service2_copy">Membangun sistem operasional terintegrasi yang menyesuaikan proses dan kebutuhan nyata bisnis maupun organisasi.</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="iconGradient" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#19D8FF"/>
+            <stop offset=".55" stop-color="#4A9BFF"/>
+            <stop offset="1" stop-color="#A35CFF"/>
+          </linearGradient>
+        </defs>
+        
+        <rect class="stroke-main" x="4.5" y="7" width="15" height="11" rx="2"/>
+        <path class="stroke-main" d="M4.5 10.5h15M8 8.7h.01M11 8.7h.01"/>
+        <rect class="stroke-main" x="18.5" y="12.5" width="9" height="14" rx="2.2"/>
+        <path class="stroke-main" d="M21.5 15h3M22.7 23.8h1"/>
+
+      </svg>
+    </div>
+          <h3 data-i18n="service3_title">Aplikasi Web & Mobile</h3>
+          <p data-i18n="service3_copy">Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="iconGradient" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#19D8FF"/>
+            <stop offset=".55" stop-color="#4A9BFF"/>
+            <stop offset="1" stop-color="#A35CFF"/>
+          </linearGradient>
+        </defs>
+        
+        <rect class="stroke-main" x="5" y="5.5" width="22" height="21" rx="3"/>
+        <path class="stroke-main" d="M9 21v-5M14 21v-9M19 21v-7M24 21v-11"/>
+        <path class="stroke-main" d="m9 12 4-3 4 2 6-4"/>
+        <circle class="stroke-main" cx="9" cy="12" r="1"/>
+        <circle class="stroke-main" cx="13" cy="9" r="1"/>
+        <circle class="stroke-main" cx="17" cy="11" r="1"/>
+        <circle class="stroke-main" cx="23" cy="7" r="1"/>
+
+      </svg>
+    </div>
+          <h3 data-i18n="service4_title">Dashboard & Pelaporan</h3>
+          <p data-i18n="service4_copy">Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="karya" class="container aq-reveal" >
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="work_kicker">Karya Kami</div>
+        <h2 data-i18n="work_title">Solusi Nyata. Dampak Nyata.</h2>
+        <p class="section-copy" data-i18n="work_copy">Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.</p>
+      </div>
+
+      <div class="portfolio">
+        <article class="project featured">
+          <div>
+            <div class="company-kicker" data-i18n="company_kicker">AIQOLA Intelligence • V1 Pilot</div>
+            <h3>
+              <span class="company-title-main" data-i18n="company_title_main">AIQOLA Intelligence</span>
+              <span class="company-title-sub" data-i18n="company_title_sub">Company Operations System</span>
+            </h3>
+            <p data-i18n="company_copy">Sistem AI operasional untuk membantu perusahaan survey &amp; mapping mengelola compliance personel, equipment, dokumen teknis, dan knowledge internal secara terintegrasi.</p>
+            <div class="status-row">
+              <span class="status-chip" data-i18n="company_chip1">AI Privat</span>
+              <span class="status-chip" data-i18n="company_chip2">Local-First</span>
+              <span class="status-chip" data-i18n="company_chip3">Document AI</span>
+              <span class="status-chip" data-i18n="company_chip4">Equipment AI</span>
+            </div>
+            <div class="company-status">
+              <span class="pulse"></span>
+              <span data-i18n="company_status_short">Pilot sedang dalam pengembangan dan validasi workflow inti.</span>
+            </div>
+            <div class="privacy-note" data-i18n="company_privacy">Identitas dan data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.</div>
+            <div class="actions" style="margin:16px 0 0">
+              <a class="btn btn-primary" href="intelligence.html">
+                <span data-i18n="company_explore">Pelajari AIQOLA Intelligence</span> →
+              </a>
+            </div>
+          </div>
+          <div class="pilot-visual" aria-label="AIQOLA Intelligence concept visualization">
+            <div class="pilot-orbit o2"></div><div class="pilot-orbit o1"></div>
+            <div class="pilot-core">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <defs><linearGradient id="pilotG" x1="8" y1="8" x2="56" y2="56"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#4A9BFF"/><stop offset="1" stop-color="#A35CFF"/></linearGradient></defs>
+                <path d="M24 13a10 10 0 0 0-10 10c0 2 .6 4 1.7 5.7A10 10 0 0 0 20 47h24a10 10 0 0 0 4.5-18.9A11 11 0 0 0 28 13h-4Z" fill="none" stroke="url(#pilotG)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M24 24l8 8 8-10M24 40l8-8 8 8" fill="none" stroke="url(#pilotG)" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="2" fill="#19D8FF"/><circle cx="40" cy="22" r="2" fill="#8D65FF"/><circle cx="24" cy="40" r="2" fill="#4A9BFF"/><circle cx="40" cy="40" r="2" fill="#A35CFF"/>
+              </svg>
+            </div>
+            <div class="pilot-center-label">AIQOLA Intelligence</div>
+            <div class="pilot-node n1"><strong data-i18n="company_node1a">People</strong><span data-i18n="company_node1b">Compliance</span></div>
+            <div class="pilot-node n2"><strong data-i18n="company_node2a">Equipment</strong><span data-i18n="company_node2b">Intelligence</span></div>
+            <div class="pilot-node n3"><strong data-i18n="company_node3a">Documents</strong><span data-i18n="company_node3b">AI Classification</span></div>
+            <div class="pilot-node n4"><strong data-i18n="company_node4a">Knowledge</strong><span data-i18n="company_node4b">Private AI</span></div>
+          </div>
+        </article>
+        <article class="project">
+          <div>
+            <span class="tag">Community Pilot Project</span>
+            <h3>Kiwari Residence – Komplek Aman</h3>
+            <p data-i18n="kiwari_copy">Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.</p>
+            <span class="btn" style="margin-top:12px;opacity:.72;cursor:default"><span data-i18n="case_soon">Studi Kasus Segera</span></span>
+          </div>
+          <div class="mock">
+            <div class="screen">
+              <div class="screen-top"></div>
+              <div class="dash"><span></span><span></span><span></span></div>
+              <div class="chart"></div>
+            </div>
+            <div class="phone">
+              <div class="phone-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Education Pilot Project</span>
+            <h3>Pembiasaan Siswa</h3>
+            <p data-i18n="school_copy">Sistem digital yang membantu orang tua, guru, dan sekolah memonitor pembiasaan positif siswa secara sederhana dan terstruktur.</p>
+            <span class="btn" style="margin-top:12px;opacity:.72;cursor:default"><span data-i18n="case_soon">Studi Kasus Segera</span></span>
+          </div>
+          <div class="mock">
+            <div class="screen">
+              <div class="screen-top"></div>
+              <div class="dash"><span></span><span></span><span></span></div>
+              <div class="chart" style="background:linear-gradient(135deg,#eef3fa,#f7f8ff)"></div>
+            </div>
+            <div class="phone" style="left:auto;right:5%;background:#f6f8fb">
+              <div class="phone-grid"><i style="background:#e5e9f0"></i><i style="background:#e5e9f0"></i><i style="background:#d7dff3"></i><i style="background:#e8eaf2"></i><i style="background:#dbe8f3"></i><i style="background:#e7e9ef"></i></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="container aq-reveal" id="tentang" >
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="how_kicker">Cara Kami Bekerja</div>
+        <h2 data-i18n="how_title">Dari Tantangan Menjadi Dampak Berkelanjutan</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3 data-i18n="step1_title">Pahami Masalah</h3><p data-i18n="step1_copy">Kami memahami bagaimana pekerjaan dilakukan hari ini dan masalah apa yang benar-benar perlu diselesaikan.</p></div>
+        <div class="step"><div class="step-num">02</div><h3 data-i18n="step2_title">Rancang Solusi</h3><p data-i18n="step2_copy">Kami merancang sistem yang sesuai dengan proses nyata pengguna dan mudah digunakan.</p></div>
+        <div class="step"><div class="step-num">03</div><h3 data-i18n="step3_title">Otomatisasi</h3><p data-i18n="step3_copy">Kami membangun dan mengintegrasikan software, data, workflow, serta AI secara tepat guna.</p></div>
+        <div class="step"><div class="step-num">04</div><h3 data-i18n="step4_title">Operasikan & Tingkatkan</h3><p data-i18n="step4_copy">Sistem terus dievaluasi dan dikembangkan berdasarkan pengalaman pengguna yang nyata.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container aq-reveal" id="wawasan" >
+    <div class="section-shell">
+      <div class="section-head">
+        <div class="kicker" data-i18n="why_kicker">Mengapa AIQOLA</div>
+        <h2 data-i18n="why_title">Lebih dari Teknologi. Hasil yang Bisa Digunakan.</h2>
+      </div>
+      <div class="why">
+        <article class="card"><div class="icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="benefit1" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#4A9BFF"/><stop offset="1" stop-color="#A35CFF"/></linearGradient></defs><circle class="stroke-main" style="stroke:url(#benefit1)" cx="16" cy="16" r="10"/><circle class="stroke-main" style="stroke:url(#benefit1)" cx="16" cy="16" r="5"/><circle class="stroke-main" style="stroke:url(#benefit1)" cx="16" cy="16" r="1.5"/><path class="stroke-main" style="stroke:url(#benefit1)" d="M22.5 9.5 27 5m0 0v4m0-4h-4"/></svg></div><h3 data-i18n="why1_title">Solusi untuk Masalah Nyata</h3><p data-i18n="why1_copy">Teknologi dibangun berdasarkan kebutuhan operasional yang benar-benar terjadi.</p></article>
+        <article class="card"><div class="icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="benefit2" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#4A9BFF"/><stop offset="1" stop-color="#A35CFF"/></linearGradient></defs><rect class="stroke-main" style="stroke:url(#benefit2)" x="5" y="6" width="22" height="17" rx="3"/><path class="stroke-main" style="stroke:url(#benefit2)" d="M9 10h10M9 14h7M12 27h8M16 23v4m5-14 2 2 4-4"/></svg></div><h3 data-i18n="why2_title">Sederhana & Mudah Digunakan</h3><p data-i18n="why2_copy">Sistem yang canggih tetap harus mudah dipahami dan digunakan oleh manusia.</p></article>
+        <article class="card"><div class="icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="benefit3" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#4A9BFF"/><stop offset="1" stop-color="#A35CFF"/></linearGradient></defs><path class="stroke-main" style="stroke:url(#benefit3)" d="M13 7a5 5 0 0 0-5 5c0 1 .3 2 .8 2.8A5 5 0 0 0 11 24h10a5 5 0 0 0 2.2-9.5A5.5 5.5 0 0 0 13 7Z"/><path class="stroke-main" style="stroke:url(#benefit3)" d="M12 12l4 4 4-5m-8 9 4-4 4 4"/><circle class="stroke-main" style="stroke:url(#benefit3)" cx="12" cy="12" r="1"/><circle class="stroke-main" style="stroke:url(#benefit3)" cx="20" cy="11" r="1"/><circle class="stroke-main" style="stroke:url(#benefit3)" cx="12" cy="20" r="1"/><circle class="stroke-main" style="stroke:url(#benefit3)" cx="20" cy="20" r="1"/></svg></div><h3 data-i18n="why3_title">AI dengan Nilai Praktis</h3><p data-i18n="why3_copy">AI digunakan ketika benar-benar memberi manfaat: otomatisasi, analisis, dan produktivitas.</p></article>
+        <article class="card"><div class="icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="benefit4" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#4A9BFF"/><stop offset="1" stop-color="#A35CFF"/></linearGradient></defs><path class="stroke-main" style="stroke:url(#benefit4)" d="M16 4.5 25 8v7c0 6-3.8 10-9 12.5C10.8 25 7 21 7 15V8l9-3.5Z"/><path class="stroke-main" style="stroke:url(#benefit4)" d="m11.5 16 3 3 6-7"/></svg></div><h3 data-i18n="why4_title">Aman Sejak Awal</h3><p data-i18n="why4_copy">Keamanan, privasi, kontrol akses, dan perlindungan data menjadi bagian dari desain sistem.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="container aq-reveal" >
+    <div class="cta">
+      <div>
+        <h2 data-i18n="contact_title">Siap Mengubah Cara Kerja Anda?</h2>
+        <p data-i18n="contact_copy">Ceritakan proses, pekerjaan berulang, atau masalah operasional yang ingin Anda sederhanakan.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:hello@aiqola.com"><span data-i18n="contact_btn">Hubungi Kami</span> →</a>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-main">AI<span>QO</span>LA</div>
+          <div class="brand-sub">AI Automation & Digital Solutions</div>
+        </div>
+        <p style="margin-top:14px" data-i18n="footer_copy">Membantu bisnis dan organisasi membangun sistem digital yang lebih sederhana, otomatis, dan efektif.</p>
+      </div>
+      <div><h4 data-i18n="footer_company">Perusahaan</h4><a href="#tentang" data-i18n="nav_about">Tentang Kami</a><a href="#karya" data-i18n="nav_work">Karya Kami</a><a href="#kontak" data-i18n="nav_contact">Kontak</a></div>
+      <div><h4 data-i18n="footer_services">Layanan</h4><a href="#layanan" data-i18n="service1_title">Otomasi AI</a><a href="#layanan" data-i18n="service2_title">Sistem Digital</a><a href="#layanan" data-i18n="service3_title">Aplikasi Web & Mobile</a></div>
+      <div><h4 data-i18n="footer_contact">Kontak</h4><a href="mailto:hello@aiqola.com">hello@aiqola.com</a><p>Indonesia</p></div>
+    </div>
+    <div class="copyright">© 2026 AIQOLA. <span data-i18n="copyright">Semua hak dilindungi.</span></div>
+  </div>
+</footer>
+
 <script>
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script></body></html>
+const translations = {
+  id: {
+    nav_home:"Beranda",nav_services:"Layanan",nav_work:"Karya Kami",nav_about:"Tentang Kami",nav_insights:"Wawasan",nav_contact:"Kontak",
+    eyebrow:"AI Automation & Digital Solutions",
+    hero_1:"Transformasi Kerja.",hero_2:"Otomatisasi Cerdas.",
+    hero_copy:"AIQOLA membantu bisnis dan organisasi menyederhanakan proses, mengotomatisasi pekerjaan berulang, dan membangun sistem digital yang benar-benar memberikan manfaat dalam operasional sehari-hari.",
+    cta_work:"Lihat Karya Kami",cta_discuss:"Diskusikan Kebutuhan Anda",
+    trust_ai:"Berbasis AI",trust_secure:"Aman & Terpercaya",trust_efficient:"Efisien",trust_measurable:"Terukur",trust_impact:"Berorientasi Dampak",
+    services_kicker:"Layanan Kami",services_title:"Solusi AI untuk Operasional Modern",services_copy:"Teknologi yang dirancang untuk menyederhanakan pekerjaan, bukan menambah kerumitan.",
+    service1_title:"Otomasi AI",service1_copy:"Mengubah pekerjaan manual dan berulang menjadi alur kerja yang lebih otomatis, cepat, dan efisien dengan bantuan Artificial Intelligence.",
+    service2_title:"Sistem Digital",service2_copy:"Membangun sistem operasional terintegrasi yang menyesuaikan proses dan kebutuhan nyata bisnis maupun organisasi.",
+    service3_title:"Aplikasi Web & Mobile",service3_copy:"Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.",
+    service4_title:"Dashboard & Pelaporan",service4_copy:"Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.",
+    work_kicker:"Karya Kami",work_title:"Solusi Nyata. Dampak Nyata.",work_copy:"Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.",
+    company_kicker:"AIQOLA Intelligence • V1 Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"Sistem AI operasional untuk membantu perusahaan survey & mapping mengelola compliance personel, equipment, dokumen teknis, dan knowledge internal secara terintegrasi.",
+    company_chip1:"AI Privat",company_chip2:"Local-First",company_chip3:"Document AI",company_chip4:"Equipment AI",company_status_short:"Pilot sedang dalam pengembangan dan validasi workflow inti.",company_privacy:"Identitas dan data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.",company_explore:"Pelajari AIQOLA Intelligence",
+    company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
+    case_soon:"Studi Kasus Segera",
+    kiwari_copy:"Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.",
+    school_copy:"Sistem digital yang membantu orang tua, guru, dan sekolah memonitor pembiasaan positif siswa secara sederhana dan terstruktur.",
+    case_study:"Lihat Studi Kasus",
+    how_kicker:"Cara Kami Bekerja",how_title:"Dari Tantangan Menjadi Dampak Berkelanjutan",
+    step1_title:"Pahami Masalah",step1_copy:"Kami memahami bagaimana pekerjaan dilakukan hari ini dan masalah apa yang benar-benar perlu diselesaikan.",
+    step2_title:"Rancang Solusi",step2_copy:"Kami merancang sistem yang sesuai dengan proses nyata pengguna dan mudah digunakan.",
+    step3_title:"Otomatisasi",step3_copy:"Kami membangun dan mengintegrasikan software, data, workflow, serta AI secara tepat guna.",
+    step4_title:"Operasikan & Tingkatkan",step4_copy:"Sistem terus dievaluasi dan dikembangkan berdasarkan pengalaman pengguna yang nyata.",
+    why_kicker:"Mengapa AIQOLA",why_title:"Lebih dari Teknologi. Hasil yang Bisa Digunakan.",
+    why1_title:"Solusi untuk Masalah Nyata",why1_copy:"Teknologi dibangun berdasarkan kebutuhan operasional yang benar-benar terjadi.",
+    why2_title:"Sederhana & Mudah Digunakan",why2_copy:"Sistem yang canggih tetap harus mudah dipahami dan digunakan oleh manusia.",
+    why3_title:"AI dengan Nilai Praktis",why3_copy:"AI digunakan ketika benar-benar memberi manfaat: otomatisasi, analisis, dan produktivitas.",
+    why4_title:"Aman Sejak Awal",why4_copy:"Keamanan, privasi, kontrol akses, dan perlindungan data menjadi bagian dari desain sistem.",
+    contact_title:"Siap Mengubah Cara Kerja Anda?",contact_copy:"Ceritakan proses, pekerjaan berulang, atau masalah operasional yang ingin Anda sederhanakan.",contact_btn:"Hubungi Kami",
+    footer_copy:"Membantu bisnis dan organisasi membangun sistem digital yang lebih sederhana, otomatis, dan efektif.",
+    footer_company:"Perusahaan",footer_services:"Layanan",footer_contact:"Kontak",copyright:"Semua hak dilindungi."
+  },
+  en: {
+    nav_home:"Home",nav_services:"Services",nav_work:"Our Work",nav_about:"About Us",nav_insights:"Insights",nav_contact:"Contact",
+    eyebrow:"AI Automation & Digital Solutions",
+    hero_1:"Transform Work.",hero_2:"Automate Intelligently.",
+    hero_copy:"AIQOLA helps businesses and organizations simplify processes, automate repetitive work, and build digital systems that create practical value in daily operations.",
+    cta_work:"Explore Our Work",cta_discuss:"Discuss Your Needs",
+    trust_ai:"AI-Powered",trust_secure:"Secure & Trusted",trust_efficient:"Efficient",trust_measurable:"Measurable",trust_impact:"Impact-Oriented",
+    services_kicker:"Our Services",services_title:"AI Solutions for Modern Operations",services_copy:"Technology designed to simplify work, not add complexity.",
+    service1_title:"AI Automation",service1_copy:"Turn repetitive manual work into faster, more efficient workflows with practical use of Artificial Intelligence.",
+    service2_title:"Digital Systems",service2_copy:"Build integrated operational systems that adapt to real business and organizational processes.",
+    service3_title:"Web & Mobile Apps",service3_copy:"Design modern applications that are simple, fast, responsive, and easy to use across devices.",
+    service4_title:"Dashboards & Reporting",service4_copy:"Turn data into clear information through monitoring, analytics, and structured reporting.",
+    work_kicker:"Our Work",work_title:"Real Solutions. Real Impact.",work_copy:"The best technology is not the most complicated—it is the technology people actually use to solve real problems.",
+    company_kicker:"AIQOLA Intelligence • V1 Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"An operational AI system designed to help a survey & mapping company manage personnel compliance, equipment, technical documents, and internal knowledge in one integrated environment.",
+    company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document AI",company_chip4:"Equipment AI",company_status_short:"Pilot development and core workflow validation are currently in progress.",company_privacy:"Company identity and operational data are withheld to protect confidentiality.",company_explore:"Explore AIQOLA Intelligence",
+    company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
+    case_soon:"Case Study Coming Soon",
+    kiwari_copy:"A digital system for residential security and community operations: SOS, incident reporting, visitor information, guard schedules, notifications, dashboards, and activity auditing.",
+    school_copy:"A digital system that helps parents, teachers, and schools monitor positive student habits in a simple and structured way.",
+    case_study:"View Case Study",
+    how_kicker:"How We Work",how_title:"From Challenge to Sustainable Impact",
+    step1_title:"Understand the Problem",step1_copy:"We understand how work is done today and identify the problems that truly need to be solved.",
+    step2_title:"Design the Solution",step2_copy:"We design systems around real user processes and make them easy to use.",
+    step3_title:"Automate",step3_copy:"We build and integrate software, data, workflows, and AI where they create real value.",
+    step4_title:"Operate & Improve",step4_copy:"Systems are continuously evaluated and improved based on real user experience.",
+    why_kicker:"Why AIQOLA",why_title:"More Than Technology. Usable Results.",
+    why1_title:"Solutions for Real Problems",why1_copy:"Technology is built around real operational needs.",
+    why2_title:"Simple & Easy to Use",why2_copy:"Advanced systems should still be easy for people to understand and use.",
+    why3_title:"AI with Practical Value",why3_copy:"We use AI when it genuinely improves automation, analysis, and productivity.",
+    why4_title:"Secure by Design",why4_copy:"Security, privacy, access control, and data protection are built into the system design.",
+    contact_title:"Ready to Transform the Way You Work?",contact_copy:"Tell us about the repetitive processes or operational challenges you want to simplify.",contact_btn:"Contact Us",
+    footer_copy:"Helping businesses and organizations build digital systems that are simpler, more automated, and more effective.",
+    footer_company:"Company",footer_services:"Services",footer_contact:"Contact",copyright:"All rights reserved."
+  }
+};
+
+let lang = localStorage.getItem("aiqolaLang") || "id";
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.getElementById("langCode").textContent = lang.toUpperCase();
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang][key]) el.textContent = translations[lang][key];
+  });
+  localStorage.setItem("aiqolaLang", lang);
+}
+document.getElementById("langBtn").addEventListener("click", ()=>{
+  lang = lang === "id" ? "en" : "id";
+  applyLang();
+});
+applyLang();
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileSheet = document.getElementById("mobileSheet");
+menuBtn.addEventListener("click", ()=> mobileSheet.classList.toggle("show"));
+mobileSheet.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>mobileSheet.classList.remove("show")));
+
+const canvas = document.getElementById("particles"), ctx = canvas.getContext("2d");
+let W,H,pts=[];
+function resize(){
+  W=canvas.width=innerWidth*devicePixelRatio; H=canvas.height=innerHeight*devicePixelRatio;
+  canvas.style.width=innerWidth+"px"; canvas.style.height=innerHeight+"px";
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  pts = Array.from({length:Math.min(80,Math.floor(innerWidth/18))},()=>({
+    x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+    vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.6+.3
+  }));
+}
+function animate(){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(65,183,255,.55)";ctx.fill();
+  });
+  for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+    const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+    if(d<110){
+      ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+      ctx.strokeStyle=`rgba(71,139,255,${(1-d/110)*.12})`;ctx.stroke();
+    }
+  }
+  requestAnimationFrame(animate);
+}
+addEventListener("resize",resize);resize();animate();
+
+// v1.6.1 lightweight scroll motion
+const aqObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("aq-in");
+      aqObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.08,rootMargin:"0px 0px -30px 0px"});
+document.querySelectorAll(".aq-reveal").forEach(el=>aqObserver.observe(el));
+
+
+// v1.7 polished AI motion layer — lightweight and non-invasive
+(function(){
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce) return;
+
+  const canvas = document.getElementById("aqHeroParticles");
+  if(canvas && canvas.getContext){
+    const hero = canvas.parentElement;
+    const ctx = canvas.getContext("2d");
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let pts = [];
+    let raf = 0;
+
+    function size(){
+      const r = hero.getBoundingClientRect();
+      canvas.width = Math.max(1, Math.floor(r.width*dpr));
+      canvas.height = Math.max(1, Math.floor(r.height*dpr));
+      canvas.style.width = r.width+"px";
+      canvas.style.height = r.height+"px";
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      const count = Math.min(42, Math.max(20, Math.floor(r.width/24)));
+      pts = Array.from({length:count},()=>({
+        x:Math.random()*r.width,
+        y:Math.random()*r.height,
+        vx:(Math.random()-.5)*.12,
+        vy:(Math.random()-.5)*.12,
+        r:.45+Math.random()*1.1
+      }));
+    }
+    function draw(){
+      const r=hero.getBoundingClientRect();
+      ctx.clearRect(0,0,r.width,r.height);
+      for(const p of pts){
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>r.width)p.vx*=-1;
+        if(p.y<0||p.y>r.height)p.vy*=-1;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle="rgba(70,199,255,.50)";ctx.fill();
+      }
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+          const dist=Math.hypot(dx,dy);
+          if(dist<92){
+            ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+            ctx.strokeStyle=`rgba(70,142,255,${(1-dist/92)*.07})`;
+            ctx.stroke();
+          }
+        }
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    size();draw();
+    window.addEventListener("resize",()=>{cancelAnimationFrame(raf);size();draw()},{passive:true});
+  }
+
+  const glow=document.getElementById("aqCursorGlow");
+  if(glow && window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+    window.addEventListener("pointermove",(e)=>{
+      glow.style.left=e.clientX+"px";
+      glow.style.top=e.clientY+"px";
+      glow.style.opacity=".9";
+    },{passive:true});
+    window.addEventListener("pointerleave",()=>glow.style.opacity="0",{passive:true});
+  }
+})();
+
+</script>
+</body>
+</html>
