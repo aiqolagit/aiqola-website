@@ -173,6 +173,125 @@
       .tier-grid{grid-template-columns:1fr}
     }
 
+
+    /* v1.6 animated intelligence */
+    .hero-animated{
+      position:relative;overflow:hidden;
+    }
+    .hero-animated::before{
+      content:"";position:absolute;inset:-20%;
+      background:
+        radial-gradient(circle at 72% 28%,rgba(26,211,255,.08),transparent 18%),
+        radial-gradient(circle at 82% 58%,rgba(133,84,255,.09),transparent 22%);
+      animation:ambientShift 11s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    @keyframes ambientShift{
+      from{transform:translate3d(-1.5%,0,0) scale(1)}
+      to{transform:translate3d(1.5%,-1%,0) scale(1.035)}
+    }
+    .core{
+      animation:coreFloat 5.6s ease-in-out infinite;
+    }
+    @keyframes coreFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+    .core::before{animation:orbitSlow 14s linear infinite}
+    .core::after{animation:orbitReverse 20s linear infinite}
+    @keyframes orbitSlow{to{transform:rotate(360deg)}}
+    @keyframes orbitReverse{to{transform:rotate(-360deg)}}
+    .node{
+      opacity:0;transform:translateY(12px) scale(.96);
+      animation:nodeReveal .7s ease forwards;
+    }
+    .n1{animation-delay:.35s}.n2{animation-delay:.52s}.n3{animation-delay:.69s}.n4{animation-delay:.86s}
+    @keyframes nodeReveal{to{opacity:1;transform:none}}
+    .data-spark{
+      position:absolute;width:5px;height:5px;border-radius:50%;
+      background:#24d8ff;box-shadow:0 0 12px rgba(36,216,255,.9);
+      animation:sparkOrbit 7s linear infinite;
+      transform-origin:50% 50%;
+    }
+    .spark1{left:50%;top:50%;margin:-2px 0 0 -2px;animation-delay:0s}
+    .spark2{left:50%;top:50%;margin:-2px 0 0 -2px;animation-delay:-2.2s}
+    .spark3{left:50%;top:50%;margin:-2px 0 0 -2px;animation-delay:-4.4s}
+    @keyframes sparkOrbit{
+      from{transform:rotate(0deg) translateX(128px) rotate(0deg)}
+      to{transform:rotate(360deg) translateX(128px) rotate(-360deg)}
+    }
+    .scanline{
+      position:absolute;left:10%;right:10%;height:1px;top:18%;
+      background:linear-gradient(90deg,transparent,rgba(60,210,255,.75),transparent);
+      box-shadow:0 0 14px rgba(60,210,255,.4);
+      animation:scan 4.2s ease-in-out infinite;
+      opacity:.7
+    }
+    @keyframes scan{
+      0%,100%{top:20%;opacity:.2}
+      45%{opacity:.8}
+      55%{top:80%;opacity:.8}
+      100%{top:20%;opacity:.2}
+    }
+    .reveal{
+      opacity:0;transform:translateY(18px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+    .reveal.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .reveal,.node{opacity:1!important;transform:none!important}
+    }
+
+    /* capability value cards */
+    .value-line{
+      margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.055);
+      color:#8fdfff;font-size:10px;line-height:1.5;font-weight:600
+    }
+
+    /* roadmap */
+    .roadmap{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px
+    }
+    .roadmap-card{
+      position:relative;padding:24px;border-radius:20px;
+      border:1px solid rgba(105,180,255,.17);
+      background:linear-gradient(180deg,rgba(10,28,55,.90),rgba(5,17,35,.90));
+      overflow:hidden
+    }
+    .roadmap-card.current{
+      border-color:rgba(44,210,255,.36);
+      box-shadow:inset 0 0 40px rgba(30,180,255,.05)
+    }
+    .roadmap-card.future{
+      border-color:rgba(146,91,255,.26);
+      background:
+        radial-gradient(circle at 90% 10%,rgba(137,81,255,.12),transparent 30%),
+        linear-gradient(180deg,rgba(15,25,57,.92),rgba(6,17,37,.90))
+    }
+    .roadmap-label{
+      display:inline-flex;padding:6px 9px;border-radius:999px;
+      font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      border:1px solid rgba(91,189,255,.2);background:rgba(8,27,53,.6);color:#c9eaff
+    }
+    .roadmap-card.current .roadmap-label{
+      border-color:rgba(48,213,255,.34);
+      background:rgba(16,145,196,.16);color:#e5fbff
+    }
+    .roadmap-card.future .roadmap-label{
+      border-color:rgba(151,93,255,.32);
+      background:rgba(91,59,192,.16);color:#e8dcff
+    }
+    .roadmap-card h3{margin:14px 0 8px;font-size:21px}
+    .roadmap-card p{color:#a6b7ca;font-size:12px;line-height:1.65}
+    .roadmap-card ul{padding-left:18px;color:#c4d1df;font-size:12px;line-height:1.8}
+    .roadmap-note{
+      margin-top:18px;padding:14px;border-radius:13px;
+      background:rgba(18,27,59,.35);border:1px solid rgba(92,147,255,.13);
+      color:#95a8bd;font-size:11px;line-height:1.65
+    }
+    @media(max-width:900px){.roadmap{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -184,16 +303,16 @@
 </header>
 
 <main>
-  <section class="container hero">
+  <section class="container hero hero-animated">
     <div>
       <div class="kicker">AIQOLA Intelligence</div>
       <h1><span data-i18n="hero1">AI yang memahami</span><br><span class="grad" data-i18n="hero2">cara perusahaan Anda bekerja.</span></h1>
-      <p class="lead" data-i18n="lead">Bukan sekadar chatbot. AIQOLA Intelligence menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer yang bekerja bersama sistem operasional perusahaan.</p>
+      <p class="lead" data-i18n="lead">Bukan sekadar chatbot. AIQOLA Intelligence dirancang untuk menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer. Saat ini AIQOLA Intelligence V1 sedang dalam pengembangan dan pilot implementation pada perusahaan pertama.</p>
       <div class="chips">
         <span class="chip" data-i18n="chip1">Private AI</span><span class="chip">Local-First</span><span class="chip">Human-Verified</span><span class="chip">Domain-Aware</span>
       </div>
     </div>
-    <div class="visual">
+    <div class="visual"><div class="scanline"></div><span class="data-spark spark1"></span><span class="data-spark spark2"></span><span class="data-spark spark3"></span>
       <div class="core">
         <svg viewBox="0 0 64 64"><defs><linearGradient id="g" x1="8" y1="8" x2="56" y2="56"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path d="M24 13a10 10 0 0 0-10 10c0 2 .6 4 1.7 5.7A10 10 0 0 0 20 47h24a10 10 0 0 0 4.5-18.9A11 11 0 0 0 28 13h-4Z" fill="none" stroke="url(#g)" stroke-width="2.5"/><path d="M24 24l8 8 8-10M24 40l8-8 8 8" fill="none" stroke="url(#g)" stroke-width="2.2"/><circle cx="24" cy="24" r="2" fill="#19D8FF"/><circle cx="40" cy="22" r="2" fill="#985DFF"/></svg>
       </div>
@@ -208,15 +327,15 @@
     <div class="shell">
       <div class="head"><div class="kicker" data-i18n="cap_kicker">Kapabilitas Utama</div><h2 data-i18n="cap_title">Satu Intelligence Layer untuk Operasional Perusahaan</h2><p class="muted" data-i18n="cap_copy">Dirancang untuk mengubah data perusahaan menjadi sistem yang lebih mudah dicari, dipahami, dan digunakan.</p></div>
       <div class="grid">
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c1" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c1)" d="M16 5 25 9v7c0 6-3.8 10-9 12.5C10.8 26 7 22 7 16V9l9-4Z"/><path class="s" style="stroke:url(#c1)" d="M12 16h8M14 13h4M14 19h4"/></svg></div><h3>Private AI & Local-First</h3><p>AI dapat dijalankan di lingkungan perusahaan untuk menjaga kontrol data, privasi, dan fleksibilitas operasional.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c2" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c2)" d="M8 5h11l5 5v17H8z"/><path class="s" style="stroke:url(#c2)" d="M19 5v6h5M11 15h10M11 19h8M11 23h6"/></svg></div><h3>Document Intelligence</h3><p>Membantu membaca, mengklasifikasikan, dan mengekstrak informasi penting dari dokumen operasional secara lebih cepat.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c3" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><rect class="s" style="stroke:url(#c3)" x="6" y="8" width="20" height="16" rx="3"/><path class="s" style="stroke:url(#c3)" d="M10 12h5M10 16h8M10 20h4M22 12v8M20 16h4"/></svg></div><h3>Equipment Intelligence</h3><p>Membantu mengenali equipment, memahami fungsi dan kategorinya, lalu mencocokkannya dengan database internal.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c4" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c4)" cx="12" cy="11" r="4"/><path class="s" style="stroke:url(#c4)" d="M5 25c0-4 3-7 7-7s7 3 7 7M23 10v8M19 14h8"/></svg></div><h3>People & Compliance Intelligence</h3><p>Membantu membaca data personel, sertifikat, training, MCU, masa berlaku, dan mendeteksi kemungkinan data duplikat.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c5" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c5)" d="M8 8h7a4 4 0 0 1 4 4v12h-7a4 4 0 0 0-4 4V8Z"/><path class="s" style="stroke:url(#c5)" d="M24 8h-5a4 4 0 0 0-4 4v12h5a4 4 0 0 1 4 4V8Z"/></svg></div><h3>Company Knowledge AI</h3><p>Menghubungkan dokumen dan pengetahuan internal agar pengguna dapat bertanya dengan bahasa natural berdasarkan hak akses.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c6" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c6)" cx="14" cy="14" r="7"/><path class="s" style="stroke:url(#c6)" d="m19.5 19.5 6 6M11 14h6M14 11v6"/></svg></div><h3>AI Search</h3><p>Mencari informasi berdasarkan konteks, bukan hanya kata yang sama persis, serta lebih toleran terhadap salah ketik.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c7" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c7)" cx="16" cy="16" r="10"/><path class="s" style="stroke:url(#c7)" d="m11 16 3 3 7-7M16 4v3M28 16h-3M16 28v-3M4 16h3"/></svg></div><h3>Human-Verified AI</h3><p>AI membantu menganalisis dan memberi rekomendasi, sementara keputusan serta perubahan data resmi tetap dikontrol manusia.</p></article>
-        <article class="card"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c8" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c8)" cx="16" cy="16" r="10"/><path class="s" style="stroke:url(#c8)" d="M6 16h20M16 6c3 3 5 6 5 10s-2 7-5 10c-3-3-5-6-5-10s2-7 5-10Z"/></svg></div><h3>Domain-Aware Intelligence</h3><p>Knowledge AI dapat dikustomisasi sesuai bidang usaha. Pilot pertama difokuskan pada survey & mapping dan equipment terkait.</p></article>
-        <article class="card max"><div class="maxline"><span class="badge">MAX</span><span>Premium Capability</span></div><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c9" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c9)" d="M12 8a4 4 0 0 1 8 0v8a4 4 0 0 1-8 0V8Z"/><path class="s" style="stroke:url(#c9)" d="M8 15a8 8 0 0 0 16 0M16 23v5M12 28h8"/></svg></div><h3>Voice Intelligence — Max</h3><p>Pada AIQOLA Intelligence Max, interaksi suara dan TTS menjadi bagian dari capability premium untuk pengalaman kerja yang lebih natural.</p></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c1" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c1)" d="M16 5 25 9v7c0 6-3.8 10-9 12.5C10.8 26 7 22 7 16V9l9-4Z"/><path class="s" style="stroke:url(#c1)" d="M12 16h8M14 13h4M14 19h4"/></svg></div><h3>Private AI & Local-First</h3><p>AI dapat dijalankan di lingkungan perusahaan untuk menjaga kontrol data, privasi, dan fleksibilitas operasional.</p><div class="value-line">Nilai bisnis: kontrol data lebih kuat dan ketergantungan cloud lebih rendah.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c2" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c2)" d="M8 5h11l5 5v17H8z"/><path class="s" style="stroke:url(#c2)" d="M19 5v6h5M11 15h10M11 19h8M11 23h6"/></svg></div><h3>Document Intelligence</h3><p>Membantu membaca, mengklasifikasikan, dan mengekstrak informasi penting dari dokumen operasional secara lebih cepat.</p><div class="value-line">Nilai bisnis: kurangi waktu membaca, memilah, dan input dokumen secara manual.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c3" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><rect class="s" style="stroke:url(#c3)" x="6" y="8" width="20" height="16" rx="3"/><path class="s" style="stroke:url(#c3)" d="M10 12h5M10 16h8M10 20h4M22 12v8M20 16h4"/></svg></div><h3>Equipment Intelligence</h3><p>Membantu mengenali equipment, memahami fungsi dan kategorinya, lalu mencocokkannya dengan database internal.</p><div class="value-line">Nilai bisnis: identifikasi equipment lebih cepat dan database lebih konsisten.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c4" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c4)" cx="12" cy="11" r="4"/><path class="s" style="stroke:url(#c4)" d="M5 25c0-4 3-7 7-7s7 3 7 7M23 10v8M19 14h8"/></svg></div><h3>People & Compliance Intelligence</h3><p>Membantu membaca data personel, sertifikat, training, MCU, masa berlaku, dan mendeteksi kemungkinan data duplikat.</p><div class="value-line">Nilai bisnis: compliance lebih mudah dipantau dan risiko expiry terlewat berkurang.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c5" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c5)" d="M8 8h7a4 4 0 0 1 4 4v12h-7a4 4 0 0 0-4 4V8Z"/><path class="s" style="stroke:url(#c5)" d="M24 8h-5a4 4 0 0 0-4 4v12h5a4 4 0 0 1 4 4V8Z"/></svg></div><h3>Company Knowledge AI</h3><p>Menghubungkan dokumen dan pengetahuan internal agar pengguna dapat bertanya dengan bahasa natural berdasarkan hak akses.</p><div class="value-line">Nilai bisnis: knowledge perusahaan lebih mudah ditemukan tanpa mencari folder satu per satu.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c6" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c6)" cx="14" cy="14" r="7"/><path class="s" style="stroke:url(#c6)" d="m19.5 19.5 6 6M11 14h6M14 11v6"/></svg></div><h3>AI Search</h3><p>Mencari informasi berdasarkan konteks, bukan hanya kata yang sama persis, serta lebih toleran terhadap salah ketik.</p><div class="value-line">Nilai bisnis: pencarian lebih cepat meski user salah ketik atau tidak tahu nama file persis.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c7" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c7)" cx="16" cy="16" r="10"/><path class="s" style="stroke:url(#c7)" d="m11 16 3 3 7-7M16 4v3M28 16h-3M16 28v-3M4 16h3"/></svg></div><h3>Human-Verified AI</h3><p>AI membantu menganalisis dan memberi rekomendasi, sementara keputusan serta perubahan data resmi tetap dikontrol manusia.</p><div class="value-line">Nilai bisnis: AI membantu mempercepat kerja tanpa mengambil alih keputusan resmi.</div></article>
+        <article class="card reveal"><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c8" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><circle class="s" style="stroke:url(#c8)" cx="16" cy="16" r="10"/><path class="s" style="stroke:url(#c8)" d="M6 16h20M16 6c3 3 5 6 5 10s-2 7-5 10c-3-3-5-6-5-10s2-7 5-10Z"/></svg></div><h3>Domain-Aware Intelligence</h3><p>Knowledge AI dapat dikustomisasi sesuai bidang usaha. Pilot pertama difokuskan pada survey & mapping dan equipment terkait.</p><div class="value-line">Nilai bisnis: AI lebih relevan karena memahami konteks industri perusahaan.</div></article>
+        <article class="card max reveal"><div class="maxline"><span class="badge">MAX</span><span>Premium Capability</span></div><div class="ai-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="c9" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path class="s" style="stroke:url(#c9)" d="M12 8a4 4 0 0 1 8 0v8a4 4 0 0 1-8 0V8Z"/><path class="s" style="stroke:url(#c9)" d="M8 15a8 8 0 0 0 16 0M16 23v5M12 28h8"/></svg></div><h3>Voice Intelligence — Max</h3><p>Pada AIQOLA Intelligence Max, interaksi suara dan TTS menjadi bagian dari capability premium untuk pengalaman kerja yang lebih natural.</p><div class="value-line">Nilai bisnis: interaksi hands-free dan pengalaman kerja lebih natural untuk profile Max.</div></article>
       </div></div>
     </div>
   </section>
@@ -230,7 +349,7 @@
       </div>
 
       <div class="tier-grid">
-        <article class="product-tier">
+        <article class="product-tier reveal">
           <span class="tier-label" data-i18n="core_label">Essential Private Intelligence</span>
           <h3>AIQOLA Intelligence Core</h3>
           <div class="tier-subtitle" data-i18n="core_sub">Fondasi AI privat untuk operasional digital</div>
@@ -245,7 +364,7 @@
           <div class="tier-foot" data-i18n="core_foot">Efisien untuk hardware yang lebih ringan dan kebutuhan operasional dasar.</div>
         </article>
 
-        <article class="product-tier recommended">
+        <article class="product-tier recommended reveal">
           <span class="tier-label recommended" data-i18n="adv_label">Recommended</span>
           <h3>AIQOLA Intelligence Advanced</h3>
           <div class="tier-subtitle" data-i18n="adv_sub">Advanced Operational Intelligence</div>
@@ -260,7 +379,7 @@
           <div class="tier-foot" data-i18n="adv_foot">Sweet spot untuk sebagian besar implementasi bisnis AIQOLA.</div>
         </article>
 
-        <article class="product-tier max">
+        <article class="product-tier max reveal">
           <span class="tier-label max" data-i18n="max_label">Premium • Controlled</span>
           <h3>AIQOLA Intelligence Max</h3>
           <div class="tier-subtitle" data-i18n="max_sub">Ultimate Local AI Intelligence</div>
@@ -280,6 +399,63 @@
     </div>
   </section>
 
+
+  <section class="container section">
+    <div class="shell reveal">
+      <div class="head">
+        <div class="kicker">AIQOLA Intelligence Roadmap</div>
+        <h2>AIQOLA Intelligence Sedang Dikembangkan Bertahap</h2>
+        <p class="muted">Saat ini fokus utama berada pada <strong>AIQOLA Intelligence V1</strong> yang sedang dipilotkan dan diimplementasikan pada perusahaan pertama. Modul berikutnya akan dikembangkan setelah workflow inti V1 stabil dan tervalidasi.</p>
+      </div>
+
+      <div class="roadmap">
+        <article class="roadmap-card current reveal">
+          <span class="roadmap-label">Current • In Development</span>
+          <h3>AIQOLA Intelligence V1</h3>
+          <p>Versi inti yang sedang dikembangkan, diuji, dan diimplementasikan dalam pilot perusahaan nyata.</p>
+          <ul>
+            <li>People & Compliance</li>
+            <li>Equipment Database & Intelligence</li>
+            <li>Document Intelligence</li>
+            <li>Company Knowledge AI</li>
+            <li>AI Search & human verification</li>
+            <li>Private / local-first architecture</li>
+          </ul>
+        </article>
+
+        <article class="roadmap-card reveal">
+          <span class="roadmap-label">Next Development</span>
+          <h3>AIQOLA Intelligence V2</h3>
+          <p>Ekspansi operasional setelah V1 stabil, untuk memperluas AIQOLA dari database intelligence menjadi company operations intelligence yang lebih lengkap.</p>
+          <ul>
+            <li>Tender & Project Documents</li>
+            <li>HSE, SOP, ERP & tender knowledge</li>
+            <li>Project document workflows</li>
+            <li>Pra-final & final report intelligence</li>
+            <li>Cross-module operational knowledge</li>
+          </ul>
+        </article>
+
+        <article class="roadmap-card future reveal">
+          <span class="roadmap-label">Future Modules</span>
+          <h3>Advanced Company Modules</h3>
+          <p>Future modules akan memperluas AIQOLA ke area enterprise yang lebih advanced tanpa mengganggu fondasi V1 yang sedang dipilotkan.</p>
+          <ul>
+            <li>HR Operations</li>
+            <li>Payroll & employee administration</li>
+            <li>Consumables & supporting assets</li>
+            <li>Advanced analytics & automation</li>
+            <li>Additional company-specific modules</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="roadmap-note">
+        <strong>Status saat ini:</strong> AIQOLA Intelligence V1 masih dalam tahap pengembangan dan pilot implementation. Fitur V2 dan Future Modules merupakan roadmap dan belum dianggap sebagai capability production sampai development, testing, dan validasi selesai.
+      </div>
+    </div>
+  </section>
+
 <section class="container">
     <div class="cta">
       <div><h2 data-i18n="cta_title">Punya proses bisnis yang masih manual?</h2><p class="muted" data-i18n="cta_copy">AIQOLA dapat membantu memetakan bagian mana yang layak didigitalisasi atau diotomatisasi.</p></div>
@@ -296,7 +472,7 @@ id:{
 back:"Beranda",
 hero1:"AI yang memahami",
 hero2:"cara perusahaan Anda bekerja.",
-lead:"Bukan sekadar chatbot. AIQOLA Intelligence menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer yang bekerja bersama sistem operasional perusahaan.",
+lead:"Bukan sekadar chatbot. AIQOLA Intelligence dirancang untuk menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer. Saat ini AIQOLA Intelligence V1 sedang dalam pengembangan dan pilot implementation pada perusahaan pertama.",
 chip1:"AI Privat",
 profiles_title:"Pilih Tingkat Intelligence yang Sesuai dengan Operasional Anda",
 profiles_copy:"Setiap perusahaan memiliki kebutuhan dan kemampuan hardware yang berbeda. AIQOLA Intelligence tersedia dalam tiga profile yang dapat disesuaikan dengan skala operasional dan tingkat intelligence yang dibutuhkan.",
@@ -367,6 +543,17 @@ function apply(){
 }
 document.getElementById("langBtn").onclick=()=>{lang=lang==="id"?"en":"id";apply()};
 apply();
+
+const revealObserver=new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("in");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+
 </script>
 </body>
 </html>

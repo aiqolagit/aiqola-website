@@ -1,4 +1,4 @@
-<!-- AIQOLA Website v1.5 — Intelligence Product Tiers -->
+<!-- AIQOLA Website v1.6 — Animated Intelligence & Product Roadmap -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -427,6 +427,67 @@
       .pilot-node.n3{left:4%;bottom:8%}.pilot-node.n4{right:4%;bottom:8%}
     }
 
+
+/* v1.6.1 — Homepage Live Motion */
+@keyframes aqAmbient {
+  0%{transform:translate3d(-1%,0,0) scale(1)}
+  100%{transform:translate3d(1.5%,-1%,0) scale(1.035)}
+}
+@keyframes aqFloat {
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+@keyframes aqPulse {
+  0%,100%{opacity:.45;filter:drop-shadow(0 0 4px rgba(32,211,255,.28))}
+  50%{opacity:1;filter:drop-shadow(0 0 10px rgba(32,211,255,.65))}
+}
+@keyframes aqSweep {
+  0%{transform:translateX(-120%);opacity:0}
+  15%{opacity:.55}
+  75%{opacity:.25}
+  100%{transform:translateX(220%);opacity:0}
+}
+@keyframes aqOrbit {
+  to{transform:rotate(360deg)}
+}
+body::before{
+  content:"";position:fixed;inset:-15%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 72% 18%,rgba(26,211,255,.055),transparent 20%),
+    radial-gradient(circle at 25% 68%,rgba(126,79,255,.045),transparent 24%);
+  animation:aqAmbient 14s ease-in-out infinite alternate;
+}
+.hero{position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;top:0;bottom:0;width:26%;
+  background:linear-gradient(90deg,transparent,rgba(80,218,255,.045),transparent);
+  pointer-events:none;animation:aqSweep 7.5s ease-in-out infinite;
+}
+.hero-visual,.brain,.ai-core,.orbital,.hero-art{
+  animation:aqFloat 6s ease-in-out infinite;
+}
+.icon,.service-icon,.value-icon,.feature-icon{
+  animation:aqPulse 4.8s ease-in-out infinite;
+}
+.card,.service-card,.value-card,.work-card,.case-card{
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.card:hover,.service-card:hover,.value-card:hover,.work-card:hover,.case-card:hover{
+  transform:translateY(-3px);
+}
+.aq-reveal{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.aq-reveal.aq-in{opacity:1;transform:none}
+@media(max-width:700px){
+  .card:hover,.service-card:hover,.value-card:hover,.work-card:hover,.case-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .aq-reveal{opacity:1!important;transform:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -466,7 +527,7 @@
 </header>
 
 <main>
-  <section id="beranda" class="container hero">
+  <section id="beranda" class="container hero aq-reveal" >
     <div>
       <div class="eyebrow" data-i18n="eyebrow">AI Automation & Digital Solutions</div>
       <h1>
@@ -521,7 +582,7 @@
     </div>
   </section>
 
-  <section id="layanan" class="container">
+  <section id="layanan" class="container aq-reveal" >
     <div class="section-shell">
       <div class="section-head">
         <div class="kicker" data-i18n="services_kicker">Layanan Kami</div>
@@ -621,7 +682,7 @@
     </div>
   </section>
 
-  <section id="karya" class="container">
+  <section id="karya" class="container aq-reveal" >
     <div class="section-shell">
       <div class="section-head">
         <div class="kicker" data-i18n="work_kicker">Karya Kami</div>
@@ -632,7 +693,7 @@
       <div class="portfolio">
         <article class="project featured">
           <div>
-            <div class="company-kicker" data-i18n="company_kicker">AIQOLA Intelligence • Pilot</div>
+            <div class="company-kicker" data-i18n="company_kicker">AIQOLA Intelligence • V1 Pilot</div>
             <h3>
               <span class="company-title-main" data-i18n="company_title_main">AIQOLA Intelligence</span>
               <span class="company-title-sub" data-i18n="company_title_sub">Company Operations System</span>
@@ -713,7 +774,7 @@
     </div>
   </section>
 
-  <section class="container" id="tentang">
+  <section class="container aq-reveal" id="tentang" >
     <div class="section-shell">
       <div class="section-head">
         <div class="kicker" data-i18n="how_kicker">Cara Kami Bekerja</div>
@@ -728,7 +789,7 @@
     </div>
   </section>
 
-  <section class="container" id="wawasan">
+  <section class="container aq-reveal" id="wawasan" >
     <div class="section-shell">
       <div class="section-head">
         <div class="kicker" data-i18n="why_kicker">Mengapa AIQOLA</div>
@@ -743,7 +804,7 @@
     </div>
   </section>
 
-  <section id="kontak" class="container">
+  <section id="kontak" class="container aq-reveal" >
     <div class="cta">
       <div>
         <h2 data-i18n="contact_title">Siap Mengubah Cara Kerja Anda?</h2>
@@ -787,7 +848,7 @@ const translations = {
     service3_title:"Aplikasi Web & Mobile",service3_copy:"Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.",
     service4_title:"Dashboard & Pelaporan",service4_copy:"Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.",
     work_kicker:"Karya Kami",work_title:"Solusi Nyata. Dampak Nyata.",work_copy:"Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.",
-    company_kicker:"AIQOLA Intelligence • Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"Sistem AI operasional untuk membantu perusahaan survey & mapping mengelola compliance personel, equipment, dokumen teknis, dan knowledge internal secara terintegrasi.",
+    company_kicker:"AIQOLA Intelligence • V1 Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"Sistem AI operasional untuk membantu perusahaan survey & mapping mengelola compliance personel, equipment, dokumen teknis, dan knowledge internal secara terintegrasi.",
     company_chip1:"AI Privat",company_chip2:"Local-First",company_chip3:"Document AI",company_chip4:"Equipment AI",company_status_short:"Pilot sedang dalam pengembangan dan validasi workflow inti.",company_privacy:"Identitas dan data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.",company_explore:"Pelajari AIQOLA Intelligence",
     company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
     case_soon:"Studi Kasus Segera",
@@ -821,7 +882,7 @@ const translations = {
     service3_title:"Web & Mobile Apps",service3_copy:"Design modern applications that are simple, fast, responsive, and easy to use across devices.",
     service4_title:"Dashboards & Reporting",service4_copy:"Turn data into clear information through monitoring, analytics, and structured reporting.",
     work_kicker:"Our Work",work_title:"Real Solutions. Real Impact.",work_copy:"The best technology is not the most complicated—it is the technology people actually use to solve real problems.",
-    company_kicker:"AIQOLA Intelligence • Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"An operational AI system designed to help a survey & mapping company manage personnel compliance, equipment, technical documents, and internal knowledge in one integrated environment.",
+    company_kicker:"AIQOLA Intelligence • V1 Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"An operational AI system designed to help a survey & mapping company manage personnel compliance, equipment, technical documents, and internal knowledge in one integrated environment.",
     company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document AI",company_chip4:"Equipment AI",company_status_short:"Pilot development and core workflow validation are currently in progress.",company_privacy:"Company identity and operational data are withheld to protect confidentiality.",company_explore:"Explore AIQOLA Intelligence",
     company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
     case_soon:"Case Study Coming Soon",
@@ -894,6 +955,18 @@ function animate(){
   requestAnimationFrame(animate);
 }
 addEventListener("resize",resize);resize();animate();
+
+// v1.6.1 lightweight scroll motion
+const aqObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("aq-in");
+      aqObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.08,rootMargin:"0px 0px -30px 0px"});
+document.querySelectorAll(".aq-reveal").forEach(el=>aqObserver.observe(el));
+
 </script>
 </body>
 </html>
