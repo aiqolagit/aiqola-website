@@ -1,16 +1,17 @@
-AIQOLA Homepage Prototype v1.3
-Company Operations AI Pilot Case Study
+AIQOLA Homepage v1.3.1
+Company Operations Case Study — Final Polish
 
-Perubahan dari v1.2:
-- Baseline visual v1.2 dipertahankan.
-- Menambahkan featured portfolio: AIQOLA Intelligence — Company Operations System.
-- Status ditampilkan jujur sebagai Pilot Project / In Development.
-- Menonjolkan Private AI, Local-First, Document Intelligence, dan Equipment Intelligence.
-- Tidak menampilkan identitas Company #1 atau data operasional sensitif.
-- Visual case study dibuat native CSS/SVG agar tetap ringan.
-- Toggle Bahasa Indonesia / English tetap didukung.
-- Case study Kiwari dan Pembiasaan Siswa tetap ditandai sebagai segera hadir sampai produk selesai dan teruji.
+Final polish:
+- Baseline v1.2 tetap dipertahankan.
+- Judul Company case study lebih rapi di mobile.
+- Copy dipadatkan agar lebih cepat dibaca.
+- Status pilot dibuat compact dengan pulse indicator.
+- Privacy/confidentiality dipisahkan sebagai catatan subtil.
+- Terminologi chip diperhalus: AI Privat, Local-First, Document AI, Equipment AI.
+- Visual AI dipadatkan di mobile agar tidak terlalu panjang.
+- Indonesian default + English toggle tetap aktif.
+- Tidak menampilkan identitas/data sensitif Company #1.
 
 Deployment:
-Upload index.html dan README.txt ke repository GitHub aiqola-website lalu Commit changes.
-Vercel yang sudah terhubung akan deploy otomatis.
+Upload index.html + README.txt ke GitHub repository aiqola-website dan Commit.
+Vercel akan deploy otomatis.

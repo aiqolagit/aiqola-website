@@ -1,4 +1,4 @@
-<!-- AIQOLA Homepage v1.3 — Company Operations AI Pilot Case Study -->
+<!-- AIQOLA Homepage v1.3.1 — Company Operations Case Study Final Polish -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -371,6 +371,62 @@
       .pilot-node strong{font-size:10px}
     }
 
+
+    .company-kicker{
+      display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;
+      color:#73dcff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase
+    }
+    .company-kicker::before{content:"";width:24px;height:1px;background:linear-gradient(90deg,#19d8ff,#8b5cff)}
+    .company-title-main{display:block}
+    .company-title-sub{
+      display:block;margin-top:5px;font-size:.70em;font-weight:600;letter-spacing:-.02em;
+      color:#c9d9eb
+    }
+    .company-status{
+      display:flex;align-items:center;gap:9px;margin-top:17px;padding:10px 12px;
+      border-radius:12px;border:1px solid rgba(123,92,255,.20);
+      background:linear-gradient(90deg,rgba(30,31,75,.45),rgba(8,28,53,.42));
+      color:#b9c8db;font-size:11px;line-height:1.45
+    }
+    .company-status .pulse{
+      flex:0 0 auto;width:8px;height:8px;border-radius:50%;
+      background:#31d8ff;box-shadow:0 0 0 0 rgba(49,216,255,.45);
+      animation:pilotPulse 2s infinite
+    }
+    @keyframes pilotPulse{
+      0%{box-shadow:0 0 0 0 rgba(49,216,255,.38)}
+      70%{box-shadow:0 0 0 7px rgba(49,216,255,0)}
+      100%{box-shadow:0 0 0 0 rgba(49,216,255,0)}
+    }
+    .privacy-note{
+      margin-top:9px;color:#8195ad;font-size:10px;line-height:1.5
+    }
+    .pilot-center-label{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      margin-top:54px;font-size:9px;letter-spacing:.17em;color:#74cfff;text-transform:uppercase;
+      white-space:nowrap
+    }
+    .pilot-node{
+      backdrop-filter:blur(8px);
+    }
+    @media(max-width:640px){
+      .project.featured{padding:20px}
+      .project.featured h3{font-size:27px;line-height:1.08;margin-top:10px}
+      .company-title-sub{font-size:.66em;margin-top:7px}
+      .project.featured p{font-size:13.5px;line-height:1.65}
+      .status-row{gap:7px;margin-top:12px}
+      .status-chip{padding:6px 9px;font-size:9.5px}
+      .pilot-visual{min-height:245px;margin-top:4px}
+      .pilot-orbit.o1{width:150px;height:150px}
+      .pilot-orbit.o2{width:205px;height:205px}
+      .pilot-core{width:94px;height:94px}
+      .pilot-core svg{width:48px;height:48px}
+      .pilot-center-label{margin-top:46px;font-size:8px}
+      .pilot-node{padding:7px 8px}
+      .pilot-node.n1{left:4%;top:9%}.pilot-node.n2{right:4%;top:11%}
+      .pilot-node.n3{left:4%;bottom:8%}.pilot-node.n4{right:4%;bottom:8%}
+    }
+
 </style>
 </head>
 <body>
@@ -576,16 +632,23 @@
       <div class="portfolio">
         <article class="project featured">
           <div>
-            <span class="tag" data-i18n="company_tag">Pilot Project • In Development</span>
-            <h3 data-i18n="company_title">AIQOLA Intelligence — Company Operations System</h3>
-            <p data-i18n="company_copy">Sistem operasional berbasis AI yang dirancang untuk membantu perusahaan survey &amp; mapping mengelola people compliance, equipment, dokumen teknis, dan pengetahuan internal dalam satu lingkungan yang aman dan terintegrasi.</p>
+            <div class="company-kicker" data-i18n="company_kicker">AIQOLA Intelligence • Pilot</div>
+            <h3>
+              <span class="company-title-main" data-i18n="company_title_main">AIQOLA Intelligence</span>
+              <span class="company-title-sub" data-i18n="company_title_sub">Company Operations System</span>
+            </h3>
+            <p data-i18n="company_copy">Sistem AI operasional untuk membantu perusahaan survey &amp; mapping mengelola compliance personel, equipment, dokumen teknis, dan knowledge internal secara terintegrasi.</p>
             <div class="status-row">
-              <span class="status-chip" data-i18n="company_chip1">Private AI</span>
+              <span class="status-chip" data-i18n="company_chip1">AI Privat</span>
               <span class="status-chip" data-i18n="company_chip2">Local-First</span>
-              <span class="status-chip" data-i18n="company_chip3">Document Intelligence</span>
-              <span class="status-chip" data-i18n="company_chip4">Equipment Intelligence</span>
+              <span class="status-chip" data-i18n="company_chip3">Document AI</span>
+              <span class="status-chip" data-i18n="company_chip4">Equipment AI</span>
             </div>
-            <div class="dev-note" data-i18n="company_status">Status saat ini: pengembangan pilot. Arsitektur dan workflow inti sedang dibangun dan divalidasi. Identitas serta data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.</div>
+            <div class="company-status">
+              <span class="pulse"></span>
+              <span data-i18n="company_status_short">Pilot sedang dalam pengembangan dan validasi workflow inti.</span>
+            </div>
+            <div class="privacy-note" data-i18n="company_privacy">Identitas dan data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.</div>
           </div>
           <div class="pilot-visual" aria-label="AIQOLA Intelligence concept visualization">
             <div class="pilot-orbit o2"></div><div class="pilot-orbit o1"></div>
@@ -597,6 +660,7 @@
                 <circle cx="24" cy="24" r="2" fill="#19D8FF"/><circle cx="40" cy="22" r="2" fill="#8D65FF"/><circle cx="24" cy="40" r="2" fill="#4A9BFF"/><circle cx="40" cy="40" r="2" fill="#A35CFF"/>
               </svg>
             </div>
+            <div class="pilot-center-label">AIQOLA Intelligence</div>
             <div class="pilot-node n1"><strong data-i18n="company_node1a">People</strong><span data-i18n="company_node1b">Compliance</span></div>
             <div class="pilot-node n2"><strong data-i18n="company_node2a">Equipment</strong><span data-i18n="company_node2b">Intelligence</span></div>
             <div class="pilot-node n3"><strong data-i18n="company_node3a">Documents</strong><span data-i18n="company_node3b">AI Classification</span></div>
@@ -718,11 +782,8 @@ const translations = {
     service3_title:"Aplikasi Web & Mobile",service3_copy:"Merancang aplikasi modern yang sederhana, cepat, responsif, dan mudah digunakan pada berbagai perangkat.",
     service4_title:"Dashboard & Pelaporan",service4_copy:"Mengubah data menjadi informasi yang mudah dipahami melalui monitoring, analisis, dan laporan terstruktur.",
     work_kicker:"Karya Kami",work_title:"Solusi Nyata. Dampak Nyata.",work_copy:"Teknologi terbaik bukan yang terlihat paling rumit, tetapi yang benar-benar digunakan dan menyelesaikan masalah.",
-    company_tag:"Pilot Project • Dalam Pengembangan",
-    company_title:"AIQOLA Intelligence — Company Operations System",
-    company_copy:"Sistem operasional berbasis AI yang dirancang untuk membantu perusahaan survey & mapping mengelola people compliance, equipment, dokumen teknis, dan pengetahuan internal dalam satu lingkungan yang aman dan terintegrasi.",
-    company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document Intelligence",company_chip4:"Equipment Intelligence",
-    company_status:"Status saat ini: pengembangan pilot. Arsitektur dan workflow inti sedang dibangun dan divalidasi. Identitas serta data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.",
+    company_kicker:"AIQOLA Intelligence • Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"Sistem AI operasional untuk membantu perusahaan survey & mapping mengelola compliance personel, equipment, dokumen teknis, dan knowledge internal secara terintegrasi.",
+    company_chip1:"AI Privat",company_chip2:"Local-First",company_chip3:"Document AI",company_chip4:"Equipment AI",company_status_short:"Pilot sedang dalam pengembangan dan validasi workflow inti.",company_privacy:"Identitas dan data perusahaan tidak ditampilkan untuk menjaga kerahasiaan.",
     company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
     case_soon:"Studi Kasus Segera",
     kiwari_copy:"Sistem digital untuk membantu pengelolaan keamanan dan operasional lingkungan perumahan: SOS, laporan kejadian, tamu, jadwal jaga, notifikasi, dashboard, dan audit aktivitas.",
@@ -755,11 +816,8 @@ const translations = {
     service3_title:"Web & Mobile Apps",service3_copy:"Design modern applications that are simple, fast, responsive, and easy to use across devices.",
     service4_title:"Dashboards & Reporting",service4_copy:"Turn data into clear information through monitoring, analytics, and structured reporting.",
     work_kicker:"Our Work",work_title:"Real Solutions. Real Impact.",work_copy:"The best technology is not the most complicated—it is the technology people actually use to solve real problems.",
-    company_tag:"Pilot Project • In Development",
-    company_title:"AIQOLA Intelligence — Company Operations System",
-    company_copy:"An AI-powered operational system designed for a survey & mapping company to manage people compliance, equipment, technical documents, and internal knowledge in one secure, integrated environment.",
-    company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document Intelligence",company_chip4:"Equipment Intelligence",
-    company_status:"Current status: pilot development. Core architecture and workflows are being built and validated. Company identity and operational data are withheld to protect confidentiality.",
+    company_kicker:"AIQOLA Intelligence • Pilot",company_title_main:"AIQOLA Intelligence",company_title_sub:"Company Operations System",company_copy:"An operational AI system designed to help a survey & mapping company manage personnel compliance, equipment, technical documents, and internal knowledge in one integrated environment.",
+    company_chip1:"Private AI",company_chip2:"Local-First",company_chip3:"Document AI",company_chip4:"Equipment AI",company_status_short:"Pilot development and core workflow validation are currently in progress.",company_privacy:"Company identity and operational data are withheld to protect confidentiality.",
     company_node1a:"People",company_node1b:"Compliance",company_node2a:"Equipment",company_node2b:"Intelligence",company_node3a:"Documents",company_node3b:"AI Classification",company_node4a:"Knowledge",company_node4b:"Private AI",
     case_soon:"Case Study Coming Soon",
     kiwari_copy:"A digital system for residential security and community operations: SOS, incident reporting, visitor information, guard schedules, notifications, dashboards, and activity auditing.",
