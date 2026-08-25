@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/aiqola-intelligence",
+      "destination": "/aiqola-intelligence.html"
+    }
+  ]
+}

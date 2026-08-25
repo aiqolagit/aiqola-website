@@ -1,25 +1,24 @@
-AIQOLA Website v1.8 — Revisions #1–#8
+AIQOLA Website v1.8.1 — Clean URL Hotfix
 
-Baseline:
-- Preserves the approved v1.7 polished / v1.6.1 visual structure.
-- No broad redesign.
+Why:
+The previous /aiqola-intelligence/ route depended on a nested folder:
+aiqola-intelligence/index.html.
+When uploading from mobile GitHub, that folder structure may not be created,
+causing Vercel 404 NOT_FOUND.
 
-Implemented revisions:
-1. Desktop header/navigation cleaned up; duplicate mobile navigation hidden; AIQOLA branding enlarged proportionally.
-2. Homepage AIQOLA Intelligence center mark replaced with a premium AI processing core / AI computer identity.
-3. Same AIQOLA Intelligence core identity applied on the Intelligence page for brand consistency.
-4. Intelligence page now inherits homepage-style ambient glow, desktop cursor glow, elegant hover illumination, and motion language.
-5. Clean branded URL: /aiqola-intelligence/ . Old /intelligence.html redirects for compatibility.
-6. Roadmap receives staged evolution animation; "pilot" language replaced with Active Development / Initial Implementation wording.
-7. Core / Advanced / Max product tiers receive signature first-scroll animation, sequential reveal, one-time AI scan, recommended/premium emphasis, and desktop hover focus.
-8. Capability showcase receives sequential entrance, elegant light sweep, icon micro-motion, hover glow, and document scan micro-animation.
+Fix:
+- AIQOLA Intelligence page is now a flat file: aiqola-intelligence.html
+- vercel.json rewrites /aiqola-intelligence -> /aiqola-intelligence.html
+- Browser-visible URL stays clean:
+  https://aiqola.vercel.app/aiqola-intelligence
+- Old /intelligence.html redirects to the clean URL.
+- All v1.8 design revisions are retained.
 
-Files to upload to GitHub:
-- index.html
-- intelligence.html (compatibility redirect)
-- aiqola-intelligence/index.html
-- README.txt
+Upload ALL 5 files to the ROOT of the GitHub repository:
+1. index.html
+2. aiqola-intelligence.html
+3. intelligence.html
+4. vercel.json
+5. README.txt
 
-Vercel will serve:
-- Homepage: /
-- Intelligence: /aiqola-intelligence/
+Do not upload a folder for this hotfix.
