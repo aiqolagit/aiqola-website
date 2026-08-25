@@ -1,22 +1,22 @@
-AIQOLA Website v1.4 — Intelligence Showcase
+AIQOLA Website v1.5 — Intelligence Product Tiers
+
+Key updates:
+- Homepage baseline tetap dipertahankan.
+- Intelligence page diperkuat untuk kebutuhan marketing.
+- Semua capability icon diganti menjadi modern AIQOLA SVG icons.
+- AIQOLA Intelligence Core, Advanced, dan Max ditampilkan sebagai product options.
+- Setiap profile menjelaskan positioning, target penggunaan, kelebihan, dan benefit.
+- Advanced diberi label Recommended.
+- Max diberi label Premium • Controlled.
+- Model teknis tidak ditampilkan ke pengguna.
+- Indonesian default + English toggle tetap aktif.
+- No sensitive Company #1 data exposed.
 
 Files:
-- index.html : homepage
-- intelligence.html : dedicated AIQOLA Intelligence / Max showcase page
+- index.html
+- intelligence.html
 - README.txt
 
-New in v1.4:
-- Homepage keeps v1.2 visual baseline + v1.3.1 Company Operations polish.
-- Added CTA: Pelajari AIQOLA Intelligence.
-- New dedicated Intelligence page.
-- Showcases Private AI, Local-First, Document Intelligence, Equipment Intelligence,
-  People & Compliance Intelligence, Company Knowledge AI, AI Search,
-  Human-Verified AI, Domain-Aware Intelligence, and Voice Intelligence.
-- Core / Advanced / Max profiles are presented without exposing technical model names.
-- Max is clearly shown as a premium, controlled capability.
-- Indonesian default + English toggle supported.
-- No Company #1 sensitive data is exposed.
-
 Deployment:
-Upload index.html, intelligence.html, and README.txt to GitHub aiqola-website.
-Commit changes. Vercel will auto-deploy.
+Upload ketiga file ini ke GitHub repository aiqola-website lalu Commit changes.
+Vercel akan deploy otomatis.
