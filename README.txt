@@ -1,15 +1,8 @@
-AIQOLA Website v1.6.1 — Homepage Live Motion
+AIQOLA Website v1.7 — Interactive Digital System Redesign
 
-Update:
-- Real lightweight animation is now also applied to the main homepage.
-- Ambient AI background motion.
-- Subtle digital sweep in hero.
-- Floating hero visual.
-- Soft AI pulse on supported icon classes.
-- Scroll-reveal for homepage sections.
-- Desktop hover micro-interaction.
-- Mobile-friendly and respects prefers-reduced-motion.
-- No GIF/video dependency; CSS + small JavaScript only.
-- Intelligence page and V1/V2/Future roadmap from v1.6 retained.
-
-Deploy all files to the aiqola-website GitHub repository and commit.
+- Homepage redesigned to the new digital boot / AI core concept.
+- Intelligence page redesigned to the interactive mobile hero concept.
+- Pure HTML/CSS/JS. No GIF, video, WebGL, or external image dependencies.
+- Animated rings, AI core/cube, module activation, boot progress, connected modules, scroll reveal.
+- Mobile-first responsive design.
+- Keeps V1 pilot positioning and roadmap messaging.
