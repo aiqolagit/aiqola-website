@@ -1,17 +1,22 @@
-AIQOLA Homepage v1.3.1
-Company Operations Case Study — Final Polish
+AIQOLA Website v1.4 — Intelligence Showcase
 
-Final polish:
-- Baseline v1.2 tetap dipertahankan.
-- Judul Company case study lebih rapi di mobile.
-- Copy dipadatkan agar lebih cepat dibaca.
-- Status pilot dibuat compact dengan pulse indicator.
-- Privacy/confidentiality dipisahkan sebagai catatan subtil.
-- Terminologi chip diperhalus: AI Privat, Local-First, Document AI, Equipment AI.
-- Visual AI dipadatkan di mobile agar tidak terlalu panjang.
-- Indonesian default + English toggle tetap aktif.
-- Tidak menampilkan identitas/data sensitif Company #1.
+Files:
+- index.html : homepage
+- intelligence.html : dedicated AIQOLA Intelligence / Max showcase page
+- README.txt
+
+New in v1.4:
+- Homepage keeps v1.2 visual baseline + v1.3.1 Company Operations polish.
+- Added CTA: Pelajari AIQOLA Intelligence.
+- New dedicated Intelligence page.
+- Showcases Private AI, Local-First, Document Intelligence, Equipment Intelligence,
+  People & Compliance Intelligence, Company Knowledge AI, AI Search,
+  Human-Verified AI, Domain-Aware Intelligence, and Voice Intelligence.
+- Core / Advanced / Max profiles are presented without exposing technical model names.
+- Max is clearly shown as a premium, controlled capability.
+- Indonesian default + English toggle supported.
+- No Company #1 sensitive data is exposed.
 
 Deployment:
-Upload index.html + README.txt ke GitHub repository aiqola-website dan Commit.
-Vercel akan deploy otomatis.
+Upload index.html, intelligence.html, and README.txt to GitHub aiqola-website.
+Commit changes. Vercel will auto-deploy.

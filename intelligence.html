@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030816">
+  <title>AIQOLA Intelligence — Private AI for Company Operations</title>
+  <meta name="description" content="AIQOLA Intelligence menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer yang aman dan terintegrasi.">
+  <style>
+    :root{
+      --bg:#020713;--panel:#07172f;--panel2:#0a1d3c;--line:rgba(102,184,255,.18);
+      --text:#f7fbff;--muted:#a9b8ca;--cyan:#19d8ff;--blue:#438fff;--violet:#985dff;
+      --green:#54e6bf;--radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 75% 3%,rgba(61,104,255,.18),transparent 24%),
+        radial-gradient(circle at 15% 18%,rgba(28,215,255,.09),transparent 22%),
+        linear-gradient(180deg,#020713,#041021 55%,#020611);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1160px,calc(100% - 36px));margin:auto}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(2,7,19,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.04)}
+    .navin{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-weight:800;letter-spacing:.16em;font-size:24px}
+    .brand span{background:linear-gradient(90deg,#fff,var(--cyan),#fff);-webkit-background-clip:text;color:transparent}
+    .sub{font-size:10px;color:#c7d7e8;margin-top:5px}
+    .back,.lang{
+      border:1px solid var(--line);border-radius:12px;padding:9px 12px;background:rgba(7,21,42,.72);
+      color:#e9f5ff;font-size:13px
+    }
+    .hero{padding:70px 0 38px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .kicker{color:var(--cyan);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+    h1{font-size:clamp(44px,6vw,74px);line-height:1.02;letter-spacing:-.045em;margin:14px 0 20px}
+    .grad{background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet));-webkit-background-clip:text;color:transparent}
+    .lead{font-size:18px;line-height:1.7;color:#b6c4d5;max-width:660px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:25px}
+    .chip{padding:7px 10px;border-radius:999px;border:1px solid rgba(87,193,255,.2);background:rgba(8,28,55,.55);font-size:10px;color:#c9eaff}
+    .visual{min-height:420px;position:relative;display:grid;place-items:center}
+    .core{
+      width:180px;height:180px;border-radius:50%;display:grid;place-items:center;position:relative;
+      background:radial-gradient(circle,rgba(32,190,255,.24),rgba(34,65,150,.10) 55%,transparent 72%);
+      border:1px solid rgba(56,209,255,.33);box-shadow:0 0 60px rgba(50,135,255,.2)
+    }
+    .core::before,.core::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(80,172,255,.16)}
+    .core::before{width:270px;height:270px}.core::after{width:360px;height:360px;border-color:rgba(146,87,255,.15)}
+    .core svg{width:82px;height:82px;filter:drop-shadow(0 0 13px rgba(35,213,255,.5))}
+    .node{
+      position:absolute;padding:10px 12px;border-radius:12px;border:1px solid rgba(87,188,255,.18);
+      background:rgba(7,23,47,.88);font-size:10px;color:#bcd4ec;box-shadow:0 10px 30px rgba(0,0,0,.25)
+    }
+    .node strong{display:block;color:white;font-size:11px;margin-bottom:2px}
+    .n1{left:4%;top:12%}.n2{right:3%;top:15%}.n3{left:2%;bottom:11%}.n4{right:2%;bottom:12%}
+    .section{padding:34px 0}
+    .shell{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(7,20,42,.8),rgba(4,13,29,.75));padding:30px}
+    .head{text-align:center;margin-bottom:26px}
+    h2{font-size:30px;letter-spacing:-.025em;margin:8px 0 8px}
+    .muted{color:#9fb0c4;font-size:14px;line-height:1.7}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{padding:22px;border-radius:18px;border:1px solid rgba(112,180,255,.16);background:linear-gradient(180deg,rgba(12,30,59,.88),rgba(6,18,37,.84))}
+    .icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;margin-bottom:16px;border:1px solid rgba(79,188,255,.22);background:linear-gradient(145deg,rgba(12,32,62,.92),rgba(8,18,38,.82))}
+    .icon svg{width:26px;height:26px}
+    .card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:#a8b8ca;font-size:13px;line-height:1.65}
+    .max{
+      border:1px solid rgba(144,91,255,.25);background:
+        radial-gradient(circle at 90% 10%,rgba(148,85,255,.17),transparent 30%),
+        linear-gradient(145deg,rgba(18,25,59,.95),rgba(7,17,38,.92))
+    }
+    .maxline{display:flex;align-items:center;gap:8px;color:#d8cbff;font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+    .badge{display:inline-flex;padding:6px 9px;border-radius:999px;background:linear-gradient(90deg,#315cff,#8b57ff);font-size:9px;font-weight:700}
+    .compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .tier{padding:22px;border-radius:18px;border:1px solid rgba(112,180,255,.15);background:rgba(7,20,41,.65)}
+    .tier.max-tier{border-color:rgba(145,91,255,.35);box-shadow:inset 0 0 35px rgba(135,83,255,.05)}
+    .tier h3{margin:0 0 5px}.tier p{color:#9fb0c4;font-size:12px;line-height:1.6}
+    .tier ul{padding-left:18px;color:#c1cfde;font-size:12px;line-height:1.8}
+    .note{margin-top:20px;padding:14px;border-radius:13px;background:rgba(24,27,64,.34);border:1px solid rgba(139,89,255,.16);color:#9eb1c8;font-size:11px;line-height:1.6}
+    .cta{margin:36px 0;padding:26px;border-radius:20px;border:1px solid rgba(83,180,255,.21);background:linear-gradient(90deg,#082d53,#122351 55%,#2c175d);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .cta h2{margin:0}.btn{display:inline-flex;padding:13px 18px;border-radius:12px;background:linear-gradient(90deg,#13bff4,#438fff 55%,#8e53ff);font-weight:700;font-size:13px}
+    footer{padding:28px 0 36px;color:#8295aa;font-size:11px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid,.compare{grid-template-columns:1fr 1fr}.visual{min-height:360px}}
+    @media(max-width:620px){
+      .container{width:min(100% - 24px,1160px)}.navin{height:66px}.brand{font-size:21px}
+      .hero{padding-top:44px;gap:16px}.lead{font-size:16px}.visual{min-height:310px}
+      .core{width:128px;height:128px}.core::before{width:190px;height:190px}.core::after{width:250px;height:250px}
+      .core svg{width:60px;height:60px}.node{padding:7px 8px;font-size:9px}.node strong{font-size:10px}
+      .n1{left:1%;top:8%}.n2{right:1%;top:10%}.n3{left:1%;bottom:8%}.n4{right:1%;bottom:9%}
+      .shell{padding:22px 14px}.grid,.compare{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="container navin">
+    <a href="index.html"><div class="brand">AI<span>QO</span>LA</div><div class="sub">AI Automation & Digital Solutions</div></a>
+    <div style="display:flex;gap:8px"><button class="lang" id="langBtn">🌐 <strong id="langCode">ID</strong></button><a class="back" href="index.html">← <span data-i18n="back">Beranda</span></a></div>
+  </div>
+</header>
+
+<main>
+  <section class="container hero">
+    <div>
+      <div class="kicker">AIQOLA Intelligence</div>
+      <h1><span data-i18n="hero1">AI yang memahami</span><br><span class="grad" data-i18n="hero2">cara perusahaan Anda bekerja.</span></h1>
+      <p class="lead" data-i18n="lead">Bukan sekadar chatbot. AIQOLA Intelligence menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer yang bekerja bersama sistem operasional perusahaan.</p>
+      <div class="chips">
+        <span class="chip" data-i18n="chip1">Private AI</span><span class="chip">Local-First</span><span class="chip">Human-Verified</span><span class="chip">Domain-Aware</span>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="core">
+        <svg viewBox="0 0 64 64"><defs><linearGradient id="g" x1="8" y1="8" x2="56" y2="56"><stop stop-color="#19D8FF"/><stop offset=".55" stop-color="#438FFF"/><stop offset="1" stop-color="#985DFF"/></linearGradient></defs><path d="M24 13a10 10 0 0 0-10 10c0 2 .6 4 1.7 5.7A10 10 0 0 0 20 47h24a10 10 0 0 0 4.5-18.9A11 11 0 0 0 28 13h-4Z" fill="none" stroke="url(#g)" stroke-width="2.5"/><path d="M24 24l8 8 8-10M24 40l8-8 8 8" fill="none" stroke="url(#g)" stroke-width="2.2"/><circle cx="24" cy="24" r="2" fill="#19D8FF"/><circle cx="40" cy="22" r="2" fill="#985DFF"/></svg>
+      </div>
+      <div class="node n1"><strong>People</strong>Compliance</div>
+      <div class="node n2"><strong>Equipment</strong>Intelligence</div>
+      <div class="node n3"><strong>Documents</strong>AI Classification</div>
+      <div class="node n4"><strong>Knowledge</strong>Private AI</div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="shell">
+      <div class="head"><div class="kicker" data-i18n="cap_kicker">Kapabilitas Utama</div><h2 data-i18n="cap_title">Satu Intelligence Layer untuk Operasional Perusahaan</h2><p class="muted" data-i18n="cap_copy">Dirancang untuk mengubah data perusahaan menjadi sistem yang lebih mudah dicari, dipahami, dan digunakan.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">◎</div><h3 data-i18n="c1t">Private AI & Local-First</h3><p data-i18n="c1p">Pemrosesan utama dapat berjalan di lingkungan perusahaan dengan kontrol data yang lebih kuat dan ketergantungan cloud yang lebih rendah.</p></article>
+        <article class="card"><div class="icon">▤</div><h3 data-i18n="c2t">Document Intelligence</h3><p data-i18n="c2p">Membantu mengenali, mengklasifikasikan, dan mengekstrak informasi penting dari dokumen operasional.</p></article>
+        <article class="card"><div class="icon">◈</div><h3 data-i18n="c3t">Equipment Intelligence</h3><p data-i18n="c3p">Membantu mengidentifikasi equipment, memahami fungsi dan kategori, serta mencocokkannya dengan database internal.</p></article>
+        <article class="card"><div class="icon">◉</div><h3 data-i18n="c4t">People & Compliance Intelligence</h3><p data-i18n="c4p">Membantu membaca certificate, training, MCU, tanggal expiry, dan kemungkinan duplikasi data personel.</p></article>
+        <article class="card"><div class="icon">⌕</div><h3 data-i18n="c5t">Company Knowledge AI</h3><p data-i18n="c5p">Pengguna dapat bertanya dengan bahasa natural terhadap dokumen dan knowledge yang memang diizinkan untuk mereka akses.</p></article>
+        <article class="card"><div class="icon">⌁</div><h3 data-i18n="c6t">AI Search</h3><p data-i18n="c6p">Pencarian memahami konteks dan toleran terhadap salah ketik, sehingga informasi lebih cepat ditemukan.</p></article>
+        <article class="card"><div class="icon">✓</div><h3 data-i18n="c7t">Human-Verified AI</h3><p data-i18n="c7p">AI membantu memberi rekomendasi, tetapi keputusan dan perubahan data resmi tetap berada di bawah kontrol manusia.</p></article>
+        <article class="card"><div class="icon">◌</div><h3 data-i18n="c8t">Domain-Aware Intelligence</h3><p data-i18n="c8p">Knowledge dapat disesuaikan dengan domain perusahaan. Pilot pertama berfokus pada survey & mapping dan equipment terkait.</p></article>
+        <article class="card max"><div class="maxline"><span class="badge">MAX</span><span data-i18n="c9label">Premium Capability</span></div><h3 style="margin-top:14px" data-i18n="c9t">Voice Intelligence</h3><p data-i18n="c9p">Pada AIQOLA Intelligence Max, interaksi suara dan TTS menjadi bagian dari paket kemampuan premium.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="shell">
+      <div class="head"><div class="kicker">AIQOLA Intelligence Profiles</div><h2 data-i18n="profiles_title">Kemampuan yang Dapat Disesuaikan dengan Kebutuhan</h2><p class="muted" data-i18n="profiles_copy">Profile dipilih berdasarkan kebutuhan operasional dan kemampuan hardware. Nama model teknis tidak perlu menjadi beban pengguna.</p></div>
+      <div class="compare">
+        <article class="tier"><h3>Core</h3><p data-i18n="core_desc">Fondasi private AI untuk knowledge, search, dan automation dasar.</p><ul><li>Private AI</li><li>Knowledge Chat</li><li>AI Search</li><li data-i18n="human_review">Human review</li></ul></article>
+        <article class="tier"><h3>Advanced</h3><p data-i18n="adv_desc">Kemampuan lebih tinggi untuk document intelligence dan workload perusahaan yang lebih kompleks.</p><ul><li>Advanced Document AI</li><li>Equipment Intelligence</li><li>Domain-aware knowledge</li><li>Higher capacity</li></ul></article>
+        <article class="tier max-tier"><div class="maxline"><span class="badge">MAX</span></div><h3 style="margin-top:12px">Intelligence Max</h3><p data-i18n="max_desc">Kapabilitas premium untuk organisasi yang membutuhkan kemampuan AI lokal tertinggi.</p><ul><li>Maximum local intelligence</li><li>Advanced domain knowledge</li><li>Voice / TTS</li><li data-i18n="controlled">Controlled activation</li></ul></article>
+      </div>
+      <div class="note" data-i18n="profile_note">AIQOLA Intelligence Max merupakan capability premium dan membutuhkan aktivasi/otorisasi khusus. Kemampuan yang tersedia pada implementasi nyata bergantung pada konfigurasi, hardware, scope, dan hasil validasi.</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="cta">
+      <div><h2 data-i18n="cta_title">Punya proses bisnis yang masih manual?</h2><p class="muted" data-i18n="cta_copy">AIQOLA dapat membantu memetakan bagian mana yang layak didigitalisasi atau diotomatisasi.</p></div>
+      <a class="btn" href="mailto:hello@aiqola.com"><span data-i18n="cta_btn">Diskusikan dengan AIQOLA</span> →</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 AIQOLA — AI Automation & Digital Solutions</footer>
+
+<script>
+const tr={
+id:{back:"Beranda",hero1:"AI yang memahami",hero2:"cara perusahaan Anda bekerja.",lead:"Bukan sekadar chatbot. AIQOLA Intelligence menghubungkan dokumen, equipment, people, compliance, dan company knowledge menjadi satu intelligence layer yang bekerja bersama sistem operasional perusahaan.",chip1:"AI Privat",cap_kicker:"Kapabilitas Utama",cap_title:"Satu Intelligence Layer untuk Operasional Perusahaan",cap_copy:"Dirancang untuk mengubah data perusahaan menjadi sistem yang lebih mudah dicari, dipahami, dan digunakan.",c1t:"Private AI & Local-First",c1p:"Pemrosesan utama dapat berjalan di lingkungan perusahaan dengan kontrol data yang lebih kuat dan ketergantungan cloud yang lebih rendah.",c2t:"Document Intelligence",c2p:"Membantu mengenali, mengklasifikasikan, dan mengekstrak informasi penting dari dokumen operasional.",c3t:"Equipment Intelligence",c3p:"Membantu mengidentifikasi equipment, memahami fungsi dan kategori, serta mencocokkannya dengan database internal.",c4t:"People & Compliance Intelligence",c4p:"Membantu membaca certificate, training, MCU, tanggal expiry, dan kemungkinan duplikasi data personel.",c5t:"Company Knowledge AI",c5p:"Pengguna dapat bertanya dengan bahasa natural terhadap dokumen dan knowledge yang memang diizinkan untuk mereka akses.",c6t:"AI Search",c6p:"Pencarian memahami konteks dan toleran terhadap salah ketik, sehingga informasi lebih cepat ditemukan.",c7t:"Human-Verified AI",c7p:"AI membantu memberi rekomendasi, tetapi keputusan dan perubahan data resmi tetap berada di bawah kontrol manusia.",c8t:"Domain-Aware Intelligence",c8p:"Knowledge dapat disesuaikan dengan domain perusahaan. Pilot pertama berfokus pada survey & mapping dan equipment terkait.",c9label:"Kapabilitas Premium",c9t:"Voice Intelligence",c9p:"Pada AIQOLA Intelligence Max, interaksi suara dan TTS menjadi bagian dari paket kemampuan premium.",profiles_title:"Kemampuan yang Dapat Disesuaikan dengan Kebutuhan",profiles_copy:"Profile dipilih berdasarkan kebutuhan operasional dan kemampuan hardware. Nama model teknis tidak perlu menjadi beban pengguna.",core_desc:"Fondasi private AI untuk knowledge, search, dan automation dasar.",human_review:"Human review",adv_desc:"Kemampuan lebih tinggi untuk document intelligence dan workload perusahaan yang lebih kompleks.",max_desc:"Kapabilitas premium untuk organisasi yang membutuhkan kemampuan AI lokal tertinggi.",controlled:"Aktivasi terkendali",profile_note:"AIQOLA Intelligence Max merupakan capability premium dan membutuhkan aktivasi/otorisasi khusus. Kemampuan yang tersedia pada implementasi nyata bergantung pada konfigurasi, hardware, scope, dan hasil validasi.",cta_title:"Punya proses bisnis yang masih manual?",cta_copy:"AIQOLA dapat membantu memetakan bagian mana yang layak didigitalisasi atau diotomatisasi.",cta_btn:"Diskusikan dengan AIQOLA"},
+en:{back:"Home",hero1:"AI that understands",hero2:"how your company works.",lead:"More than a chatbot. AIQOLA Intelligence connects documents, equipment, people, compliance, and company knowledge into one intelligence layer that works with your operational system.",chip1:"Private AI",cap_kicker:"Core Capabilities",cap_title:"One Intelligence Layer for Company Operations",cap_copy:"Designed to turn company data into systems that are easier to find, understand, and use.",c1t:"Private AI & Local-First",c1p:"Core processing can run within the company environment for stronger data control and lower cloud dependence.",c2t:"Document Intelligence",c2p:"Helps recognize, classify, and extract important information from operational documents.",c3t:"Equipment Intelligence",c3p:"Helps identify equipment, understand function and category, and match it with the internal database.",c4t:"People & Compliance Intelligence",c4p:"Helps read certificates, training, MCU records, expiry dates, and possible personnel duplicates.",c5t:"Company Knowledge AI",c5p:"Users can ask natural-language questions against documents and knowledge they are authorized to access.",c6t:"AI Search",c6p:"Search understands context and tolerates typos, helping users find information faster.",c7t:"Human-Verified AI",c7p:"AI provides assistance and recommendations while official data changes remain under human control.",c8t:"Domain-Aware Intelligence",c8p:"Knowledge can be customized to the company's domain. The first pilot focuses on survey & mapping and related equipment.",c9label:"Premium Capability",c9t:"Voice Intelligence",c9p:"With AIQOLA Intelligence Max, voice interaction and TTS are included as part of the premium capability set.",profiles_title:"Capabilities Adapted to Your Needs",profiles_copy:"Profiles are selected based on operational needs and available hardware. Technical model names do not need to burden end users.",core_desc:"Private AI foundation for knowledge, search, and basic automation.",human_review:"Human review",adv_desc:"Higher capability for document intelligence and more complex company workloads.",max_desc:"Premium capability for organizations that need the highest local AI capacity.",controlled:"Controlled activation",profile_note:"AIQOLA Intelligence Max is a premium capability and requires special activation/authorization. Actual capabilities depend on configuration, hardware, project scope, and validation results.",cta_title:"Still running manual business processes?",cta_copy:"AIQOLA can help identify which parts are worth digitizing or automating.",cta_btn:"Discuss with AIQOLA"}};
+let lang=localStorage.getItem("aiqolaLang")||"id";
+function apply(){document.documentElement.lang=lang;document.getElementById("langCode").textContent=lang.toUpperCase();document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(tr[lang][k])el.textContent=tr[lang][k]});localStorage.setItem("aiqolaLang",lang)}
+document.getElementById("langBtn").onclick=()=>{lang=lang==="id"?"en":"id";apply()};apply();
+</script>
+</body>
+</html>
