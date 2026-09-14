@@ -1,67 +1,83 @@
-AIQOLA Website v1.9 — Products, Roadmap & About Update
+AIQOLA Website v2.0 EXPERIMENTAL — Motion Experience
 
-BASELINE
-Built directly from the uploaded and verified:
-AIQOLA Website v1.8.1 — Clean URL Hotfix
+IMPORTANT
+This package is a FORK of the locked AIQOLA Website v1.9 baseline.
+Do NOT overwrite the current production v1.9 repository while evaluating v2.0.
 
-DESIGN PRINCIPLE
-This is an additive update. The approved v1.8.1 visual identity, hero, AIQOLA
-Intelligence presentation, motion style, responsive behavior, and clean route
-strategy are retained.
+WHAT IS PRESERVED
+- v1.9 content structure
+- AIQOLA brand / dark navy + cyan + violet identity
+- Products & Roadmap
+- About AIQOLA
+- Hari Adrianto professional attribution
+- Indonesian / English support
+- /products clean route
+- /aiqola-intelligence clean route
+- Existing responsive structure and reduced-motion support
 
-WHAT'S NEW
-1. New navigation tab: Produk / Products
-2. New homepage section: Produk & Roadmap
-3. Four featured homepage products:
-   - AIQOLA Intelligence — Active Development
-   - KIWARI Residence — Active Development
-   - AIQOLA Survey Field Tools — Active Development
-   - Pembiasaan Siswa — Deployment Readiness
-4. Compact ecosystem maturity roadmap on homepage
-5. New clean page: /products
-6. Full product ecosystem includes:
-   - AIQOLA Intelligence
-   - KIWARI Residence – Komplek Aman
-   - AIQOLA Survey Field Tools
-   - Pembiasaan Siswa
-   - AIQOLA Hydro Knowledge Gateway
-   - AIQOLA Survey & Pemetaan Indonesia Knowledge
-   - AIQOLA Survey Intelligence
-   - AIQOLA Konten Kreator
-7. New dedicated Tentang AIQOLA section
-8. Professional attribution retained:
-   Software Product & Development assisted by Artificial Intelligence under
-   direct supervision of Hari Adrianto.
-9. Indonesian / English language support retained and extended
-10. Existing AIQOLA Intelligence route remains:
-    /aiqola-intelligence
+V2.0 EXPERIMENTAL MOTION LAYER
+1. Cinematic first-load hero reveal
+2. Lightweight page veil / transition-in
+3. Top scroll progress beam
+4. Navbar changes into stronger glass state while scrolling
+5. Cursor-reactive hero ambience on desktop
+6. Subtle 3D/parallax response on the hero core and floating data panels
+7. Sequential scroll reveals with blur-to-sharp entrance
+8. Cursor-tracking spotlight and restrained 3D tilt on cards
+9. Animated light sweep across cards
+10. Animated AIQOLA product ecosystem roadmap line
+11. Section-level cursor glow / scroll progress accent
+12. Magnetic button micro-interaction on pointer devices
+13. AIQOLA Intelligence Core cursor response
+14. Core → Advanced → Max signature entrance enhancement
+15. Recommended cyan pulse + Max violet premium pulse
+16. Animated AIQOLA Intelligence roadmap connection
+17. Mobile/touch fallbacks: tilt and cursor effects disabled
+18. prefers-reduced-motion fallback retained
+19. No Three.js, WebGL, GSAP, or heavy external animation dependencies
 
-PUBLIC STATUS LANGUAGE
-No unfinished product is presented as production-ready.
-Statuses used:
-- Active Development
-- Initial Implementation
-- Deployment Readiness
-- Product Development
-- Research & Development
-- R&D / Active Development
+PERFORMANCE PHILOSOPHY
+The experiment intentionally uses native CSS/JavaScript only.
+Visual movement is mostly opacity, transform, gradient, and IntersectionObserver.
+Desktop gets the richer interaction; mobile receives a lighter motion profile.
 
-UPLOAD TO GITHUB ROOT
-Upload all files from this ZIP to the repository root:
+SAFE TESTING
+Recommended:
+A. Create a separate GitHub repository, e.g. aiqola-v2-experimental
+B. Upload these files to that repository root
+C. Import that repository as a NEW Vercel project
+D. Test it on a temporary *.vercel.app URL
+E. Keep current aiqola.vercel.app on locked v1.9
+
+DO NOT replace the existing production repository yet.
+
+FILES TO UPLOAD TO THE EXPERIMENTAL REPO ROOT
 - index.html
 - aiqola-intelligence.html
 - intelligence.html
 - products.html
 - vercel.json
+- EXPERIMENTAL.json
 - README.txt
 
-Then commit. Vercel should deploy automatically.
+TEST CHECKLIST
+Desktop:
+- hero entrance
+- cursor/parallax response
+- cards spotlight + subtle tilt
+- navbar glass state
+- product roadmap flow
+- /products
+- /aiqola-intelligence
+- Core / Advanced / Max
+- Intelligence roadmap
 
-TEST AFTER DEPLOY
-1. Homepage on mobile
-2. Homepage on laptop/desktop
-3. Produk nav -> /products
-4. /products language toggle
-5. AIQOLA Intelligence link -> /aiqola-intelligence
-6. Tentang AIQOLA section
-7. Mobile navigation
+Mobile:
+- hero animation remains smooth
+- no pointer tilt
+- navigation works
+- products page works
+- Intelligence page works
+- scrolling is smooth
+
+If v2.0 is preferred, promote it only after mobile + laptop approval.

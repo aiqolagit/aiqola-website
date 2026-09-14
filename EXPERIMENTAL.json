@@ -1,0 +1,13 @@
+{
+  "version": "2.0-experimental",
+  "baseline": "1.9-locked",
+  "motion_engine": "native CSS + JavaScript",
+  "external_motion_libraries": [],
+  "webgl": false,
+  "pages": [
+    "/",
+    "/products",
+    "/aiqola-intelligence"
+  ],
+  "notes": "Experimental copy. Do not overwrite the locked v1.9 production repository until approved."
+}
