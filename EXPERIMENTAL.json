@@ -12,9 +12,8 @@
   "notes": "Experimental copy. Do not overwrite the locked v1.9 production repository until approved.",
   "product_hero_visual": "AIQOLA Product Ecosystem circular orbit core",
   "audio": {
-    "default": "off",
+    "enabled": false,
     "autoplay": false,
-    "implementation": "Web Audio API synthetic ambient tone",
-    "external_audio_files": false
+    "note": "Audio removed by product-owner decision. AI Signal waveform remains visual-only."
   }
 }

@@ -25,18 +25,17 @@ Products page hero has been upgraded without changing the existing product conte
    - lightweight animated waveform/equalizer
    - always visual, no audio required
 
-3. OPTIONAL AI AMBIENT SOUND
-   - Sound is OFF by default
-   - NO autoplay
-   - Starts only after the visitor clicks Sound On
-   - Uses native Web Audio API
-   - No MP3, no audio download, no external dependency
-   - Synthetic low-volume digital ambient pad
-   - Button toggles Sound On / Sound Off
+3. AI SIGNAL FLOW — VISUAL ONLY
+   - animated waveform / equalizer retained as a visual AI signal element
+   - no audio
+   - no Sound On / Sound Off button
+   - no Web Audio API
+   - no autoplay or audio dependency
 
-WHY NO AUTOPLAY
-Autoplay audio can be blocked by browsers and can feel intrusive in professional/business contexts.
-v2.1 keeps sound as an opt-in presentation feature.
+PRODUCT OWNER DECISION
+Audio has been removed entirely. The Product Ecosystem hero remains visual-first,
+professional, lightweight, and silent by default.
+
 
 PRESERVED
 - Homepage v2.0 motion experience
@@ -63,9 +62,8 @@ TEST
 1. Open /products on laptop
 2. Confirm right-side Product Ecosystem visual fills hero space
 3. Move cursor across the circular core
-4. Click Sound Off -> Sound On
-5. Confirm audio is subtle and stops when toggled off
-6. Test /products on phone
-7. Confirm no horizontal overflow
-8. Confirm ID/EN toggle still works
-9. Re-check /aiqola-intelligence
+4. Confirm AI SIGNAL FLOW waveform animates visually without audio controls
+5. Test /products on phone
+6. Confirm no horizontal overflow
+7. Confirm ID/EN toggle still works
+8. Re-check /aiqola-intelligence

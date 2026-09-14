@@ -402,16 +402,6 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
 .v21-signal-dot{
   width:6px;height:6px;border-radius:50%;background:#44e6ff;box-shadow:0 0 10px rgba(68,230,255,.8)
 }
-.v21-audio-toggle{
-  border:1px solid rgba(91,183,255,.22);
-  background:rgba(10,32,62,.72);
-  color:#cfefff;
-  border-radius:999px;
-  padding:6px 8px;
-  font:inherit;font-size:9px;font-weight:700;cursor:pointer;
-  transition:.25s ease;
-}
-.v21-audio-toggle:hover{border-color:rgba(25,216,255,.48);box-shadow:0 0 18px rgba(25,216,255,.08)}
 .v21-wave{
   height:40px;display:flex;align-items:center;gap:4px;
 }
@@ -429,13 +419,6 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
   0%,100%{transform:scaleY(.45);opacity:.45}
   50%{transform:scaleY(2.5);opacity:1}
 }
-.v21-signal-card.is-sounding .v21-wave i{
-  animation-duration:.78s;
-}
-.v21-sound-note{
-  color:#7f9db5;font-size:8px;line-height:1.4;margin-top:4px
-}
-
 @media(max-width:980px){
   .hero.v21-products-hero{
     grid-template-columns:1fr;
@@ -519,14 +502,12 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
 
         <div class="v21-signal-card" id="v21SignalCard">
           <div class="v21-signal-top">
-            <div class="v21-signal-label"><span class="v21-signal-dot"></span>AI SIGNAL</div>
-            <button class="v21-audio-toggle" id="v21AudioToggle" type="button" aria-pressed="false">Sound Off</button>
+            <div class="v21-signal-label"><span class="v21-signal-dot"></span>AI SIGNAL FLOW</div>
           </div>
           <div class="v21-wave" aria-hidden="true">
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
           </div>
-          <div class="v21-sound-note" data-i18n="sound_note">Ambient AI sound bersifat opsional dan aktif hanya setelah dipilih pengguna.</div>
         </div>
       </div>
     </div>
@@ -595,7 +576,7 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
 <script>
 const translations={
   id:{
-    back_home:"← Kembali ke Beranda",hero_kicker:"AIQOLA Product Ecosystem",hero_1:"Produk Nyata.",hero_2:"Arah yang Jelas.",hero_copy:"AIQOLA membangun produk secara bertahap—mulai dari sistem yang sedang digunakan dan divalidasi, hingga knowledge products dan R&D untuk kebutuhan industri berikutnya.",sound_note:"Ambient AI sound bersifat opsional dan aktif hanya setelah dipilih pengguna.",
+    back_home:"← Kembali ke Beranda",hero_kicker:"AIQOLA Product Ecosystem",hero_1:"Produk Nyata.",hero_2:"Arah yang Jelas.",hero_copy:"AIQOLA membangun produk secara bertahap—mulai dari sistem yang sedang digunakan dan divalidasi, hingga knowledge products dan R&D untuk kebutuhan industri berikutnya.",
     current_kicker:"Current Products",current_title:"Produk Aktif & Siap Menuju Penggunaan Nyata",current_copy:"Status ditampilkan apa adanya agar perkembangan produk tetap transparan dan profesional.",
     status_active:"Active Development",status_ready:"Deployment Readiness",status_dev:"Product Development",status_rnd:"Research & Development",status_rnd_active:"R&D / Active Development",
     intel_copy:"Private/local AI untuk document intelligence, equipment intelligence, people & compliance, AI Search, dan company knowledge dengan workflow human-verified.",intel_meta:"Enterprise Intelligence • Initial Implementation",intel_link:"Pelajari AIQOLA Intelligence",
@@ -617,7 +598,7 @@ const translations={
     attrib:"Software Product & Development assisted by Artificial Intelligence under direct supervision of Hari Adrianto."
   },
   en:{
-    back_home:"← Back to Home",hero_kicker:"AIQOLA Product Ecosystem",hero_1:"Real Products.",hero_2:"A Clear Direction.",hero_copy:"AIQOLA develops products progressively—from systems being implemented and validated today to knowledge products and R&D for future industry needs.",sound_note:"Ambient AI sound is optional and starts only after the user chooses to enable it.",
+    back_home:"← Back to Home",hero_kicker:"AIQOLA Product Ecosystem",hero_1:"Real Products.",hero_2:"A Clear Direction.",hero_copy:"AIQOLA develops products progressively—from systems being implemented and validated today to knowledge products and R&D for future industry needs.",
     current_kicker:"Current Products",current_title:"Active Products Moving Toward Real-World Use",current_copy:"Statuses are shown as they are, keeping product progress transparent and professional.",
     status_active:"Active Development",status_ready:"Deployment Readiness",status_dev:"Product Development",status_rnd:"Research & Development",status_rnd_active:"R&D / Active Development",
     intel_copy:"Private/local AI for document intelligence, equipment intelligence, people & compliance, AI Search, and company knowledge with human-verified workflows.",intel_meta:"Enterprise Intelligence • Initial Implementation",intel_link:"Explore AIQOLA Intelligence",
@@ -818,87 +799,6 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
     }, {passive:true});
     visual.addEventListener("pointerleave", () => core.style.transform = "");
   }
-
-  // Optional ambient digital sound — OFF by default.
-  // Uses Web Audio API: no external MP3/file, no autoplay.
-  const btn = document.getElementById("v21AudioToggle");
-  const card = document.getElementById("v21SignalCard");
-  if (!btn || !card) return;
-
-  let ctx = null, master = null, nodes = [], sounding = false;
-
-  function createAmbient() {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return false;
-    ctx = new AudioCtx();
-
-    master = ctx.createGain();
-    master.gain.setValueAtTime(0.0001, ctx.currentTime);
-    master.connect(ctx.destination);
-
-    const filter = ctx.createBiquadFilter();
-    filter.type = "lowpass";
-    filter.frequency.setValueAtTime(900, ctx.currentTime);
-    filter.Q.setValueAtTime(.6, ctx.currentTime);
-    filter.connect(master);
-
-    const osc1 = ctx.createOscillator();
-    osc1.type = "sine";
-    osc1.frequency.setValueAtTime(92.5, ctx.currentTime);
-
-    const osc2 = ctx.createOscillator();
-    osc2.type = "triangle";
-    osc2.frequency.setValueAtTime(138.6, ctx.currentTime);
-
-    const g1 = ctx.createGain();
-    g1.gain.setValueAtTime(.020, ctx.currentTime);
-    const g2 = ctx.createGain();
-    g2.gain.setValueAtTime(.010, ctx.currentTime);
-
-    osc1.connect(g1).connect(filter);
-    osc2.connect(g2).connect(filter);
-
-    const lfo = ctx.createOscillator();
-    lfo.type = "sine";
-    lfo.frequency.setValueAtTime(.09, ctx.currentTime);
-    const lfoGain = ctx.createGain();
-    lfoGain.gain.setValueAtTime(220, ctx.currentTime);
-    lfo.connect(lfoGain).connect(filter.frequency);
-
-    osc1.start(); osc2.start(); lfo.start();
-    nodes = [osc1, osc2, lfo, g1, g2, filter];
-    return true;
-  }
-
-  async function toggleSound() {
-    if (!ctx && !createAmbient()) {
-      btn.textContent = "Unsupported";
-      btn.disabled = true;
-      return;
-    }
-    if (ctx.state === "suspended") await ctx.resume();
-
-    const t = ctx.currentTime;
-    if (!sounding) {
-      master.gain.cancelScheduledValues(t);
-      master.gain.setValueAtTime(Math.max(master.gain.value, .0001), t);
-      master.gain.exponentialRampToValueAtTime(.18, t + .9);
-      sounding = true;
-      btn.textContent = "Sound On";
-      btn.setAttribute("aria-pressed","true");
-      card.classList.add("is-sounding");
-    } else {
-      master.gain.cancelScheduledValues(t);
-      master.gain.setValueAtTime(Math.max(master.gain.value, .0001), t);
-      master.gain.exponentialRampToValueAtTime(.0001, t + .45);
-      sounding = false;
-      btn.textContent = "Sound Off";
-      btn.setAttribute("aria-pressed","false");
-      card.classList.remove("is-sounding");
-    }
-  }
-
-  btn.addEventListener("click", toggleSound);
 })();
 </script>
 
