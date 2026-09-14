@@ -1,6 +1,6 @@
 {
-  "version": "2.0-experimental",
-  "baseline": "1.9-locked",
+  "version": "2.1",
+  "baseline": "2.0-experimental / 1.9-locked",
   "motion_engine": "native CSS + JavaScript",
   "external_motion_libraries": [],
   "webgl": false,
@@ -9,5 +9,12 @@
     "/products",
     "/aiqola-intelligence"
   ],
-  "notes": "Experimental copy. Do not overwrite the locked v1.9 production repository until approved."
+  "notes": "Experimental copy. Do not overwrite the locked v1.9 production repository until approved.",
+  "product_hero_visual": "AIQOLA Product Ecosystem circular orbit core",
+  "audio": {
+    "default": "off",
+    "autoplay": false,
+    "implementation": "Web Audio API synthetic ambient tone",
+    "external_audio_files": false
+  }
 }
