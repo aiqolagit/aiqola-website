@@ -379,45 +379,13 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
 .v21-node.n2{right:-1%;top:18%;animation-delay:.7s}
 .v21-node.n3{left:-2%;bottom:22%;animation-delay:1.2s}
 .v21-node.n4{right:0;bottom:18%;animation-delay:1.8s}
-.v21-node.n5{left:39%;bottom:-1%;animation-delay:2.3s}
+.v21-node.n5{left:39%;bottom:4%;animation-delay:2.3s}
 @keyframes v21NodeFloat{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-7px)}
 }
 
-.v21-signal-card{
-  position:absolute;z-index:8;right:1%;bottom:3%;
-  width:238px;padding:13px 14px;border-radius:15px;
-  border:1px solid rgba(83,180,255,.20);
-  background:rgba(5,18,39,.78);
-  backdrop-filter:blur(14px);
-  box-shadow:0 12px 34px rgba(0,0,0,.20);
-}
-.v21-signal-top{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px
-}
-.v21-signal-label{
-  display:flex;align-items:center;gap:7px;color:#bfefff;font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase
-}
-.v21-signal-dot{
-  width:6px;height:6px;border-radius:50%;background:#44e6ff;box-shadow:0 0 10px rgba(68,230,255,.8)
-}
-.v21-wave{
-  height:40px;display:flex;align-items:center;gap:4px;
-}
-.v21-wave i{
-  display:block;width:3px;height:10px;border-radius:4px;
-  background:linear-gradient(180deg,#71f3ff,#4aa4ff 55%,#9569ff);
-  opacity:.75;
-  animation:v21Wave 1.25s ease-in-out infinite;
-  transform-origin:center;
-}
-.v21-wave i:nth-child(2n){animation-delay:.12s}
-.v21-wave i:nth-child(3n){animation-delay:.27s}
-.v21-wave i:nth-child(5n){animation-delay:.42s}
-@keyframes v21Wave{
-  0%,100%{transform:scaleY(.45);opacity:.45}
-  50%{transform:scaleY(2.5);opacity:1}
+50%{transform:scaleY(2.5);opacity:1}
 }
 @media(max-width:980px){
   .hero.v21-products-hero{
@@ -443,13 +411,10 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
   .v21-node.n2{right:0;top:18%}
   .v21-node.n3{left:0;bottom:24%}
   .v21-node.n4{right:0;bottom:22%}
-  .v21-node.n5{left:37%;bottom:2%}
-  .v21-signal-card{
-    width:206px;right:50%;transform:translateX(50%);bottom:-8px
-  }
+  .v21-node.n5{left:37%;bottom:5%}
 }
 @media(prefers-reduced-motion:reduce){
-  .v21-ring,.v21-core,.v21-node,.v21-ecosystem-aura,.v21-wave i{animation:none!important}
+  .v21-ring,.v21-core,.v21-node,.v21-ecosystem-aura{animation:none!important}
 }
 
 </style>
@@ -499,16 +464,6 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
         <div class="v21-node n3"><b>Survey</b><span>Field Technology</span></div>
         <div class="v21-node n4"><b>Education</b><span>Digital Platform</span></div>
         <div class="v21-node n5"><b>R&D</b><span>AI Automation</span></div>
-
-        <div class="v21-signal-card" id="v21SignalCard">
-          <div class="v21-signal-top">
-            <div class="v21-signal-label"><span class="v21-signal-dot"></span>AI SIGNAL FLOW</div>
-          </div>
-          <div class="v21-wave" aria-hidden="true">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
-        </div>
       </div>
     </div>
   </section>

@@ -1,5 +1,5 @@
 {
-  "version": "2.1",
+  "version": "2.1-clean-product-core",
   "baseline": "2.0-experimental / 1.9-locked",
   "motion_engine": "native CSS + JavaScript",
   "external_motion_libraries": [],
@@ -10,10 +10,14 @@
     "/aiqola-intelligence"
   ],
   "notes": "Experimental copy. Do not overwrite the locked v1.9 production repository until approved.",
-  "product_hero_visual": "AIQOLA Product Ecosystem circular orbit core",
+  "product_hero_visual": "AIQOLA Product Ecosystem circular orbit core without signal-flow overlay",
   "audio": {
     "enabled": false,
     "autoplay": false,
     "note": "Audio removed by product-owner decision. AI Signal waveform remains visual-only."
+  },
+  "signal_flow": {
+    "enabled": false,
+    "note": "Removed by product-owner decision because it obscured the Product Ecosystem visual and provided no functional value."
   }
 }

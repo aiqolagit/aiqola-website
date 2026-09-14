@@ -1,53 +1,39 @@
-AIQOLA Website v2.1 — Product Ecosystem Experience
+AIQOLA Website v2.1 — Clean Product Ecosystem Core
 
 BASELINE
-- v1.9 remains the locked production fallback.
-- v2.1 is a revision of v2.0 Experimental Motion.
+- Built from AIQOLA Website v2.1 No Audio.
+- v1.9 remains the locked fallback.
 
-WHAT CHANGED IN v2.1
-Products page hero has been upgraded without changing the existing product content:
+PRODUCT OWNER REVISION
+The AI SIGNAL FLOW visualizer has been removed entirely.
 
-1. NEW AIQOLA PRODUCT ECOSYSTEM VISUAL
-   - circular / orbital AIQOLA core
-   - three animated concentric rings
-   - moving signal nodes
-   - subtle cyan / blue / violet aura
-   - ecosystem labels:
-     Enterprise Intelligence
-     Community Security
-     Survey Field Technology
-     Education Digital Platform
-     R&D AI Automation
-   - subtle desktop cursor reaction
-   - simplified mobile behavior
-
-2. DIGITAL AI SIGNAL VISUALIZER
-   - lightweight animated waveform/equalizer
-   - always visual, no audio required
-
-3. AI SIGNAL FLOW — VISUAL ONLY
-   - animated waveform / equalizer retained as a visual AI signal element
-   - no audio
-   - no Sound On / Sound Off button
-   - no Web Audio API
-   - no autoplay or audio dependency
-
-PRODUCT OWNER DECISION
-Audio has been removed entirely. The Product Ecosystem hero remains visual-first,
-professional, lightweight, and silent by default.
-
+WHY
+- It obscured part of the AIQOLA Product Ecosystem background.
+- It did not add useful product information.
+- Removing it makes the hero cleaner, more premium, and easier to read.
 
 PRESERVED
-- Homepage v2.0 motion experience
-- Products and roadmap content
-- AIQOLA Intelligence experience
-- Core / Advanced / Max motion
+- AIQOLA Product Ecosystem circular visual
+- three animated orbit rings
+- AIQOLA center core
+- Enterprise / Community / Survey / Education / R&D nodes
+- subtle cyan / blue / violet glow
+- desktop cursor response
+- mobile fallback
+- homepage v2 motion
+- AIQOLA Intelligence motion
+- Core / Advanced / Max
+- Products & Roadmap
 - About AIQOLA
-- Indonesian / English
+- bilingual ID / EN
 - /products
 - /aiqola-intelligence
-- reduced motion support
-- lightweight native CSS/JS approach
+
+REMOVED
+- AI SIGNAL FLOW panel
+- waveform/equalizer
+- all signal-flow CSS
+- all signal-flow UI
 
 FILES TO UPLOAD
 - index.html
@@ -59,11 +45,9 @@ FILES TO UPLOAD
 - README.txt
 
 TEST
-1. Open /products on laptop
-2. Confirm right-side Product Ecosystem visual fills hero space
-3. Move cursor across the circular core
-4. Confirm AI SIGNAL FLOW waveform animates visually without audio controls
-5. Test /products on phone
-6. Confirm no horizontal overflow
-7. Confirm ID/EN toggle still works
-8. Re-check /aiqola-intelligence
+1. Open /products on laptop.
+2. Confirm the circular AIQOLA ecosystem is unobstructed.
+3. Confirm all five ecosystem nodes are readable.
+4. Test /products on mobile.
+5. Confirm there is no horizontal overflow.
+6. Re-check /aiqola-intelligence.
