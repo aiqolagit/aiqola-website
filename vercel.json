@@ -7,6 +7,10 @@
     {
       "source": "/products",
       "destination": "/products.html"
+    },
+    {
+      "source": "/privacy/survey-field-tools",
+      "destination": "/privacy-survey-field-tools.html"
     }
   ]
 }
