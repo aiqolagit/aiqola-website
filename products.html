@@ -469,6 +469,10 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
   .v21-ring,.v21-core,.v21-node,.v21-ecosystem-aura,.v21-wave i{animation:none!important}
 }
 
+
+[data-i18n="field_status"]{white-space:normal;line-height:1.5}
+
+@media(max-width:520px){.v21-ecosystem-visual{overflow:clip}}
 </style>
 </head>
 <body>
@@ -542,7 +546,7 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
     <div class="grid">
       <article class="card"><div class="card-top"><div class="icon">AI</div><span class="status" data-i18n="status_active">Active Development</span></div><h3>AIQOLA Intelligence</h3><p data-i18n="intel_copy">Private/local AI untuk document intelligence, equipment intelligence, people & compliance, AI Search, dan company knowledge dengan workflow human-verified.</p><div class="meta" data-i18n="intel_meta">Enterprise Intelligence • Initial Implementation</div><a class="link" href="/aiqola-intelligence"><span data-i18n="intel_link">Pelajari AIQOLA Intelligence</span> →</a></article>
       <article class="card"><div class="card-top"><div class="icon">KR</div><span class="status" data-i18n="status_active">Active Development</span></div><h3>KIWARI Residence – Komplek Aman</h3><p data-i18n="kiwari_copy">Sistem keamanan dan operasional lingkungan perumahan dengan SOS, laporan kejadian, tamu & kendaraan, jadwal security, pengumuman, dan dashboard Pengurus.</p><div class="meta" data-i18n="kiwari_meta">Community & Security Technology</div></article>
-      <article class="card"><div class="card-top"><div class="icon">SF</div><span class="status" data-i18n="status_active">Active Development</span></div><h3>AIQOLA Survey Field Tools</h3><p data-i18n="field_copy">Super app surveyor offline-first untuk Total Station, traverse, leveling, 2D/3D transformation, coordinate systems Indonesia, dan workflow lapangan profesional.</p><div class="meta" data-i18n="field_meta">Survey Technology • Offline-First</div></article>
+      <article class="card"><div class="card-top"><div class="icon">SF</div><span class="status" data-i18n="field_status">V1 — Ready for Closed Testing</span></div><h3>AIQOLA Survey Field Tools</h3><p data-i18n="field_copy">Offline-first professional tools for Total Station, Traverse, Leveling, Detail Survey, Coordinate Transformation and field data export.</p><div class="meta" data-i18n="field_meta">Survey Technology • Offline-First</div><a class="link" style="display:inline-block;margin-top:18px;color:#93eaff;font-weight:700" href="/survey-field-tools" data-i18n="field_view">View Product</a></article>
       <article class="card"><div class="card-top"><div class="icon">PS</div><span class="status ready" data-i18n="status_ready">Deployment Readiness</span></div><h3>Pembiasaan Siswa</h3><p data-i18n="school_copy">Platform pembiasaan harian siswa yang menghubungkan orang tua, guru, rekap sekolah, dan pengumuman dalam workflow sederhana dan terstruktur.</p><div class="meta" data-i18n="school_meta">Education Technology</div></article>
     </div>
   </section>
@@ -590,6 +594,7 @@ body.v2-ready .hero-visual{opacity:1;transform:translate3d(0,0,0) rotateY(0)}
 <footer class="container footer">
   <span>AIQOLA — AI Automation & Digital Solutions</span>
   <span data-i18n="attrib">Software Product & Development assisted by Artificial Intelligence under direct supervision of Hari Adrianto.</span>
+<a href="/privacy/survey-field-tools" data-i18n="field_privacy" style="display:inline-block;margin:16px 20px;color:#93eaff;font-size:12px">Privacy Policy</a>
 </footer>
 
 <script>
@@ -600,7 +605,7 @@ const translations={
     status_active:"Active Development",status_ready:"Deployment Readiness",status_dev:"Product Development",status_rnd:"Research & Development",status_rnd_active:"R&D / Active Development",
     intel_copy:"Private/local AI untuk document intelligence, equipment intelligence, people & compliance, AI Search, dan company knowledge dengan workflow human-verified.",intel_meta:"Enterprise Intelligence • Initial Implementation",intel_link:"Pelajari AIQOLA Intelligence",
     kiwari_copy:"Sistem keamanan dan operasional lingkungan perumahan dengan SOS, laporan kejadian, tamu & kendaraan, jadwal security, pengumuman, dan dashboard Pengurus.",kiwari_meta:"Community & Security Technology",
-    field_copy:"Super app surveyor offline-first untuk Total Station, traverse, leveling, 2D/3D transformation, coordinate systems Indonesia, dan workflow lapangan profesional.",field_meta:"Survey Technology • Offline-First",
+    field_copy:"Perangkat profesional offline-first untuk Total Station, Traverse, Leveling, Detail Situasi, Transformasi Koordinat dan ekspor data lapangan.",field_status:"V1 — Siap untuk Pengujian Tertutup",field_view:"Lihat Produk",field_privacy:"Kebijakan Privasi",field_meta:"Survey Technology • Offline-First",
     school_copy:"Platform pembiasaan harian siswa yang menghubungkan orang tua, guru, rekap sekolah, dan pengumuman dalam workflow sederhana dan terstruktur.",school_meta:"Education Technology",
     dev_kicker:"Products in Development",dev_title:"Knowledge Products & Specialized Tools",dev_copy:"Produk berikut sedang disiapkan dengan fokus domain yang lebih spesifik.",
     hydro_copy:"Gateway pengetahuan hydrographic untuk manual, standar, software references, curated technical links, bookmark/cache ringan, dan Ask AIQOLA.",hydro_meta:"Hydrographic Knowledge",
@@ -622,7 +627,7 @@ const translations={
     status_active:"Active Development",status_ready:"Deployment Readiness",status_dev:"Product Development",status_rnd:"Research & Development",status_rnd_active:"R&D / Active Development",
     intel_copy:"Private/local AI for document intelligence, equipment intelligence, people & compliance, AI Search, and company knowledge with human-verified workflows.",intel_meta:"Enterprise Intelligence • Initial Implementation",intel_link:"Explore AIQOLA Intelligence",
     kiwari_copy:"A residential security and operations system with SOS, incident reporting, visitor & vehicle information, security schedules, announcements, and administrator dashboards.",kiwari_meta:"Community & Security Technology",
-    field_copy:"An offline-first surveyor super app for Total Station work, traverse, leveling, 2D/3D transformations, Indonesian coordinate systems, and professional field workflows.",field_meta:"Survey Technology • Offline-First",
+    field_copy:"Offline-first professional tools for Total Station, Traverse, Leveling, Detail Survey, Coordinate Transformation and field data export.",field_status:"V1 — Ready for Closed Testing",field_view:"View Product",field_privacy:"Privacy Policy",field_meta:"Survey Technology • Offline-First",
     school_copy:"A daily student habit platform connecting parents, teachers, school recaps, and announcements through a simple, structured workflow.",school_meta:"Education Technology",
     dev_kicker:"Products in Development",dev_title:"Knowledge Products & Specialized Tools",dev_copy:"These products are being developed around more specialized domains.",
     hydro_copy:"A hydrographic knowledge gateway for manuals, standards, software references, curated technical links, lightweight bookmarking/cache, and Ask AIQOLA.",hydro_meta:"Hydrographic Knowledge",

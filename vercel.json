@@ -11,6 +11,10 @@
     {
       "source": "/privacy/survey-field-tools",
       "destination": "/privacy-survey-field-tools.html"
+    },
+    {
+      "source": "/survey-field-tools",
+      "destination": "/survey-field-tools.html"
     }
   ]
 }
